@@ -351,7 +351,8 @@ table {
 
 .future-ipo-img{
   margin: auto;
-  width: 1100px;
+  width: 55%;
+  margin-bottom: 5%;
 }
 path { 
     stroke: steelblue;
@@ -366,50 +367,21 @@ path {
     stroke-width: 1;
     shape-rendering: crispEdges;
 }
-
-.table-design{
-  margin:auto;
+.container-fluid{
   width:80%;
 }
-
+.table-design{
+  margin:auto;
+  width:100%;
+  font-size: .9vw;
+}
 .mouseOverlay {
         fill: none;
         pointer-events: all;
     }
 
 
-.focus circle {
-        fill: steelblue;
-    }
 
-.focus text {
-    font-size: 14px;
-}
-
-.tooltip {
-    fill: white;
-    stroke: steelblue;
-}
-
-.tooltip-date{
-    font-weight: bold;
-}
-.tooltip-fintech{
-    font-weight: bold;
-    color: #A6D0D8;
-}
-.tooltip-faang{
-    font-weight: bold;
-    color: #5B56EE;
-}
-.tooltip-nasdaq{
-    font-weight: bold;
-    color: #1F1F1F;
-}
-.tooltip-snp {
-    font-weight: bold;
-    color: #FC714D;
-}
 /* 
 .f-prime-logo-nav-bar{
   margin: auto;
@@ -422,6 +394,12 @@ path {
 /* .base-img{width:50%;display:block} */
 .ft_intro{display: flex;align-items:center;}
 .ft_intro-content{background-color:#1f1f1f}
+.section_headers_div{
+  margin-left:10%;
+  margin-top:3%;
+  margin-bottom: 2%;
+}
+
 /* @media (min-width: 768px){.base-intro{padding-left:60px}}
 @media (min-width: 1200px){.base-intro{padding-left:80px}}
 @media (min-width: 768px){.base-intro{padding-right:60px}}
@@ -437,7 +415,8 @@ path {
 /* .base-intro__content--center{-webkit-box-align:left;-webkit-align-items:left;-ms-flex-align:left;align-items:left;} */
 .page_head{background-color:#1f1f1f;width:100%; color: #eee;height: 70%;}
 .top_line{margin-top: 2.5%;display: flex; align-items: center;}
-.site_redirect{margin-left: 40%; color:#eee;display: table-cell; font-size: 1.2vw;}
+.site_redirect{margin-left:auto;margin-right: 10%; color:#eee;display: table-cell; font-size: 1.5vw;}
+.redirect_text{color:#eee;}
 .fprime-logo-gray-bg{width:250px; margin-left: 20%;display: table-cell;}
 .ft__h{color: #eee;font-family: "Nantes",serif;font-size: 3.5vw;}
 .ft__description{color: #eee;font-weight: 400;}
@@ -450,6 +429,7 @@ path {
   padding-top:1%;
   padding-bottom:1%;
   padding-left:15%;
+  z-index: 1;
 }
 #navbar a {
   /* float:left;
@@ -464,6 +444,7 @@ path {
   padding-top:1%;
   padding-bottom:1%;
   padding-left:15%;
+  z-index: 1;
 }
 
 #navbar2 a {
@@ -481,9 +462,9 @@ path {
 .index-numbers-nasdaq{color: #1F1F1F;margin-right: 5%;}
 .index-numbers-snp500{color: #FC714D;}
 .index-numbers-emcloud{color: #A9A9A9;}
-.graphButtons{margin-left: 55%;}
-.legend { list-style: none;margin:auto;margin-bottom: 15%;}
-.legend li { float: left; margin: 50px; }
+.graphButtons{margin-left: auto;margin-right: 8%;}
+.legend { list-style: none;margin:auto;margin-bottom: 8%;}
+.legend li { float: left; margin: 20px; }
 .legend span { border: 0px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px; }
 /* your colors */
 .legend .fintech_legend { background-color: #5B56EE; border-radius: 50%;}
@@ -494,19 +475,60 @@ path {
 .flex {
   display: flex;
   justify-content: space-around;
-  background-color: #333;
+  vertical-align: middle;
+  background-color: black;
   padding-top: 2%;
   padding-bottom: 2%;
   color:floralwhite;
 }
 .stats_divider {
-  width:5%;
-  font-size: 50px;
+  margin-top: 1%;
+  width:2%;
+  font-size: 35px;
+}
+.g-style{
+  font-size:25px;
+}
+.focus circle {
+        fill: #5B56EE;
+    }
+
+.focus text {
+    font-size: 14px;
+}
+/* .focus .hover-data-style{
+   width: 150px;
+   height: 110px;
+} */
+
+
+.focus .tooltip-date{
+    font-weight: bold;
+}
+.focus .tooltip-fintech{
+    font-weight: bold;
+    fill: #5B56EE;
+}
+.focus .tooltip-faang{
+    font-weight: bold;
+    fill: #A6D0D8;
+}
+.focus .tooltip-nasdaq{
+    font-weight: bold;
+    fill: #1F1F1F;
+}
+.focus .tooltip-snp {
+    font-weight: bold;
+    fill: #FC714D;
+}
+.section_headers{
+  font-family: "Nantes",serif;
+  font-size:35px;
 }
 @media screen and (max-width: 1050px) {
 .page_head{background-color:#1f1f1f;width:100%; color: #eee;height: 70%;}
 .top_line{margin-top: 2.5%;display: flex;  align-items: center;}
-.site_redirect{margin-left: 20%; color:#eee;display: table-cell; font-size: 2.5vw;}
+.site_redirect{margin-left:auto;margin-right: 10%; color:#eee;display: table-cell; font-size: 2.3vw;}
 .fprime-logo-gray-bg{width:200px; margin-left: 15%;display: table-cell;}
 .ft__h{margin-left: 0%;color: #eee;font-family: "Nantes",serif;font-size: 4.5vw;}
 .ft__description{margin-left: 0%;color: #eee;font-weight: 400;font-size: 2vw;}
@@ -553,29 +575,109 @@ path {
 .index-numbers-nasdaq{color: #1F1F1F;font-size: 2.7vw;}
 .index-numbers-snp500{color: #FC714D;font-size: 2.7vw;}
 .index-numbers-emcloud{color: #A9A9A9;font-size: 2.7vw;}
-.graphButtons{margin-left: auto;font-size: 1.5vw;}
-.legend li { float: left; margin: 20px; }
+.graphButtons{margin-left: auto;margin-right: 8%; font-size: 1.5vw;}
+.legend li { float: left; margin: 20px; margin-top: 15%;font-size: 1.5vw;}
+.legend span { border: 0px solid #ccc; float: left; width: 8px; height: 8px; margin: 2px; }
 .flex {
   display: flex;
   justify-content: space-around;
-  background-color: #333;
+  background-color: black;
   padding-top: 2%;
   padding-bottom: 2%;
   color:floralwhite;
   font-size: 1.6vw;
 }
 .stats_divider {
-  width:5%;
-  font-size: 5.5vw;;
+  margin-top:2%;
+  width:4%;
+  font-size: 3.5vw;;
 }
 .g-style{
   font-size:40px;
 }
-
+.focus circle {
+        fill: #5B56EE;
+    }
+.focus text {
+    font-size: 14px;
+    display: inline-block;
+    
+}
+/* .focus .hover-data-style{
+   width: 180px;
+   height: 140px;
+} */
+.focus .tooltip-fintech{
+    font-weight: bold;
+    fill: #5B56EE;
+}
+.focus .tooltip-faang{
+    font-weight: bold;
+    fill: #A6D0D8;
+}
+.focus .tooltip-nasdaq{
+    font-weight: bold;
+    fill: #1F1F1F;
+}
+.focus .tooltip-snp {
+    font-weight: bold;
+    fill: #FC714D;
+}
+.svg-style{
+  transform: scale(1, 1.2);
+}
+.section_headers{
+  font-family: "Nantes",serif;
+  font-size:3.4vw;
+}
+}
+@media screen and (max-width: 550px) {
+  #navbar {
+  margin: auto;
+  background-color:#1f1f1f;
+  width: 100%;
+  padding-top:1%;
+  padding-bottom:1%;
+}
+  #navbar a {
+  /* float:left;
+  display: block; */
+  color: #eee;
+  text-align: left;
+  font-size: 2vw;
+}
+  #navbar2 {
+  margin: auto;
+  background-color:white;
+  width: 100%;
+  padding-top:1%;
+  padding-bottom:1%;
+}
+  #navbar2 a {
+  /* float:left;
+  display: block; */
+  color: black;
+  text-align: left;
+  font-size: 2vw;
+}
+  .section_headers{
+  font-family: "Nantes",serif;
+  font-size:4.2vw;
+}
+  .graphButtons{margin-left: auto;font-size: 1.8vw;}
+  .g-style{
+  font-size:45px;
+}
+.svg-style{
+  transform: scale(1, 1.4);
+}
+.legend li { float: left; margin: 20px; margin-top: 20%; margin-left: -5%; font-size: 1.8vw;}
+.legend span { border: 0px solid #ccc; float: left; width: 6px; height: 6px; margin: 2px; }
 };
-.modal {
-  display: block; /* Hidden by default */
-  position: absolute;
+
+.modal_box {
+  display:none; /* Hidden by default */
+  position: static;
   z-index: 1; /* Sit on top */
   overflow: auto; /* Enable scroll if needed */
 }
@@ -601,9 +703,9 @@ path {
   cursor: pointer;
 }
 .vertical-type_toggles{
-  margin-left:15%;
-  margin-top:10%;
-  width: 20%;
+  margin-top:5%;
+  margin-left:auto;
+  width: 60%;
   background-color: white;
   border: 1px solid #333;
   border-radius: 10px;
@@ -613,11 +715,11 @@ path {
   padding-left: 1%;
 }
 .vertical_toggles{
-  margin-left: 0%;
+  margin-left: 1%;
   margin-bottom: 5%
 }
 .type_toggles{
-  margin-left: 0%;
+  margin-left: 1%;
   margin-bottom: 0%
 }
 
@@ -733,7 +835,7 @@ path {
   <div class = 'page_head'>
     <div class = "top_line">
       <div class = "fprime-logo-gray-bg"><img src="FPrime_logo_gray_bg.PNG" alt="" id = "left"></div>
-      <div class="site_redirect"><a href = "https://fprimecapital.com/sector/technology" id = "right">F-Prime Home -></a></div>
+      <div class="site_redirect"><a href = "https://fprimecapital.com/sector/technology" id = "right" class = "redirect_text">F-Prime Home &#8594</a></div>
     </div>
 
   
@@ -743,7 +845,7 @@ path {
           <h5 class="ft__description">The F-Prime Fintech Index is designed to track the performance of emerging, publicly traded financial technology companies.</h5>
         </div>
         <div class = 'ft_intro_img'>
-          <img class="ft__intro-figure" src="technology-header.png" alt="">
+          <img class="ft__intro-figure" src="technology-header.PNG" alt="">
         </div>
       </div>
         <!-- <div class="site-header__inner">
@@ -825,8 +927,8 @@ path {
   <a href="javascript:void(0)">Contact</a>
 </div> -->
 
-<div class="stats__text">
-  <h2 class="stats__h" id = "overview">Index</h2>
+<div class="section_headers_div">
+  <h2 id = "overview" class="section_headers">Index</h2>
 </div>
 <div class='statistics'>
 <h3 class="indexflex">
@@ -848,10 +950,9 @@ path {
 
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
+<div id="myModal" class="modal_box">
 
   <!-- Modal content -->
-  <div>
     <div class='vertical-type_toggles'>
       <span class="close">&times;</span>
       <div class = 'vertical_toggles'>
@@ -913,7 +1014,6 @@ path {
         </div>    
       </div>
     </div>
-  </div>
 
 </div>
 <!-- <button onclick="popupmenu()" class="dropbtn">Dropdown</button>
@@ -1045,7 +1145,7 @@ path {
 
 <script>
 var modal = document.getElementById("myModal");
-
+modal.style.display = "none";
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 
@@ -1054,7 +1154,8 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
-  modal.style.display = "block";
+  if (modal.style.display == "block"){modal.style.display = "none";}
+  else {modal.style.display = "block";}
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -1189,7 +1290,7 @@ var	valueline2 = d3.svg.line()
 var svg = d3.select("body")
 .append("svg")
   .attr("viewBox", "0 0 " + (width + margin.left + margin.right) + " " + (height + margin.top + margin.bottom))
-  .attr("preserveAspectRatio", "xMinYMin meet")
+  .attr("preserveAspectRatio", "xMinYMid meet")
   .classed("svg-style", true)
     // .attr("width", width + margin.left + margin.right)
     // .attr("height", height + margin.top + margin.bottom)
@@ -1197,13 +1298,13 @@ var svg = d3.select("body")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")")
     .classed("g-style", true);
+var text = svg.selectAll("text");
 
 function redraw(){
-
 // Extract the width and height that was computed by CSS.
 var width = chartDiv.clientWidth;
 var height = chartDiv.clientHeight;
-
+console.log(width)
 // Use the extracted size to set the size of an SVG element.
 svg
   .attr("width", width + margin.left + margin.right)
@@ -1241,10 +1342,10 @@ var i = bisectDate(dataValues, x0, 1),
     d = x0 - d0.Date > d1.Date - x0 ? d1 : d0;
   focus.attr("transform", "translate(" + x(d.Date) + "," + y(d.Fintech) + ")");
   focus.select(".tooltip-date").text(dateFormatter(d.Date));
-  focus.select(".tooltip-fintech").text(formatValue((d.Fintech*100).toFixed(1))+"%");
-  focus.select(".tooltip-faang").text(formatValue((d.FAANG*100).toFixed(1))+"%");
-  focus.select(".tooltip-nasdaq").text(formatValue((d.NASDAQ*100).toFixed(1))+"%");
-  focus.select(".tooltip-snp").text(formatValue((d.SNP500*100).toFixed(1))+"%");
+  focus.select(".tooltip-fintech").text('Fintech: ' + formatValue((d.Fintech*100).toFixed(1))+"%");
+  focus.select(".tooltip-faang").text('FAANG: ' + formatValue((d.FAANG*100).toFixed(1))+"%");
+  focus.select(".tooltip-nasdaq").text('NASDAQ: ' + formatValue((d.NASDAQ*100).toFixed(1))+"%");
+  focus.select(".tooltip-snp").text('S&P500: ' + formatValue((d.SNP500*100).toFixed(1))+"%");
   // focus.select(".tooltip-emcloud").text(formatValue((d.EMCLOUD*100).toFixed(1))+"%");
 }
 var new_ft;
@@ -1409,8 +1510,8 @@ function ipo_check_box_clicked(){
   else{removeType.push('IPO')}
   change_time_scale();
 };
-
-
+var container = d3.select("body").append("div")
+    .style("width",width);
 d3.csv("Indexes.csv", function(error, data) {
     data.forEach(function(d) {
         d.Date = parseDate(d.Date);
@@ -1477,12 +1578,12 @@ d3.csv("Indexes.csv", function(error, data) {
     focus.append("circle")
         .attr("r", 5);
     focus.append("rect")
-        .attr("class", "hover-data-style")
         .attr("width", 1)
         .attr("y", -1000)
         .attr("height", 1600)
         .attr("style","border-style: dotted; position: absolute;");
-    focus.append("rect")
+    var t_box = focus.append("rect")
+        .attr("class", "hover-data-style")
         .attr("width", 150)
         .attr("height", 110)
         .attr("x", -75)
@@ -1490,56 +1591,30 @@ d3.csv("Indexes.csv", function(error, data) {
         .attr("rx", 4)
         .attr("ry", 4)
         .attr("style","fill:white; stroke:black;");
-    focus.append("text")
+    var t_date = focus.append("text")
         .attr("class", "tooltip-date")
         .attr("x", -55)
         .attr("y", -120);
 
-    focus.append("text")
-        .attr("x", -55)
-        .attr("y", -100)
-        .text("Fintech:")
-        .attr("style","fill: #5B56EE;");
+    var t_ft = focus.append("text").classed("tooltip-fintech", true)
+        .attr("style","fill: #5B56EE;").attr("x",-55).attr("y",-100);
+    
 
-    focus.append("text")
-        .attr("class", "tooltip-fintech")
-        .attr("x", 10)
-        .attr("y", -100)
-        .attr("style","fill: #5B56EE;");
-
-    focus.append("text")
-        .attr("x", -55)
-        .attr("y", -80)
-        .text("FAANG:")
-        .attr("style","fill: #A6D0D8;");
-
-    focus.append("text")
+    var t_faang = focus.append("text")
         .attr("class", "tooltip-faang")
-        .attr("x", 10)
+        .attr("x", -55)
         .attr("y", -80)
         .attr("style","fill: #A6D0D8;");
 
-    focus.append("text")
-        .attr("x", -55)
-        .attr("y", -60)
-        .text("NASDAQ:")
-        .attr("style","fill: black;");
-
-    focus.append("text")
+    var t_nasdaq = focus.append("text")
         .attr("class", "tooltip-nasdaq")
-        .attr("x", 10)
+        .attr("x", -55)
         .attr("y", -60)
         .attr("style","fill: black;");
 
-    focus.append("text")
-        .attr("x", -55)
-        .attr("y", -40)
-        .text("S&P500:")
-        .attr("style","fill: #FC714D;");
-
-    focus.append("text")
+    var t_snp = focus.append("text")
         .attr("class", "tooltip-snp")
-        .attr("x", 10)
+        .attr("x", -55)
         .attr("y", -40)
         .attr("style","fill: #FC714D;");
     // focus.append("text")
@@ -1553,6 +1628,7 @@ d3.csv("Indexes.csv", function(error, data) {
     //     .attr("x", 10)
     //     .attr("y", -20)
     //     .attr("style","fill: #A9A9A9;");
+    resized();
     var htmlString = focus[0][0];
     console.log(htmlString);
     var engHello = "hello"
@@ -1579,6 +1655,29 @@ d3.csv("Indexes.csv", function(error, data) {
   //     var htmlString = focus.select(".tooltip-snp")[0][0];
   //     console.log(htmlString);
   // }
+      function resized() {
+      var scale = width / window.innerWidth;
+      // Update SVG height to maintain aspect ratio
+      svg.attr("height",height / scale);
+      // Increase text scale proportional to overall scale reduction
+      // e.g. 3/4 of the original width -> scale text by 4/3
+      var n = 2;
+      // t_box.attr("height",110+((scale)>1 ? 1+((scale-1)/n*10) : 1));
+      // t_box.attr("y",-140-((scale)>1 ? 1+((scale-1)/n*10) : 1));
+      t_box.attr("transform","scale(" + ((scale)>1 ? 1+(scale-1)/n : 1) + "," + ((scale)>1 ? 1+(scale-1)/n : 1) + ")");
+      t_date.attr("transform","scale(" + ((scale)>1 ? 1+(scale-1)/n : 1) + "," + ((scale)>1 ? 1+(scale-1)/n : 1) + ")");
+      t_ft.attr("transform","scale(" + ((scale)>1 ? 1+(scale-1)/n : 1) + "," + ((scale)>1 ? 1+(scale-1)/n : 1) + ")");
+      t_faang.attr("transform","scale(" + ((scale)>1 ? 1+(scale-1)/n : 1) + "," + ((scale)>1 ? 1+(scale-1)/n : 1) + ")");
+      t_nasdaq.attr("transform","scale(" + ((scale)>1 ? 1+(scale-1)/n : 1) + "," + ((scale)>1 ? 1+(scale-1)/n : 1) + ")");
+      t_snp.attr("transform","scale(" + ((scale)>1 ? 1+(scale-1)/n : 1) + "," + ((scale)>1 ? 1+(scale-1)/n : 1) + ")");
+      // t_date.attr("y",-120-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
+      // t_ft.attr("y",-100-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
+      // t_faang.attr("y",-80-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
+      // t_nasdaq.attr("y",-60-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
+      // t_snp.attr("y",-40-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
+      console.log(((scale)>1 ? 1+(scale-1)/10 : 1))
+      }
+      window.onresize = resized;
 });
 
 // ** UpDate data section (Called from the onclick)
@@ -2501,11 +2600,11 @@ d3.csv("Indexes.csv", function(error, data) {
       <h5 class="filter-news__category" id="performance"></h5>
       <h5 class="flex">
         <span>TOTAL MARKET CAP <br> <span style="font-size: 250%;" id = "keyValTMarketCap"></span></span>
-        <a class = 'stats_divider'>&#9671</a>
+        <a class = 'stats_divider'>	&#9670</a>
         <span>AVERAGE MARKET CAP <br> <span style="font-size: 250%;" id = "keyValAMarketCap" ></span></span>
-        <a class = 'stats_divider'>&#9671</a>
+        <a class = 'stats_divider'>	&#9670</a>
         <span>AVERAGE REVENUE MULTIPLE <br> <span style="font-size: 250%;" id = "keyValRevMult"></span></span>
-        <a class = 'stats_divider'>&#9671</a>
+        <a class = 'stats_divider'>	&#9670</a>
         <span>AVERAGE REVENUE GROWTH <br> <span style="font-size: 250%;" id = "keyValRevGrowth"></span></span>
       </h5>
     </div>
@@ -2524,16 +2623,11 @@ d3.csv("Indexes.csv", function(error, data) {
     <p id="finalTable"></p>
 
 
-    <br />
-<br />
-<br />
 
 
 </div>
-<div class="stats__text">
-  <h2 class="stats__h" id = "companies">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Companies</h2>
-  <br/>
-  <br/>
+<div class="section_headers_div">
+  <h2 class="section_headers" id = "companies">All Companies</h2>
 </div>
 
 <!-- <div id="DivContent"></div> -->
@@ -2606,34 +2700,18 @@ SOFTWARE. -->
 <br />
 <br />
 <br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<div class="stats__text">
-  <h2 class="stats__h" id = "future">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Potential Future Additions</h2>
-  <br/>
-  <br/>
+
+<div class="section_headers_div">
+  <h2 class="section_headers" id = "future">Potential Future Additions</h2>
 </div>
 
 
 
 <br />
 <br />
-
-  <img class= 'future-ipo-img' src="Future Additions.PNG">
-
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br /> <br /> <br /> <br />
+<div class= 'future-ipo-img'>
+  <img src="Future Additions.PNG">
+</div>
 
 
 

@@ -41,7 +41,7 @@ CsvToHtmlTable = {
             customTemplates[colIdx] = func;
         });
 
-        var $table = $("<table class='table table-striped table-condensed' style = 'table-layout: fixed' id='" + el + "-table'></table>");
+        var $table = $("<table class='table table-hover' style = 'table-layout: auto; ' id='" + el + "-table'></table>");
         var $containerElement = $("#" + el);
         $containerElement.empty().append($table);
 
@@ -77,9 +77,8 @@ CsvToHtmlTable = {
                 $table.append($tableBody);
 
                 $table.DataTable(datatables_options);
-
                 if (allow_download) {
-                    $containerElement.append("<p><a href='" + csv_path + "'><i class='glyphicon glyphicon-download'></i> Download as CSV</a></p>");
+                    $containerElement.append("<p class = 'csv_button'><a href='" + csv_path + "'><i class='glyphicon glyphicon-download'></i> Download as CSV</a></p>");
                 }
             });
     }
