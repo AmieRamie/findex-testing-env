@@ -40,10 +40,11 @@ CsvToHtmlTable = {
             var func = v[1];
             customTemplates[colIdx] = func;
         });
+        console.log(datatables_options)
 
-        var $table = $("<table class='table table-hover' style = 'table-layout: auto; ' id='" + el + "-table'></table>");
+        var $table = $("<table class='table table-responsive table-hover' style = 'table-layout: fixed;' id='" + el + "-table'></table>");
         var $containerElement = $("#" + el);
-        $containerElement.empty().append($table);
+        $containerElement.append($table);
 
         $.when($.get(csv_path)).then(
             function (data) {
@@ -66,20 +67,35 @@ CsvToHtmlTable = {
                         var cellTemplateFunc = customTemplates[colIdx];
                         if (cellTemplateFunc) {
                             // $tableBodyRowTd.html(cellTemplateFunc(csvData[rowIdx][colIdx]));
-                            $tableBodyRowTd.text(csvData[rowIdx][colIdx]);
+                            if ((colIdx>=3)&(colIdx<5)){
+                                $tableBodyRowTd.text('$' + csvData[rowIdx][colIdx]);
+                            }
+                            else if (((colIdx>=5)&(colIdx<7))|(colIdx==8)){
+                                $tableBodyRowTd.text(csvData[rowIdx][colIdx]+'%');
+                            }
+                            else{
+                                $tableBodyRowTd.text(csvData[rowIdx][colIdx]);
+                            }
                         } else {
-                            $tableBodyRowTd.text(csvData[rowIdx][colIdx]);
+                            if ((colIdx>=3)&(colIdx<5)){
+                                $tableBodyRowTd.text('$' + csvData[rowIdx][colIdx]);
+                            }
+                            else if (((colIdx>=5)&(colIdx<7))|(colIdx==8)){
+                                $tableBodyRowTd.text(csvData[rowIdx][colIdx]+'%');
+                            }
+                            else{
+                                $tableBodyRowTd.text(csvData[rowIdx][colIdx]);
+                            }
                         }
                         $tableBodyRow.append($tableBodyRowTd);
                         $tableBody.append($tableBodyRow);
                     }
                 }
                 $table.append($tableBody);
-
-                $table.DataTable(datatables_options);
                 if (allow_download) {
-                    $containerElement.append("<p class = 'csv_button'><a href='" + csv_path + "'><i class='glyphicon glyphicon-download'></i> Download as CSV</a></p>");
+                    $containerElement.append("<p class = 'csv_button'><a style = 'color: #1F1F1F;' href='" + csv_path + "'><i class='glyphicon glyphicon-download'></i>CSV</a></p>");
                 }
+                $table.DataTable(datatables_options);
             });
     }
 };
