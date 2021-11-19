@@ -404,7 +404,7 @@ path {
   width:80%;
 }
 .table-design{
-  margin:3.3%;
+  margin:3.2%;
   margin-bottom: 0%;
   margin-top:0%;
   white-space: nowrap;
@@ -622,6 +622,7 @@ path {
 .active {
   color: white;
   font-size:50%;
+  white-space: nowrap;
 }
 .topnav a {
   color: black;
@@ -729,7 +730,7 @@ path {
     font: inherit;
   }
   .topnav a {
-  font-size: 1.4vw;
+  font-size: 1.6vw;
   }
 }
 
@@ -747,7 +748,7 @@ path {
 /* .svg-style{
   transform: scale(1, 1.4);
 } */
-.legend li { float: left; margin: 20px; margin-top:5%; margin-left: -5%; font-size: 2.2vw;}
+.legend li { float: left; margin: 15px; margin-top:5%; font-size: 2.2vw;}
 .legend span { border: 0px solid #ccc; float: left; width: 8px; height: 8px; margin: 2px; }
 };
 
@@ -1785,7 +1786,7 @@ d3.csv("Indexes.csv", function(error, data) {
       // Update SVG height to maintain aspect ratio
       svg.attr("height",height / scale);
       const newWidth = d3.select("svg").style("width");
-      const newFontSize = 50 * (600 / parseInt(newWidth));
+      const newFontSize = 40 * (600 / parseInt(newWidth));
       d3.selectAll(".tick").select("text")
           .style("font-size", newFontSize)
       // Increase text scale proportional to overall scale reduction
@@ -2519,7 +2520,7 @@ d3.csv("key_figures.csv", function(error, data2) {
       });
       
   </script>
-<ul class="legend">
+<ul class="legend" id="performance">
   <li><span class="fintech_legend"></span> Fintech</li>
   <li><span class="faang_legend"></span> FAANG</li>
   <li><span class="nasdaq_legend"></span> NASDAQ</li>
@@ -2727,7 +2728,7 @@ d3.csv("Indexes.csv", function(error, data) {
           </tr>
         </thead>
       </table> -->
-      <div class="flex_background" id="performance">
+      <div class="flex_background">
         <h5 class="flex">
           <span>TOTAL MARKET CAP <br> <span style="font-size: 250%;" id = "keyValTMarketCap"></span></span>
           <a class = 'stats_divider'>	&#9670</a>
