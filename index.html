@@ -356,7 +356,7 @@ table {
 .indexflex {
   font-size:200%;
   margin:auto;
-  margin-top:-2%;
+  margin-top:1%;
   margin-bottom: 2%;
   display: flex;
   justify-content: space-around;
@@ -460,7 +460,7 @@ path {
 /* .base-intro__content--center{-webkit-box-align:left;-webkit-align-items:left;-ms-flex-align:left;align-items:left;} */
 .page_head{background-color:#1f1f1f;width:100%; color: #eee;height: 70%;}
 .top_line{margin-top: 3.5%; margin-bottom: 1.5%;display: flex; align-items: center;}
-.site_redirect{margin-left:auto; color:#eee;display: table-cell; font-size: 1.8rem;}
+.site_redirect{font-family: "Nantes",serif; font-weight: 550; margin-left:auto; color:#eee;display: table-cell; font-size: 1.8rem;}
 .redirect_text{color:#eee;}
 .fprime-logo-gray-bg{margin-left: -1.5%;width:230px;display: table-cell;}
 .ft__h{color: #eee;font-family: "Nantes",serif;font-size: 3.5vw;}
@@ -484,7 +484,7 @@ path {
   width: 100%;
   padding-top:2%;
   padding-bottom:1%;
-  z-index: 3;
+  z-index: 50;
   overflow-x: auto;
 }
 #navbar a {
@@ -503,7 +503,7 @@ path {
   width: 100%;
   padding-top:1%;
   padding-bottom:.5%;
-  z-index: 3;
+  z-index: 50;
   overflow-x: auto;
 }
 #navbar2 a {
@@ -608,27 +608,37 @@ path {
 }
 
 .topnav #myLinks {
-  display: none;
+  display: block;
 }
 .topnav #myLinks2 {
-  display: none;
+  display: block;
 }
 .topnav #myLinks3 {
-  display: none;
+  display: block;
 }
 .topnav #myLinks4 {
-  display: none;
+  display: block;
 }
 .active {
   color: white;
-  font-size:50%;
+  font-size:100%;
   white-space: nowrap;
+  /* min-width: 150px; */
+}
+.parallelogram {
+	width: 20px;
+	height: 10px;
+	transform: skew(0deg, -20deg);
+	background: #eee;
+  display: inline-block;
+  margin-right: 10%;
+  vertical-align: middle;
 }
 .topnav a {
   color: black;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 1.1vw;
+  font-size: 20px;
   display: block;
 }
 
@@ -718,6 +728,17 @@ path {
   font-family: "Nantes",serif;
   font-size:3.4vw;
 }
+.parallelogram {
+	width: 15px;
+	height: 7.5px;
+}
+.topnav a {
+  color: black;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  display: block;
+}
 }
 @media screen and (max-width: 778px) {
   #navbar a{
@@ -730,7 +751,7 @@ path {
     font: inherit;
   }
   .topnav a {
-  font-size: 1.6vw;
+  font-size: 9px;
   }
 }
 
@@ -750,6 +771,9 @@ path {
 } */
 .legend li { float: left; margin: 15px; margin-top:5%; font-size: 2.2vw;}
 .legend span { border: 0px solid #ccc; float: left; width: 8px; height: 8px; margin: 2px; }
+.topnav a {
+  font-size: 1.5vw;
+  }
 };
 
 .modal_box {
@@ -930,6 +954,8 @@ path {
   font-size: 18px;
   
 }
+
+
 /* .dataTables_filter {
 text-align: right !important;
 } */
@@ -2837,13 +2863,13 @@ SOFTWARE. -->
     <div class="topnav">
       <a href="#home" class="active" onclick="myDropdown()">Already Listed Companies</a>
       <div id="myLinks">
-        <a href="https://robinhood.com/us/en/">&#10070; Robinhood</a>
-        <a href="https://blend.com/">&#10070; Blend</a>
-        <a href="https://wise.com/us/">&#10070; Wise</a>
+        <a href="https://robinhood.com/us/en/" style = "vertical-align: middle;"><div class="parallelogram"></div>Robinhood</a>
+        <a href="https://blend.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Blend</a>
+        <a href="https://wise.com/us/"style = "vertical-align: middle;"><div class="parallelogram"></div> Wise</a>
         <!-- <a href="https://www.moneylion.com/">&#10070; Money Lion</a> -->
-        <a href="https://www.bakkt.com/">&#10070; Bakkt</a>
-        <a href="https://www.etoro.com/en-us/">&#10070; eToro</a>
-        <a href="https://pos.toasttab.com/">&#10070; Toast</a>
+        <a href="https://www.bakkt.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Bakkt</a>
+        <a href="https://www.etoro.com/en-us/"style = "vertical-align: middle;"><div class="parallelogram"></div> eToro</a>
+        <a href="https://pos.toasttab.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Toast</a>
       </div>
     </div>
     
@@ -2853,11 +2879,11 @@ SOFTWARE. -->
 
     <!-- Top Navigation Menu -->
     <div class="topnav">
-      <a href="#home" class="active" onclick="myDropdown2()">Announced IPOs</a>
+      <a href="#home" class="active" onclick="myDropdown2()">Announced Traditional IPOs</a>
       <div id="myLinks2">
-        <a href="https://www.remitly.com/us/en">&#10070; Remitly</a>
-        <a href="https://www.expensify.com/">&#10070; Expensify</a>
-        <a href="https://www.nerdwallet.com/">&#10070; NerdWallet</a>
+        <a href="https://www.remitly.com/us/en"style = "vertical-align: middle;"><div class="parallelogram"></div> Remitly</a>
+        <a href="https://www.expensify.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Expensify</a>
+        <a href="https://www.nerdwallet.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> NerdWallet</a>
       </div>
     </div>
     <!-- End smartphone / tablet look -->
@@ -2868,12 +2894,12 @@ SOFTWARE. -->
     <div class="topnav">
       <a href="#home" class="active" onclick="myDropdown3()">Announced SPACs/DLs</a>
       <div id="myLinks3">
-        <a href="https://www.aspiration.com/">&#10070; Aspiration</a>
-        <a href="https://www.apexfintechsolutions.com/">&#10070; Apex</a>
-        <a href="https://dave.com/">&#10070; Dave</a>
+        <a href="https://www.aspiration.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Aspiration</a>
+        <a href="https://www.apexfintechsolutions.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Apex</a>
+        <a href="https://dave.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Dave</a>
         <!-- <a href="https://www.moneylion.com/">&#10070; Money Lion</a> -->
-        <a href="https://www.acorns.com/">&#10070; Acorns</a>
-        <a href="https://better.com/">&#10070; Better</a>
+        <a href="https://www.acorns.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Acorns</a>
+        <a href="https://better.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Better</a>
       </div>
     </div>
     <!-- End smartphone / tablet look -->
@@ -2884,15 +2910,15 @@ SOFTWARE. -->
     <div class="topnav">
       <a href="#home" class="active" onclick="myDropdown4()">Potential Future Listings</a>
       <div id="myLinks4">
-        <a href="https://stripe.com/">&#10070; Stripe</a>
-        <a href="https://www.klarna.com/us/">&#10070; Klarna</a>
-        <a href="https://plaid.com/">&#10070; Plaid</a>
-        <a href="https://www.checkout.com/">&#10070; Checkout</a>
-        <a href="https://www.revolut.com/en-US">&#10070; Revolut</a>
-        <a href="https://nubank.com.br/en/">&#10070; nuBank</a>
-        <a href="avidxchange.com">&#10070; avidxchange</a>
-        <a href="https://www.chime.com/">&#10070; Chime</a>
-        <a href="https://www.interswitchgroup.com/">&#10070; Interswitch</a>
+        <a href="https://stripe.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Stripe</a>
+        <a href="https://www.klarna.com/us/"style = "vertical-align: middle;"><div class="parallelogram"></div> Klarna</a>
+        <a href="https://plaid.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Plaid</a>
+        <a href="https://www.checkout.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Checkout</a>
+        <a href="https://www.revolut.com/en-US"style = "vertical-align: middle;"><div class="parallelogram"></div> Revolut</a>
+        <a href="https://nubank.com.br/en/"style = "vertical-align: middle;"><div class="parallelogram"></div> nuBank</a>
+        <a href="avidxchange.com"style = "vertical-align: middle;"><div class="parallelogram"></div> avidxchange</a>
+        <a href="https://www.chime.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Chime</a>
+        <a href="https://www.interswitchgroup.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Interswitch</a>
       </div>
     </div>
     <!-- End smartphone / tablet look -->
@@ -2901,34 +2927,34 @@ SOFTWARE. -->
 <script>
   function myDropdown() {
     var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
+    if (x.style.display === "none") {
       x.style.display = "block";
+    } else {
+      x.style.display = "none";
     }
   }
   function myDropdown2() {
     var x = document.getElementById("myLinks2");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
+    if (x.style.display === "none") {
       x.style.display = "block";
+    } else {
+      x.style.display = "none";
     }
   }
   function myDropdown3() {
     var x = document.getElementById("myLinks3");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
+    if (x.style.display === "none") {
       x.style.display = "block";
+    } else {
+      x.style.display = "none";
     }
   }
   function myDropdown4() {
     var x = document.getElementById("myLinks4");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
+    if (x.style.display === "none") {
       x.style.display = "block";
+    } else {
+      x.style.display = "none";
     }
   }
 </script>
