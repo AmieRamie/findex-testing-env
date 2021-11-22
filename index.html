@@ -323,8 +323,7 @@ table {
 
 
 
-
-.buttongraph{
+.bg1, .bg2, .bg3, .bg4, .bg5, .bg6, .bg7{
   background-color: white;
   border-top: 3px solid white;
   border-left: 3px solid white;
@@ -333,13 +332,16 @@ table {
   text-transform: uppercase;
   border-bottom: 2px solid white;
 }
-.buttongraph:hover{
-  background-color:white;
+/* .bg1:hover, .bg2:hover, .bg3:hover, .bg4:hover, .bg5:hover, .bg6:hover, .bg7:hover{
+  background-color: white;
   border-top: 3px solid white;
   border-left: 3px solid white;
   border-right: 3px solid white;
   padding-right: 7px;
   text-transform: uppercase;
+  border-bottom: 2px solid black;
+} */
+.bg1{
   border-bottom: 2px solid black;
 }
 
@@ -360,7 +362,7 @@ table {
   margin-bottom: 2%;
   display: flex;
   justify-content: space-around;
-  max-width: 70%;
+  max-width: 80%;
   color: black;
   text-align: center;
   line-height: 35%;
@@ -515,10 +517,9 @@ path {
   top: 0;
   width: 100%;
 }
-.stats__text{margin-left:15%;margin-top: 5%;margin-bottom: 3%;}
-.index-numbers-fintech{color: #5B56EE;margin-right: 5%;}
-.index-numbers-faang{color: #A6D0D8;margin-right: 5%;}
-.index-numbers-nasdaq{color: #1F1F1F;margin-right: 5%;}
+.index-numbers-fintech{color: #5B56EE; width:15%}
+.index-numbers-faang{color: #A6D0D8;}
+.index-numbers-nasdaq{color: #1F1F1F;}
 .index-numbers-snp500{color: #FC714D;}
 .index-numbers-emcloud{color: #A9A9A9;}
 .graphButtons{ margin-left: auto;margin-right: 8%;z-index: 1;margin-bottom: -2.2%;}
@@ -538,7 +539,7 @@ path {
   margin:auto;
   margin-top:-2%;
   margin-bottom: 2%;
-  max-width: 70%;
+  max-width: 80%;
   text-align: center;
   display: flex;
   justify-content: space-around;
@@ -547,6 +548,8 @@ path {
   padding-top: 2%;
   padding-bottom: 2%;
   color:floralwhite;
+  white-space: nowrap;
+  font-size: 1vw;
 }
 .future_additions{
   display: flex;
@@ -634,6 +637,16 @@ path {
   margin-right: 10%;
   vertical-align: middle;
 }
+.parallelogram_stats {
+	width: 2.5vw;
+	height: 1.25vw;
+	transform: skew(0deg, -20deg);
+	background: #eee;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: auto;
+  margin-bottom: auto;
+}
 .topnav a {
   color: black;
   padding: 14px 16px;
@@ -661,7 +674,6 @@ path {
 .ft__description{margin-left: 0%;color: #eee;font-weight: 400;font-size: 2vw;}
 .ft__intro-main{margin-left: 10%;display: table-cell;width: 100%;vertical-align: middle; padding-left:0%;align-items:center;}
 .ft__intro-figure{width:55%; height: 55%; margin-left:20%; display:table-cell; vertical-align: middle;top:50%;object-fit: cover;}
-.stats__text{margin-left:15%;}
 .index-numbers-fintech{color: #5B56EE;font-size: 2.7vw;}
 .index-numbers-faang{color: #A6D0D8;font-size: 2.7vw;}
 .index-numbers-nasdaq{color: #1F1F1F;font-size: 2.7vw;}
@@ -671,19 +683,7 @@ path {
 .legend li { float: left; margin: 20px; margin-top: 5%;font-size: 1.5vw;}
 .legend span { border: 0px solid #ccc; float: left; width: 10px; height: 10px; margin: 2px; }
 .flex {
-  margin:auto;
-  margin-top:-2%;
-  margin-bottom: 2%;
-  max-width: 70%;
-  text-align: center;
-  display: flex;
-  justify-content: space-around;
-  vertical-align: middle;
-  background-color: #1F1F1F;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  color:floralwhite;
-  font-size: 1.6vw;
+  font-size: 1.2vw;
 }
 .stats_divider {
   margin-top:2%;
@@ -753,6 +753,9 @@ path {
   .topnav a {
   font-size: 9px;
   }
+  .flex {
+  font-size: 1.3vw;
+}
 }
 
 @media screen and (max-width: 582px) {
@@ -769,13 +772,16 @@ path {
 /* .svg-style{
   transform: scale(1, 1.4);
 } */
+
 .legend li { float: left; margin: 15px; margin-top:5%; font-size: 2.2vw;}
 .legend span { border: 0px solid #ccc; float: left; width: 8px; height: 8px; margin: 2px; }
+.flex {
+  font-size: 1.4vw;
+}
 .topnav a {
   font-size: 1.5vw;
   }
 };
-
 .modal_box {
   display:none; /* Hidden by default */
   position: static;
@@ -1039,14 +1045,14 @@ text-align: right !important;
   <h2 id = "overview" class="section_headers"></h2>
 </div>
 <div class='statistics'>
-<h3 class="indexflex">
+<div class="indexflex">
   <!-- <span style="font-size: 150%;">+</span> -->
-  <span class = "index-numbers-fintech"><span style="font-size: 120%;" id = "fintechValueJS"></span><a style="font-size: 120%;">%</a><a style="font-size: 50%;"><br>Fintech Index</a></span>
-  <span class = "index-numbers-faang"><span style="font-size: 120%;" id = "faangValueJS"></span><span style="font-size: 120%;">%</span><span style="font-size: 50%;"><br>FAANG Index</span></span>
-  <span class = "index-numbers-nasdaq"><span style="font-size: 120%;" id = "nasdaqValueJS"></span><span style="font-size: 120%;">%</span><span style="font-size: 50%;"><br>NASDAQ</span></span>
-  <span class = "index-numbers-snp500"><span style="font-size: 120%;" id = "snp500ValueJS"></span><span style="font-size: 120%;">%</span><span style="font-size: 50%;"><br>S&P 500</span></span>
+  <div class = "index-numbers-fintech"><span style="font-size: 120%;" id = "fintechValueJS"></span><a style="font-size: 120%;">%</a><a style="font-size: 50%;"><br>Fintech Index</a></div>
+  <div class = "index-numbers-faang"><span style="font-size: 120%;" id = "faangValueJS"></span><span style="font-size: 120%;">%</span><span style="font-size: 50%;"><br>FAANG Index</span></div>
+  <div class = "index-numbers-nasdaq"><span style="font-size: 120%;" id = "nasdaqValueJS"></span><span style="font-size: 120%;">%</span><span style="font-size: 50%;"><br>NASDAQ</span></div>
+  <div class = "index-numbers-snp500"><span style="font-size: 120%;" id = "snp500ValueJS"></span><span style="font-size: 120%;">%</span><span style="font-size: 50%;"><br>S&P 500</span></div>
   <!-- <span class = "index-numbers-emcloud"><span style="font-size: 120%;" id = "emCloudValueJS"></span><span style="font-size: 120%;">%</span>  <span style="font-size: 50%;">EMCLOUD</span></span> -->
-</h3>
+</div>
 </div>
 
 <!-- <input id = "insurance_bool" type="checkbox" checked = ""/>Insurance -->
@@ -1130,46 +1136,46 @@ text-align: right !important;
           type="button" 
           value="All Time"
           onclick="updateAllTime()" 
-          class='buttongraph' />
+          class='bg1' />
           <a>&nbsp;&nbsp;</a>
     <input 
           type="button" 
           value="3Y"
           onclick="update3Y()" 
-          class='buttongraph' />
+          class='bg2' />
           <a>&nbsp;&nbsp;</a>
     <input 
            type="button" 
            value="1Y"
            onclick="updateYearly()" 
-           class='buttongraph' />
+           class='bg3' />
            <a>&nbsp;&nbsp;</a>
     <input 
            type="button" 
            value="YTD"
            onclick="updateYTD()" 
-           class='buttongraph' />
+           class='bg4' />
            <a>&nbsp;&nbsp;</a>
 
     <input 
            type="button" 
            value="6M"
            onclick="update6M()" 
-           class='buttongraph' />
+           class='bg5' />
            <a>&nbsp;&nbsp;</a>
 
     <input  
            type="button" 
            value="1M" 
            onclick="updateMonthly()" 
-           class='buttongraph'/>
+           class='bg6'/>
            <a>&nbsp;&nbsp;</a>
 
     <input 
           type="button" 
           value="1W" 
           onclick="updateWeekly()"
-          class='buttongraph' />
+          class='bg7' />
           <a>&nbsp;&nbsp;</a>
   <!-- <button id="myBtn" class = "button-4">...</button> -->
   <div class="dropdown" style="float:right;">
@@ -1646,6 +1652,7 @@ function ipo_check_box_clicked(){
 };
 var container = d3.select("body").append("div")
     .style("width",width);
+   
 d3.csv("Indexes.csv", function(error, data) {
     data.forEach(function(d) {
         d.Date = parseDate(d.Date);
@@ -1839,6 +1846,21 @@ d3.csv("Indexes.csv", function(error, data) {
 // ** UpDate data section (Called from the onclick)
 function updateAllTime() {
     // Get the data again
+    let bg1 = document.querySelector(".bg1");
+    bg1.style.borderBottom = "2px solid black";
+    let bg2 = document.querySelector(".bg2");
+    bg2.style.borderBottom = "2px solid white";
+    let bg3 = document.querySelector(".bg3");
+    bg3.style.borderBottom = "2px solid white";
+    let bg4 = document.querySelector(".bg4");
+    bg4.style.borderBottom = "2px solid white";
+    let bg5 = document.querySelector(".bg5");
+    bg5.style.borderBottom = "2px solid white";
+    let bg6 = document.querySelector(".bg6");
+    bg6.style.borderBottom = "2px solid white";
+    let bg7 = document.querySelector(".bg7");
+    bg7.style.borderBottom = "2px solid white";
+
     time_frame = 'All Time'
     d3.csv("Indexes.csv", function(error, data) {
        	data.forEach(function(d) {
@@ -1922,6 +1944,22 @@ function updateAllTime() {
     });
 }
 function update3Y() {
+    // let button_graph_h = document.querySelector(".button_graph:hover");
+    // button_graph_h.style.borderBottom = "2px solid black";
+    let bg1 = document.querySelector(".bg1");
+    bg1.style.borderBottom = "2px solid white";
+    let bg2 = document.querySelector(".bg2");
+    bg2.style.borderBottom = "2px solid black";
+    let bg3 = document.querySelector(".bg3");
+    bg3.style.borderBottom = "2px solid white";
+    let bg4 = document.querySelector(".bg4");
+    bg4.style.borderBottom = "2px solid white";
+    let bg5 = document.querySelector(".bg5");
+    bg5.style.borderBottom = "2px solid white";
+    let bg6 = document.querySelector(".bg6");
+    bg6.style.borderBottom = "2px solid white";
+    let bg7 = document.querySelector(".bg7");
+    bg7.style.borderBottom = "2px solid white";
     time_frame = '3Y'
     // Get the data again
     // setTimeout(function(){
@@ -2023,119 +2061,147 @@ function update3Y() {
 }
 // ** UpDate data section (Called from the onclick)
 function updateYearly() {
-time_frame = '1Y'
-// Get the data again
-d3.csv("Indexes.csv", function(error, data) {
-       data.forEach(function(d) {
-        d.Date = parseDate(d.Date);
-        d.Fintech = +d.Fintech;
-        d.FAANG = +d.FAANG;
-        d.NASDAQ = +d.NASDAQ;
-        d.SNP500= +d.SNP500;
-        // d.EMCLOUD = +d.EMCLOUD;
-    });
-    var possible_comps_filtered = possible_companies.filter(function (el) {
-        return (removeType.indexOf(el.type) < 0)&(removeVerticals.indexOf(el.vertical) < 0); 
+  let bg1 = document.querySelector(".bg1");
+  bg1.style.borderBottom = "2px solid white";
+  let bg2 = document.querySelector(".bg2");
+  bg2.style.borderBottom = "2px solid white";
+  let bg3 = document.querySelector(".bg3");
+  bg3.style.borderBottom = "2px solid black";
+  let bg4 = document.querySelector(".bg4");
+  bg4.style.borderBottom = "2px solid white";
+  let bg5 = document.querySelector(".bg5");
+  bg5.style.borderBottom = "2px solid white";
+  let bg6 = document.querySelector(".bg6");
+  bg6.style.borderBottom = "2px solid white";
+  let bg7 = document.querySelector(".bg7");
+  bg7.style.borderBottom = "2px solid white";
+  time_frame = '1Y'
+  // Get the data again
+  d3.csv("Indexes.csv", function(error, data) {
+        data.forEach(function(d) {
+          d.Date = parseDate(d.Date);
+          d.Fintech = +d.Fintech;
+          d.FAANG = +d.FAANG;
+          d.NASDAQ = +d.NASDAQ;
+          d.SNP500= +d.SNP500;
+          // d.EMCLOUD = +d.EMCLOUD;
       });
-      proper_tickers = possible_comps_filtered.map(a => a.ticker)
-      new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
-      // console.log(new_ft);
-      for(var i = 0; i < new_ft.length; i += 1) {
-        data[i].Fintech = new_ft[i];
-      }
-      // var today = new Date();
-      // today.setFullYear(today.getFullYear()-3);
-      // console.log(today.toLocaleDateString())
-      var dateTresh = new Date();
-      dateTresh.setDate(dateTresh.getDate() - 1);
-      // var nextMonth = today.add('month', 1);
-      dateTresh.setFullYear(dateTresh.getFullYear()-1);
-      var data = data.filter(function (el) {
-        return el.Date > dateTresh;
-      });
-      var first_ft_val = data[0].Fintech
-      var first_faang_val = data[0].FAANG
-      var first_nasdaq_val = data[0].NASDAQ
-      var first_snp_val = data[0].SNP500
-      data.map((d) => {
-        d.Fintech = ((d.Fintech+1)/(first_ft_val+1))-1
-        d.FAANG = ((d.FAANG+1)/(first_faang_val+1))-1
-        d.NASDAQ = ((d.NASDAQ+1)/(first_nasdaq_val+1))-1
-        d.SNP500 = ((d.SNP500+1)/(first_snp_val+1))-1
-        return data;
-      });
-    // Scale the range of the data again 
-    x.domain(d3.extent(data, function(d) { return d.Date; }));
-    y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.2, d3.max(data, function(d) {return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.5]);
+      var possible_comps_filtered = possible_companies.filter(function (el) {
+          return (removeType.indexOf(el.type) < 0)&(removeVerticals.indexOf(el.vertical) < 0); 
+        });
+        proper_tickers = possible_comps_filtered.map(a => a.ticker)
+        new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+        // console.log(new_ft);
+        for(var i = 0; i < new_ft.length; i += 1) {
+          data[i].Fintech = new_ft[i];
+        }
+        // var today = new Date();
+        // today.setFullYear(today.getFullYear()-3);
+        // console.log(today.toLocaleDateString())
+        var dateTresh = new Date();
+        dateTresh.setDate(dateTresh.getDate() - 1);
+        // var nextMonth = today.add('month', 1);
+        dateTresh.setFullYear(dateTresh.getFullYear()-1);
+        var data = data.filter(function (el) {
+          return el.Date > dateTresh;
+        });
+        var first_ft_val = data[0].Fintech
+        var first_faang_val = data[0].FAANG
+        var first_nasdaq_val = data[0].NASDAQ
+        var first_snp_val = data[0].SNP500
+        data.map((d) => {
+          d.Fintech = ((d.Fintech+1)/(first_ft_val+1))-1
+          d.FAANG = ((d.FAANG+1)/(first_faang_val+1))-1
+          d.NASDAQ = ((d.NASDAQ+1)/(first_nasdaq_val+1))-1
+          d.SNP500 = ((d.SNP500+1)/(first_snp_val+1))-1
+          return data;
+        });
+      // Scale the range of the data again 
+      x.domain(d3.extent(data, function(d) { return d.Date; }));
+      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.2, d3.max(data, function(d) {return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.5]);
+      
+      document.getElementById("fintechValueJS").innerHTML = ((data[data.length-1].Fintech*100)<0?"":"+") + (data[data.length-1].Fintech*100).toFixed(1); 
+      document.getElementById("faangValueJS").innerHTML = ((data[data.length-1].FAANG*100)<0?"":"+") + (data[data.length-1].FAANG*100).toFixed(1);
+      document.getElementById("nasdaqValueJS").innerHTML = ((data[data.length-1].NASDAQ*100)<0?"":"+") + (data[data.length-1].NASDAQ*100).toFixed(1);
+      document.getElementById("snp500ValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].SNP500*100).toFixed(1);
+      // document.getElementById("emCloudValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
+      dataVar = data;
+      DateVar = data.Date;
+      FintechVar = data.Fintech; 
+      FAANGVar = data.FAANG;
+      NASDAQVar = data.NASDAQ;
+      SNP500VAR = data.SNP500;
+      // EMCLOUDVAR = data.EMCLOUD;
+  // Select the section we want to apply our changes to
+      var svg = d3.select("body").transition();
+
+  // Make the changes
+      svg.select(".line")   // change the line
+          .duration(750)
+          .attr("class", "line")
+          .style("stroke", "#5B56EE")
+          .attr("d", valueline(data));
+      svg.select(".line2")   // change the line
+          .duration(750)
+          .attr("class", "line2")
+          .style("stroke", "#A6D0D8")
+          .attr("d", valueline2(data));
+      svg.select(".line3")   // change the line
+          .duration(750)
+          .attr("class", "line3")
+          .style("stroke", "black")
+          .attr("d", valueline3(data));
+      svg.select(".line4")   // change the line
+          .duration(750)
+          .attr("class", "line4")
+          .style("stroke", "#FC714D")
+          .attr("d", valueline4(data));
+      // svg.select(".line5")   // change the line
+      //     .duration(750)
+      //     .attr("class", "line5")
+      //     .style("stroke", "#A9A9A9")
+      //     .attr("d", valueline5(data));   
+      svg.select(".x.axis") // change the x axis
+          .duration(750)
+          .call(xAxis.tickFormat(d3.time.format("%b")));
+      svg.select(".y.axis") // change the y axis
+          .duration(750)
+          .call(yAxis);
+      var focus = svg.select('.focus');
+      // var htmlString = document.getElementsByClassName('.tooltip-snp')[0].innerHTML;
+      // focus.select("circle")
+      //     .attr("r", 5);
     
-    document.getElementById("fintechValueJS").innerHTML = ((data[data.length-1].Fintech*100)<0?"":"+") + (data[data.length-1].Fintech*100).toFixed(1); 
-    document.getElementById("faangValueJS").innerHTML = ((data[data.length-1].FAANG*100)<0?"":"+") + (data[data.length-1].FAANG*100).toFixed(1);
-    document.getElementById("nasdaqValueJS").innerHTML = ((data[data.length-1].NASDAQ*100)<0?"":"+") + (data[data.length-1].NASDAQ*100).toFixed(1);
-    document.getElementById("snp500ValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].SNP500*100).toFixed(1);
-    // document.getElementById("emCloudValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
-    dataVar = data;
-    DateVar = data.Date;
-    FintechVar = data.Fintech; 
-    FAANGVar = data.FAANG;
-    NASDAQVar = data.NASDAQ;
-    SNP500VAR = data.SNP500;
-    // EMCLOUDVAR = data.EMCLOUD;
-// Select the section we want to apply our changes to
-var svg = d3.select("body").transition();
+      // var htmlString = focus[0][0];
+      // console.log(htmlString);
+      // console.log(focus.select(".tooltip-snp"));
+      // console.log("Hello world!");
+      // var mouseOverlay = svg.select(".mouseOverlay");
+      // console.log(mouseOverlay[0][0]);
+      // mouseOverlay.attr("width", width)
+      //     .attr("height", height)
+      //     .attr("mouseover", function() { focus.style('display',null); })
+      //     .attr("mouseout", function() { focus.attr("style","display: none; position: absolute;"); })
+      //     .attr("mousemove", function(){var x0 = x.invert(d3.mouse(this)[0]); mousemove1(data, data.Date, data.Fintech, data.FAANG, data.NASDAQ, data.SNP500,focus,x0);});
 
-// Make the changes
-    svg.select(".line")   // change the line
-        .duration(750)
-        .attr("class", "line")
-        .style("stroke", "#5B56EE")
-        .attr("d", valueline(data));
-    svg.select(".line2")   // change the line
-        .duration(750)
-        .attr("class", "line2")
-        .style("stroke", "#A6D0D8")
-        .attr("d", valueline2(data));
-    svg.select(".line3")   // change the line
-        .duration(750)
-        .attr("class", "line3")
-        .style("stroke", "black")
-        .attr("d", valueline3(data));
-    svg.select(".line4")   // change the line
-        .duration(750)
-        .attr("class", "line4")
-        .style("stroke", "#FC714D")
-        .attr("d", valueline4(data));
-    // svg.select(".line5")   // change the line
-    //     .duration(750)
-    //     .attr("class", "line5")
-    //     .style("stroke", "#A9A9A9")
-    //     .attr("d", valueline5(data));   
-    svg.select(".x.axis") // change the x axis
-        .duration(750)
-        .call(xAxis.tickFormat(d3.time.format("%b")));
-    svg.select(".y.axis") // change the y axis
-        .duration(750)
-        .call(yAxis);
-    var focus = svg.select('.focus');
-    // var htmlString = document.getElementsByClassName('.tooltip-snp')[0].innerHTML;
-    // focus.select("circle")
-    //     .attr("r", 5);
-   
-    // var htmlString = focus[0][0];
-    // console.log(htmlString);
-    // console.log(focus.select(".tooltip-snp"));
-    // console.log("Hello world!");
-    // var mouseOverlay = svg.select(".mouseOverlay");
-    // console.log(mouseOverlay[0][0]);
-    // mouseOverlay.attr("width", width)
-    //     .attr("height", height)
-    //     .attr("mouseover", function() { focus.style('display',null); })
-    //     .attr("mouseout", function() { focus.attr("style","display: none; position: absolute;"); })
-    //     .attr("mousemove", function(){var x0 = x.invert(d3.mouse(this)[0]); mousemove1(data, data.Date, data.Fintech, data.FAANG, data.NASDAQ, data.SNP500,focus,x0);});
-
-});
+  });
 }
 
 function updateYTD() {
+let bg1 = document.querySelector(".bg1");
+bg1.style.borderBottom = "2px solid white";
+let bg2 = document.querySelector(".bg2");
+bg2.style.borderBottom = "2px solid white";
+let bg3 = document.querySelector(".bg3");
+bg3.style.borderBottom = "2px solid white";
+let bg4 = document.querySelector(".bg4");
+bg4.style.borderBottom = "2px solid black";
+let bg5 = document.querySelector(".bg5");
+bg5.style.borderBottom = "2px solid white";
+let bg6 = document.querySelector(".bg6");
+bg6.style.borderBottom = "2px solid white";
+let bg7 = document.querySelector(".bg7");
+bg7.style.borderBottom = "2px solid white";
 time_frame = 'YTD'
 // Get the data again
 d3.csv("Indexes.csv", function(error, data) {
@@ -2246,6 +2312,20 @@ var svg = d3.select("body").transition();
 }
 
 function update6M() {
+let bg1 = document.querySelector(".bg1");
+bg1.style.borderBottom = "2px solid white";
+let bg2 = document.querySelector(".bg2");
+bg2.style.borderBottom = "2px solid white";
+let bg3 = document.querySelector(".bg3");
+bg3.style.borderBottom = "2px solid white";
+let bg4 = document.querySelector(".bg4");
+bg4.style.borderBottom = "2px solid white";
+let bg5 = document.querySelector(".bg5");
+bg5.style.borderBottom = "2px solid black";
+let bg6 = document.querySelector(".bg6");
+bg6.style.borderBottom = "2px solid white";
+let bg7 = document.querySelector(".bg7");
+bg7.style.borderBottom = "2px solid white";
     time_frame = '6M'
     // Get the data again
     d3.csv("Indexes.csv", function(error, data) {
@@ -2341,6 +2421,20 @@ function update6M() {
     });
 }
 function updateMonthly() {
+let bg1 = document.querySelector(".bg1");
+bg1.style.borderBottom = "2px solid white";
+let bg2 = document.querySelector(".bg2");
+bg2.style.borderBottom = "2px solid white";
+let bg3 = document.querySelector(".bg3");
+bg3.style.borderBottom = "2px solid white";
+let bg4 = document.querySelector(".bg4");
+bg4.style.borderBottom = "2px solid white";
+let bg5 = document.querySelector(".bg5");
+bg5.style.borderBottom = "2px solid white";
+let bg6 = document.querySelector(".bg6");
+bg6.style.borderBottom = "2px solid black";
+let bg7 = document.querySelector(".bg7");
+bg7.style.borderBottom = "2px solid white";
 time_frame = '1M'
 // Get the data again
 d3.csv("Indexes.csv", function(error, data) {
@@ -2437,6 +2531,20 @@ var svg = d3.select("body").transition();
 }
 
 function updateWeekly() {
+let bg1 = document.querySelector(".bg1");
+bg1.style.borderBottom = "2px solid white";
+let bg2 = document.querySelector(".bg2");
+bg2.style.borderBottom = "2px solid white";
+let bg3 = document.querySelector(".bg3");
+bg3.style.borderBottom = "2px solid white";
+let bg4 = document.querySelector(".bg4");
+bg4.style.borderBottom = "2px solid white";
+let bg5 = document.querySelector(".bg5");
+bg5.style.borderBottom = "2px solid white";
+let bg6 = document.querySelector(".bg6");
+bg6.style.borderBottom = "2px solid white";
+let bg7 = document.querySelector(".bg7");
+bg7.style.borderBottom = "2px solid black";
 time_frame = '1W'
 // Get the data again
 d3.csv("Indexes.csv", function(error, data) {
@@ -2755,15 +2863,15 @@ d3.csv("Indexes.csv", function(error, data) {
         </thead>
       </table> -->
       <div class="flex_background">
-        <h5 class="flex">
-          <span>TOTAL MARKET CAP <br> <span style="font-size: 250%;" id = "keyValTMarketCap"></span></span>
-          <a class = 'stats_divider'>	&#9670</a>
-          <span>AVG. MARKET CAP <br> <span style="font-size: 250%;" id = "keyValAMarketCap" ></span></span>
-          <a class = 'stats_divider'>	&#9670</a>
-          <span>AVG. REVENUE MULTIPLE <br> <span style="font-size: 250%;" id = "keyValRevMult"></span></span>
-          <a class = 'stats_divider'>	&#9670</a>
-          <span>AVG. REVENUE GROWTH <br> <span style="font-size: 250%;" id = "keyValRevGrowth"></span></span>
-        </h5>
+        <div class="flex">
+          <div>TOTAL MARKET CAP <br> <span style="font-size: 250%;" id = "keyValTMarketCap"></span></div>
+          <div class = 'parallelogram_stats'></div>
+          <div>AVG. MARKET CAP <br> <span style="font-size: 250%;" id = "keyValAMarketCap"></span></div>
+          <div class = 'parallelogram_stats'></div>
+          <div>AVG. REVENUE MULTIPLE <br> <span style="font-size: 250%;" id = "keyValRevMult"></span></div>
+          <div class = 'parallelogram_stats'></div>
+          <div>AVG. REVENUE GROWTH <br> <span style="font-size: 250%;" id = "keyValRevGrowth"></span></div>
+        </div>
       </div>
     </div>
   
