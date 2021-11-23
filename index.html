@@ -1220,7 +1220,7 @@ text-align: right !important;
         <div class="pretty p-default" style = "margin-left: 2%;margin-top: 5%;margin-bottom: 1.5%;">
           <input id = "re_bool" type="checkbox" checked = "" />
           <div class="state">
-              <label>Real Estate</label>
+              <label>PropTech</label>
           </div>
         </div>
       </div>
@@ -1612,12 +1612,12 @@ function wealth_check_box_clicked(){
 };
 function re_check_box_clicked(){
   if (re_bool){    
-    const index = removeVerticals.indexOf('Real Estate');
+    const index = removeVerticals.indexOf('PropTech');
     if (index > -1) {
       removeVerticals.splice(index, 1);
     }
   }
-  else{removeVerticals.push('Real Estate')}
+  else{removeVerticals.push('PropTech')}
   change_time_scale();
 };
 function spac_check_box_clicked(){
@@ -1877,6 +1877,7 @@ function updateAllTime() {
         return (removeType.indexOf(el.type) < 0)&(removeVerticals.indexOf(el.vertical) < 0); 
       });
       proper_tickers = possible_comps_filtered.map(a => a.ticker)
+      console.log(proper_tickers)
       new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
       // console.log(new_ft);
       for(var i = 0; i < new_ft.length; i += 1) {
@@ -1977,8 +1978,10 @@ function update3Y() {
         return (removeType.indexOf(el.type) < 0)&(removeVerticals.indexOf(el.vertical) < 0); 
       });
       proper_tickers = possible_comps_filtered.map(a => a.ticker)
+      // console.log(proper_tickers)
       new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
-      // console.log(new_ft);
+      
+      console.log(new_ft);
       for(var i = 0; i < new_ft.length; i += 1) {
         data[i].Fintech = new_ft[i];
       }
