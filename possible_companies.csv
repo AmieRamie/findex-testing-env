@@ -1,50 +1,51 @@
 ,ticker,vertical,type
-0,ADYEY,Payments,IPO
-1,AFRM,Banking/Lending,IPO
-2,ALKT,B2B SaaS,IPO
-3,AVLR,B2B SaaS,IPO
-4,BILL,B2B SaaS,IPO
-5,BL,B2B SaaS,IPO
-6,BHG,Insurance,IPO
-7,COIN,Wealth/Asset Mgmt,DL
-8,BTRS,Payments,SPAC
-9,CLOV,Insurance,SPAC
-10,COMP,Real Estate,IPO
-11,DLO,Payments,IPO
-12,DCT,B2B SaaS,IPO
-13,ENV,B2B SaaS,IPO
-14,EVER,Insurance,IPO
-15,FLYW,Payments,IPO
-16,FCH.L,Banking/Lending,IPO
-17,GDOT,Banking/Lending,IPO
-18,HIPO,Insurance,SPAC
-19,INTA,B2B SaaS,IPO
-20,KPLT,Banking/Lending,SPAC
-21,LMND,Insurance,IPO
-22,LU,Payments,IPO
-23,MQ,Payments,IPO
-24,MELI,Payments,IPO
-25,MILE,Insurance,SPAC
-26,NCNO,Banking/Lending,IPO
-27,OPEN,Real Estate,SPAC
-28,OSCR,Insurance,IPO
-29,PAGS,Payments,IPO
-30,PAY,Payments,IPO
-31,PAYO,Payments,SPAC
-32,PYPL,Payments,IPO
-33,QTWO,B2B SaaS,IPO
-34,RDFN,Real Estate,IPO
-35,ROOT,Insurance,IPO
-36,SZL.AX,Banking/Lending,IPO
-37,SHOP,Payments,IPO
-38,SOFI,Banking/Lending,SPAC
-39,SQ,Payments,IPO
-40,STNE,Payments,IPO
-41,UPST,Banking/Lending,IPO
-42,XRO.AX,B2B SaaS,IPO
+0,AVLR,B2B SaaS,IPO
+1,BL,B2B SaaS,IPO
+2,INTA,B2B SaaS,IPO
+3,XRO.AX,B2B SaaS,IPO
+4,ADYEY,Payments,IPO
+5,AFRM,Banking/Lending,IPO
+6,ALKT,B2B SaaS,IPO
+7,BILL,B2B SaaS,IPO
+8,BHG,Insurance,IPO
+9,COIN,Wealth/Asset Mgmt,Direct Listing
+10,BTRS,Payments,SPAC
+11,CLOV,Insurance,SPAC
+12,COMP,PropTech,IPO
+13,DLO,Payments,IPO
+14,DCT,B2B SaaS,IPO
+15,ENV,B2B SaaS,IPO
+16,EVER,Insurance,IPO
+17,FLYW,Payments,IPO
+18,FCH.L,Banking/Lending,IPO
+19,GDOT,Banking/Lending,IPO
+20,HIPO,Insurance,SPAC
+21,KPLT,Banking/Lending,SPAC
+22,LMND,Insurance,IPO
+23,LU,Payments,IPO
+24,MQ,Payments,IPO
+25,MELI,Payments,IPO
+26,MILE,Insurance,SPAC
+27,NCNO,Banking/Lending,IPO
+28,OPEN,PropTech,SPAC
+29,OSCR,Insurance,IPO
+30,PAGS,Payments,IPO
+31,PAY,Payments,IPO
+32,PAYO,Payments,SPAC
+33,PYPL,Payments,IPO
+34,QTWO,B2B SaaS,IPO
+35,RDFN,PropTech,IPO
+36,ROOT,Insurance,IPO
+37,SZL.AX,Banking/Lending,IPO
+38,SHOP,Payments,IPO
+39,SOFI,Banking/Lending,SPAC
+40,SQ,Payments,IPO
+41,STNE,Payments,IPO
+42,UPST,Banking/Lending,IPO
 43,ML,Banking/Lending,SPAC
 44,FLT,Payments,IPO
 45,VIRT,Wealth/Asset Mgmt,IPO
 46,LSPD.TO,Payments,IPO
 47,KUX.SI,Payments,IPO
 48,LDI,Banking/Lending,IPO
+49,DOMA,PropTech,SPAC
