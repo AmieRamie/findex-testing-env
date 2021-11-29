@@ -623,13 +623,6 @@ path {
 .topnav #myLinks4 {
   display: block;
 }
-.active {
-  color: white;
-  white-space:normal;
-  border-bottom: 1px solid black;
-  min-width: 90px;
-  text-align: center;
-}
 .parallelogram {
 	width: 20px;
 	height: 10px;
@@ -640,8 +633,8 @@ path {
   vertical-align: middle;
 }
 .parallelogram_stats {
-	width: 1.5vw;
-	height: 2.2vw;
+	width: 1.02vw;
+	height: 1.5vw;
 	transform: skew(-30deg, 0deg);
 	background: #eee;
   display: inline-block;
@@ -649,11 +642,17 @@ path {
   margin-top: auto;
   margin-bottom: auto;
 }
+.active {
+  color: white;
+  white-space:normal;
+  border-bottom: 1px solid black;
+  min-width: 90px;
+  text-align: center;}
 .topnav a {
   color: black;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 1.3vw;
+  font-size: 1.1vw;
   display: block;
 }
 
@@ -797,7 +796,7 @@ path {
   font-size: 1.4vw;
 }
 .topnav a {
-  font-size: 1.6vw;
+  font-size: 1.7vw;
   }
 .parallelogram {
 	width: 7.5px;
@@ -2683,12 +2682,21 @@ d3.csv("key_figures.csv", function(error, data2) {
       });
       
   </script>
-<ul class="legend" id="performance">
+
+<div class="legend" id="performance">
+  <div>
+    <li><span class="fintech_legend"></span> Fintech</li>
+    <li><span class="faang_legend"></span> FAANG</li>
+    <li><span class="nasdaq_legend"></span> NASDAQ</li>
+    <li><span class="snp500_legend"></span> S&P500</li>
+  </div>
+</div>
+<!-- <ul class="legend" id="performance">
   <li><span class="fintech_legend"></span> Fintech</li>
   <li><span class="faang_legend"></span> FAANG</li>
   <li><span class="nasdaq_legend"></span> NASDAQ</li>
   <li><span class="snp500_legend"></span> S&P500</li>
-</ul>
+</ul> -->
 
 <!-- <script>
          
@@ -3000,37 +3008,37 @@ SOFTWARE. -->
     <div class="topnav">
       <a href="#home" class="active" onclick="myDropdown()">Already Listed Companies</a>
       <div id="myLinks">
-        <a href="https://robinhood.com/us/en/" style = "vertical-align: middle;"><div class="parallelogram"></div>Robinhood</a>
+        <a href="https://robinhood.com/us/en/" style = "vertical-align: middle;" class = "future_comps"><div class="parallelogram"></div>Robinhood</a>
         <a href="https://blend.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Blend</a>
         <a href="https://wise.com/us/"style = "vertical-align: middle;"><div class="parallelogram"></div> Wise</a>
         <!-- <a href="https://www.moneylion.com/">&#10070; Money Lion</a> -->
         <a href="https://www.bakkt.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Bakkt</a>
-        <a href="https://www.etoro.com/en-us/"style = "vertical-align: middle;"><div class="parallelogram"></div> eToro</a>
         <a href="https://pos.toasttab.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Toast</a>
+        <a href="https://www.nerdwallet.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> NerdWallet</a>
+        <a href="https://www.remitly.com/us/en"style = "vertical-align: middle;"><div class="parallelogram"></div> Remitly</a>
       </div>
     </div>
     
     <!-- End smartphone / tablet look -->
   </div>
-  <div class="mobile-container">
-
-    <!-- Top Navigation Menu -->
+  <!-- <div class="mobile-container">
     <div class="topnav">
       <a href="#home" class="active" onclick="myDropdown2()">Announced Traditional IPOs</a>
       <div id="myLinks2">
-        <a href="https://www.remitly.com/us/en"style = "vertical-align: middle;"><div class="parallelogram"></div> Remitly</a>
+        <a href="https://nubank.com.br/en/"style = "vertical-align: middle;"><div class="parallelogram"></div> NuBank</a>
         <a href="https://www.expensify.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Expensify</a>
-        <a href="https://www.nerdwallet.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> NerdWallet</a>
       </div>
     </div>
-    <!-- End smartphone / tablet look -->
-  </div>
+  </div> -->
   <div class="mobile-container">
 
     <!-- Top Navigation Menu -->
     <div class="topnav">
-      <a href="#home" class="active" onclick="myDropdown3()">Announced SPACs/DLs</a>
+      <a href="#home" class="active" onclick="myDropdown3()">Announced IPOs, SPACs, & DLs</a>
       <div id="myLinks3">
+        <a href="https://nubank.com.br/en/"style = "vertical-align: middle;"><div class="parallelogram"></div> NuBank</a>
+        <a href="https://www.expensify.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Expensify</a>
+        <a href="https://www.etoro.com/en-us/"style = "vertical-align: middle;"><div class="parallelogram"></div> eToro</a>
         <a href="https://www.aspiration.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Aspiration</a>
         <a href="https://www.apexfintechsolutions.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Apex</a>
         <a href="https://dave.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Dave</a>
@@ -3052,10 +3060,9 @@ SOFTWARE. -->
         <a href="https://plaid.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Plaid</a>
         <a href="https://www.checkout.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Checkout</a>
         <a href="https://www.revolut.com/en-US"style = "vertical-align: middle;"><div class="parallelogram"></div> Revolut</a>
-        <a href="https://nubank.com.br/en/"style = "vertical-align: middle;"><div class="parallelogram"></div> nuBank</a>
-        <a href="avidxchange.com"style = "vertical-align: middle;"><div class="parallelogram"></div> avidxchange</a>
+        <a href="avidxchange.com"style = "vertical-align: middle;"><div class="parallelogram"></div> AvidXchange</a>
         <a href="https://www.chime.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Chime</a>
-        <a href="https://www.interswitchgroup.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Interswitch</a>
+        <a href="https://ftx.com/en"style = "vertical-align: middle;"><div class="parallelogram"></div> FTX</a>
       </div>
     </div>
     <!-- End smartphone / tablet look -->
