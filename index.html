@@ -555,6 +555,8 @@ path {
   display: flex;
   justify-content: space-around;
   margin:auto;
+  margin-top:1%;
+  margin-bottom: 1%;
   width: 70%;
 }
 .flex_background{
@@ -607,7 +609,6 @@ path {
 .topnav {
   overflow: hidden;
   position: relative;
-  border-bottom: 1px solid black;
 }
 
 .topnav #myLinks {
@@ -625,7 +626,8 @@ path {
 .active {
   color: white;
   font-size:100%;
-  white-space: nowrap;
+  white-space:normal;
+  border-bottom: 1px solid black;
   /* min-width: 150px; */
 }
 .parallelogram {
@@ -638,9 +640,9 @@ path {
   vertical-align: middle;
 }
 .parallelogram_stats {
-	width: 2.5vw;
-	height: 1.25vw;
-	transform: skew(0deg, -20deg);
+	width: 1.5vw;
+	height: 2.2vw;
+	transform: skew(-30deg, 0deg);
 	background: #eee;
   display: inline-block;
   vertical-align: middle;
@@ -665,6 +667,12 @@ path {
 
 .topnav a:hover {
   border-bottom: 2px solid black;
+}
+.slides_frame{
+  margin:auto;
+  margin-top:1%;
+  margin-bottom: 1%;
+  width: 70%;
 }
 @media screen and (max-width: 1050px) {
 .page_head{background-color:#1f1f1f;width:100%; color: #eee;height: 70%;}
@@ -1036,6 +1044,7 @@ text-align: right !important;
           <li class="filter-nav__list-item "><a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="performance" target="_self">Index Info</a></li>
           <li class="filter-nav__list-item "><a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="companies" target="_self">Companies</a></li>
           <li class="filter-nav__list-item "><a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="future" target="_self">Future Companies</a></li>
+          <li class="filter-nav__list-item "><a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="thesis" target="_self">State of Fintech</a></li>
           <li class="filter-nav__list-item community-link"><a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="about" target="_self">About Us</a></li>
         </ul>
       </div>
@@ -3069,6 +3078,10 @@ SOFTWARE. -->
     }
   }
 </script>
+<div class="section_headers_div">
+  <h2 class="section_headers" id = "thesis">State of Fintech</h2>
+</div>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRqv1L86HOgTAvddIP2R-BrCGyf9E9ibKDTeaFv8GyKL6kzxgoAic5CmTEP-CCqhXJBS6_b_UK4khFO/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class = "slides_frame"></iframe>
 <br />
 <br />
 <!-- <div class= 'future-ipo-img'>
