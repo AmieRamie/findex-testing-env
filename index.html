@@ -410,6 +410,8 @@ path {
   margin-bottom: 0%;
   margin-top:0%;
   white-space: nowrap;
+  max-width: 1455px;
+  width:100%;
 
   /* white-space: nowrap; */
 }
@@ -418,10 +420,13 @@ path {
   position:sticky;
   left:0px;
   background: white;
-  border-right:2px solid black;
+  border-right:1px solid black;
   z-index: 1;
 }
 .table-design thead tr{ position: sticky; top: 0; z-index: 2; }
+.table>:not(:last-child)>:last-child>* {
+  border-bottom: 1px solid black;
+}
 .mouseOverlay {
         fill: none;
         pointer-events: all;
@@ -669,9 +674,10 @@ path {
 }
 .slides_frame{
   margin:auto;
-  margin-top:1%;
-  margin-bottom: 1%;
-  width: 75%;
+  margin-top:2%;
+  margin-bottom: 2%;
+  width: 80%;
+  max-width: 960px;
 }
 .table-design tbody{
   font-size: .8vw;
@@ -1040,8 +1046,30 @@ path {
   font-size: 18px;
   
 }
+.about_tooltip {
+  position: relative;
+  display: inline-block;
+}
 
+.about_tooltip .about_tooltiptext {
+  visibility: hidden;
+  width:fit-content;
+  background-color: #1F1F1F;
+  color: #eee;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-size: 1.5vw;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 105%;
+}
 
+.about_tooltip:hover .about_tooltiptext {
+  visibility: visible;
+}
 /* .dataTables_filter {
 text-align: right !important;
 } */
@@ -3242,7 +3270,8 @@ SOFTWARE. -->
     <div class="footer__row">
       <div class="footer__col">
         <div class="footer__summary">
-          <p><a href="https://fprimecapital.com/">F-Prime Capital</a> has been investing in fintech for over 50 years, and together with our international sister fund <a href="https://eightroads.com/en/">Eight Roads</a>, has one of the largest Fintech portfolios in venture capital. We have had the privilege of backing iconic companies like Alibaba, Flywire, Toast, Xoom, Kensho, Quovo, Snapdocs, Recurly and Papaya.</p>
+          <p>We create and invest in <a href="/sector/healthcare">healthcare</a> and <a href="/sector/technology">technology</a> companies that improve lives&nbsp;all&nbsp;over the world.</p>
+          <!-- <p><a href="https://fprimecapital.com/">F-Prime Capital</a> has been investing in fintech for over 50 years, and together with our international sister fund <a href="https://eightroads.com/en/">Eight Roads</a>, has one of the largest Fintech portfolios in venture capital. We have had the privilege of backing iconic companies like Alibaba, Flywire, Toast, Xoom, Kensho, Quovo, Snapdocs, Recurly and Papaya.</p> -->
 
         </div>
       </div>
@@ -3250,7 +3279,13 @@ SOFTWARE. -->
         <h4 class="footer__h">
           Jump to &mdash;
         </h4>
+        <div class="tooltip">Hover over me
+          <span class="tooltiptext">Tooltip text</span>
+        </div>
         <ul class="footer__list">
+          <li class="footer__list-item">
+            <a href="https://fprimecapital.com/about" class="footer__link about_tooltip" target="_self">About Us</a>
+          </li>
                       <li class="footer__list-item">
               <a href="https://fprimecapital.com/sector/technology?type=company&page_num=1&categories=73" class="footer__link" target="_self">Portfolio</a>
             </li>
@@ -3262,9 +3297,6 @@ SOFTWARE. -->
             </li>
                       <li class="footer__list-item">
               <a href="https://fprimecapital.com/stories" class="footer__link" target="_self">Stories</a>
-            </li>
-                      <li class="footer__list-item">
-              <a href="https://fprimecapital.com/about" class="footer__link" target="_self">About</a>
             </li>
                       <li class="footer__list-item">
               <a href="https://fprimecapital.com/fbri" class="footer__link" target="_self">FBRI</a>
@@ -3319,7 +3351,7 @@ SOFTWARE. -->
               <a class="footer__legal-link" href="http://eepurl.com/gbQlsL" target="_blank">Stay in Touch</a>
             </li>
                   </ul>
-        <p class="footer__advisory">The information on these pages is intended solely for the benefit of entrepreneurs seeking venture capital investments. F-Prime is not offering investment advisory services nor is it offering to sell securities. F‑Prime provides advisory services as Impresa Management LLC. The list of portfolio companies includes investments made by Fidelity Ventures and Eight Roads. FBRI is an affiliate of F‑Prime and a subsidiary of FMR LLC.</p>
+        <p class="footer__advisory">The information on these pages is intended solely for the benefit of entrepreneurs seeking venture capital investments. F-Prime is not offering investment advisory services nor is it offering to sell securities. F-Prime provides advisory services as Impresa Management LLC. The list of portfolio companies includes investments made by Fidelity Ventures and Eight Roads. FBRI is an affiliate of F-Prime and a subsidiary of FMR LLC.</p>
       </div>
     </div>
   </div>
