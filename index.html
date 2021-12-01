@@ -323,7 +323,7 @@ table {
 
 
 
-.bg1, .bg2, .bg3, .bg4, .bg5, .bg6, .bg7{
+.bg1_off, .bg2_off,.bg3_off,.bg4_off,.bg5_off,.bg6_off,.bg7_off{
   background-color: white;
   border-top: 3px solid white;
   border-left: 3px solid white;
@@ -332,7 +332,10 @@ table {
   text-transform: uppercase;
   border-bottom: 2px solid white;
 }
-/* .bg1:hover, .bg2:hover, .bg3:hover, .bg4:hover, .bg5:hover, .bg6:hover, .bg7:hover{
+.bg1_off:hover, .bg2_off:hover,.bg3_off:hover,.bg4_off:hover,.bg5_off:hover,.bg6_off:hover,.bg7_off:hover{
+  border-bottom: 2px solid black;
+}
+.bg1_on, .bg2_on,.bg3_on,.bg4_on,.bg5_on,.bg6_on,.bg7_on{
   background-color: white;
   border-top: 3px solid white;
   border-left: 3px solid white;
@@ -340,10 +343,11 @@ table {
   padding-right: 7px;
   text-transform: uppercase;
   border-bottom: 2px solid black;
-} */
-.bg1{
+}
+.bg1_on:hover, .bg2_on:hover,.bg3_on:hover,.bg4_on:hover,.bg5_on:hover,.bg6_on:hover,.bg7_on:hover{
   border-bottom: 2px solid black;
 }
+
 
 /* .overview{
   border-right: 5px solid white;
@@ -1262,47 +1266,54 @@ text-align: right !important;
     <input 
           type="button" 
           value="All Time"
-          onclick="updateAllTime()" 
-          class='bg1' />
+          onclick="updateAllTime()"
+          id = "bg1" 
+          class='bg1_on' />
           <a>&nbsp;&nbsp;</a>
     <input 
           type="button" 
           value="3Y"
-          onclick="update3Y()" 
-          class='bg2' />
+          onclick="update3Y()"
+          id = "bg2"
+          class='bg2_off' />
           <a>&nbsp;&nbsp;</a>
     <input 
            type="button" 
            value="1Y"
-           onclick="updateYearly()" 
-           class='bg3' />
+           onclick="updateYearly()"
+           id = "bg3"
+           class='bg3_off' />
            <a>&nbsp;&nbsp;</a>
     <input 
            type="button" 
            value="YTD"
-           onclick="updateYTD()" 
-           class='bg4' />
+           onclick="updateYTD()"
+           id = "bg4"
+           class='bg4_off' />
            <a>&nbsp;&nbsp;</a>
 
     <input 
            type="button" 
            value="6M"
-           onclick="update6M()" 
-           class='bg5' />
+           onclick="update6M()"
+           id = "bg5" 
+           class='bg5_off' />
            <a>&nbsp;&nbsp;</a>
 
     <input  
            type="button" 
            value="1M" 
-           onclick="updateMonthly()" 
-           class='bg6'/>
+           onclick="updateMonthly()"
+           id = "bg6"
+           class='bg6_off'/>
            <a>&nbsp;&nbsp;</a>
 
     <input 
           type="button" 
           value="1W" 
           onclick="updateWeekly()"
-          class='bg7' />
+          id = "bg7"
+          class='bg7_off' />
           <a>&nbsp;&nbsp;</a>
   <!-- <button id="myBtn" class = "button-4">...</button> -->
   <div class="dropdown" style="float:right;">
@@ -1980,20 +1991,13 @@ d3.csv("Indexes.csv", function(error, data) {
 // ** UpDate data section (Called from the onclick)
 function updateAllTime() {
     // Get the data again
-    let bg1 = document.querySelector(".bg1");
-    bg1.style.borderBottom = "2px solid black";
-    let bg2 = document.querySelector(".bg2");
-    bg2.style.borderBottom = "2px solid white";
-    let bg3 = document.querySelector(".bg3");
-    bg3.style.borderBottom = "2px solid white";
-    let bg4 = document.querySelector(".bg4");
-    bg4.style.borderBottom = "2px solid white";
-    let bg5 = document.querySelector(".bg5");
-    bg5.style.borderBottom = "2px solid white";
-    let bg6 = document.querySelector(".bg6");
-    bg6.style.borderBottom = "2px solid white";
-    let bg7 = document.querySelector(".bg7");
-    bg7.style.borderBottom = "2px solid white";
+    document.getElementById("bg1").className = "bg1_on";
+    document.getElementById("bg2").className = "bg2_off";
+    document.getElementById("bg3").className = "bg3_off";
+    document.getElementById("bg4").className = "bg4_off";
+    document.getElementById("bg5").className = "bg5_off";
+    document.getElementById("bg6").className = "bg6_off";
+    document.getElementById("bg7").className = "bg7_off";
 
     time_frame = 'All Time'
     d3.csv("Indexes.csv", function(error, data) {
@@ -2086,20 +2090,13 @@ function updateAllTime() {
 function update3Y() {
     // let button_graph_h = document.querySelector(".button_graph:hover");
     // button_graph_h.style.borderBottom = "2px solid black";
-    let bg1 = document.querySelector(".bg1");
-    bg1.style.borderBottom = "2px solid white";
-    let bg2 = document.querySelector(".bg2");
-    bg2.style.borderBottom = "2px solid black";
-    let bg3 = document.querySelector(".bg3");
-    bg3.style.borderBottom = "2px solid white";
-    let bg4 = document.querySelector(".bg4");
-    bg4.style.borderBottom = "2px solid white";
-    let bg5 = document.querySelector(".bg5");
-    bg5.style.borderBottom = "2px solid white";
-    let bg6 = document.querySelector(".bg6");
-    bg6.style.borderBottom = "2px solid white";
-    let bg7 = document.querySelector(".bg7");
-    bg7.style.borderBottom = "2px solid white";
+    document.getElementById("bg1").className = "bg1_off";
+    document.getElementById("bg2").className = "bg2_on";
+    document.getElementById("bg3").className = "bg3_off";
+    document.getElementById("bg4").className = "bg4_off";
+    document.getElementById("bg5").className = "bg5_off";
+    document.getElementById("bg6").className = "bg6_off";
+    document.getElementById("bg7").className = "bg7_off";
     time_frame = '3Y'
     // Get the data again
     // setTimeout(function(){
@@ -2208,20 +2205,13 @@ function update3Y() {
 }
 // ** UpDate data section (Called from the onclick)
 function updateYearly() {
-  let bg1 = document.querySelector(".bg1");
-  bg1.style.borderBottom = "2px solid white";
-  let bg2 = document.querySelector(".bg2");
-  bg2.style.borderBottom = "2px solid white";
-  let bg3 = document.querySelector(".bg3");
-  bg3.style.borderBottom = "2px solid black";
-  let bg4 = document.querySelector(".bg4");
-  bg4.style.borderBottom = "2px solid white";
-  let bg5 = document.querySelector(".bg5");
-  bg5.style.borderBottom = "2px solid white";
-  let bg6 = document.querySelector(".bg6");
-  bg6.style.borderBottom = "2px solid white";
-  let bg7 = document.querySelector(".bg7");
-  bg7.style.borderBottom = "2px solid white";
+  document.getElementById("bg1").className = "bg1_off";
+  document.getElementById("bg2").className = "bg2_off";
+  document.getElementById("bg3").className = "bg3_on";
+  document.getElementById("bg4").className = "bg4_off";
+  document.getElementById("bg5").className = "bg5_off";
+  document.getElementById("bg6").className = "bg6_off";
+  document.getElementById("bg7").className = "bg7_off";
   time_frame = '1Y'
   // Get the data again
   d3.csv("Indexes.csv", function(error, data) {
@@ -2340,20 +2330,13 @@ function updateYearly() {
 }
 
 function updateYTD() {
-let bg1 = document.querySelector(".bg1");
-bg1.style.borderBottom = "2px solid white";
-let bg2 = document.querySelector(".bg2");
-bg2.style.borderBottom = "2px solid white";
-let bg3 = document.querySelector(".bg3");
-bg3.style.borderBottom = "2px solid white";
-let bg4 = document.querySelector(".bg4");
-bg4.style.borderBottom = "2px solid black";
-let bg5 = document.querySelector(".bg5");
-bg5.style.borderBottom = "2px solid white";
-let bg6 = document.querySelector(".bg6");
-bg6.style.borderBottom = "2px solid white";
-let bg7 = document.querySelector(".bg7");
-bg7.style.borderBottom = "2px solid white";
+document.getElementById("bg1").className = "bg1_off";
+document.getElementById("bg2").className = "bg2_off";
+document.getElementById("bg3").className = "bg3_off";
+document.getElementById("bg4").className = "bg4_on";
+document.getElementById("bg5").className = "bg5_off";
+document.getElementById("bg6").className = "bg6_off";
+document.getElementById("bg7").className = "bg7_off";
 time_frame = 'YTD'
 // Get the data again
 d3.csv("Indexes.csv", function(error, data) {
@@ -2469,20 +2452,13 @@ var svg = d3.select("body").transition();
 }
 
 function update6M() {
-let bg1 = document.querySelector(".bg1");
-bg1.style.borderBottom = "2px solid white";
-let bg2 = document.querySelector(".bg2");
-bg2.style.borderBottom = "2px solid white";
-let bg3 = document.querySelector(".bg3");
-bg3.style.borderBottom = "2px solid white";
-let bg4 = document.querySelector(".bg4");
-bg4.style.borderBottom = "2px solid white";
-let bg5 = document.querySelector(".bg5");
-bg5.style.borderBottom = "2px solid black";
-let bg6 = document.querySelector(".bg6");
-bg6.style.borderBottom = "2px solid white";
-let bg7 = document.querySelector(".bg7");
-bg7.style.borderBottom = "2px solid white";
+document.getElementById("bg1").className = "bg1_off";
+document.getElementById("bg2").className = "bg2_off";
+document.getElementById("bg3").className = "bg3_off";
+document.getElementById("bg4").className = "bg4_off";
+document.getElementById("bg5").className = "bg5_on";
+document.getElementById("bg6").className = "bg6_off";
+document.getElementById("bg7").className = "bg7_off";
     time_frame = '6M'
     // Get the data again
     d3.csv("Indexes.csv", function(error, data) {
@@ -2583,20 +2559,13 @@ bg7.style.borderBottom = "2px solid white";
     });
 }
 function updateMonthly() {
-let bg1 = document.querySelector(".bg1");
-bg1.style.borderBottom = "2px solid white";
-let bg2 = document.querySelector(".bg2");
-bg2.style.borderBottom = "2px solid white";
-let bg3 = document.querySelector(".bg3");
-bg3.style.borderBottom = "2px solid white";
-let bg4 = document.querySelector(".bg4");
-bg4.style.borderBottom = "2px solid white";
-let bg5 = document.querySelector(".bg5");
-bg5.style.borderBottom = "2px solid white";
-let bg6 = document.querySelector(".bg6");
-bg6.style.borderBottom = "2px solid black";
-let bg7 = document.querySelector(".bg7");
-bg7.style.borderBottom = "2px solid white";
+document.getElementById("bg1").className = "bg1_off";
+document.getElementById("bg2").className = "bg2_off";
+document.getElementById("bg3").className = "bg3_off";
+document.getElementById("bg4").className = "bg4_off";
+document.getElementById("bg5").className = "bg5_off";
+document.getElementById("bg6").className = "bg6_on";
+document.getElementById("bg7").className = "bg7_off";
 time_frame = '1M'
 // Get the data again
 d3.csv("Indexes.csv", function(error, data) {
@@ -2698,20 +2667,13 @@ var svg = d3.select("body").transition();
 }
 
 function updateWeekly() {
-// let bg1 = document.querySelector(".bg1");
-// bg1.style.borderBottom = "2px solid white";
-// let bg2 = document.querySelector(".bg2");
-// bg2.style.borderBottom = "2px solid white";
-// let bg3 = document.querySelector(".bg3");
-// bg3.style.borderBottom = "2px solid white";
-// let bg4 = document.querySelector(".bg4");
-// bg4.style.borderBottom = "2px solid white";
-// let bg5 = document.querySelector(".bg5");
-// bg5.style.borderBottom = "2px solid white";
-// let bg6 = document.querySelector(".bg6");
-// bg6.style.borderBottom = "2px solid white";
-// let bg7 = document.querySelector(".bg7");
-// bg7.style.borderBottom = "2px solid black";
+document.getElementById("bg1").className = "bg1_off";
+document.getElementById("bg2").className = "bg2_off";
+document.getElementById("bg3").className = "bg3_off";
+document.getElementById("bg4").className = "bg4_off";
+document.getElementById("bg5").className = "bg5_off";
+document.getElementById("bg6").className = "bg6_off";
+document.getElementById("bg7").className = "bg7_on";
 time_frame = '1W'
 // Get the data again
 d3.csv("Indexes.csv", function(error, data) {
