@@ -409,15 +409,22 @@ path {
 .container-fluid{
   width:80%;
 }
+/* table {
+    table-layout: fixed;
+    word-wrap: break-word;
+    display:table;
+} */
 .table-design{
   margin:0%;
   margin-bottom: 0%;
   margin-top:0%;
-  white-space: nowrap;
-  max-width: 1455px;
+  margin-left: 10%;
+  max-width: 1450px;
   width:100%;
-
-  /* white-space: nowrap; */
+}
+.table-design thead tbody{
+  width: 100%;
+  display:table;
 }
 .table-design thead th:first-child, td:first-child
 {
@@ -442,6 +449,9 @@ path {
   border-radius: 20px;
   border: 6px solid transparent;
   background-clip: content-box;
+}
+.col-sm-12{
+  width: 83.3%
 }
 .mouseOverlay {
         fill: none;
@@ -3113,7 +3123,7 @@ SOFTWARE. -->
 
     <!-- Top Navigation Menu -->
     <div class="topnav">
-      <a href="#home" class="active" onclick="myDropdown()">Already Listed Companies</a>
+      <a href="#home" class="active" onclick="myDropdown()">&lt; 6 Months Since Listing</a>
       <div id="myLinks">
         <a href="https://robinhood.com/us/en/" style = "vertical-align: middle;" class = "future_comps"><div class="parallelogram"></div>Robinhood</a>
         <a href="https://blend.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Blend</a>
