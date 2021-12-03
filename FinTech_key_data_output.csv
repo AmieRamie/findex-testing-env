@@ -4,13 +4,13 @@ Blackline,BL,B2B SaaS,104.23,6.1,21.7,80.4,15.0,-21.6
 Intapp Inc.,INTA,B2B SaaS,25.44,1.6,14.9,65.3,7.1,-7.0
 Xero,XROLF,B2B SaaS,100.5,15.9,18.2,86.0,16.4,-4.8
 Adyen,ADYEY,Payments,26.58,81.7,37.1,13.8,16.9,-42.2
-Affirm,AFRM,Banking/Lending,113.58,32.8,70.8,49.6,37.7,21.0
+Affirm,AFRM,Banking/Lending,113.58,32.8,70.8,49.6,34.7,21.0
 Alkami Technology,ALKT,B2B SaaS,26.74,2.4,52.5,52.8,14.5,-37.8
 Bill.com,BILL,B2B SaaS,248.78,25.8,51.2,74.2,80.7,84.6
 Bright Health,BHG,Insurance,3.32,2.1,330.2,13.3,0.3,-79.8
 Coinbase,COIN,Wealth/Asset Mgmt,295.16,77.1,143.8,100.0,11.0,-10.3
 Billtrust,BTRS,Payments,6.95,1.1,12.6,70.0,6.4,-56.9
-Clover Health,CLOV,Insurance,4.48,2.1,51.7,14.4,1.4,-73.3
+Clover Health,CLOV,Insurance,4.48,2.1,51.7,14.4,1.3,-73.3
 Compass,COMP,PropTech,8.65,3.4,55.9,94.3,0.5,-57.1
 dLocal,DLO,Payments,32.23,9.6,88.4,57.7,45.8,0.0
 Duck Creek,DCT,B2B SaaS,27.64,3.7,23.0,57.7,12.7,-35.9
@@ -28,10 +28,10 @@ MercadoLibre,MELI,Payments,1110.01,55.7,73.0,51.2,9.0,-34.1
 MetroMile,MILE,Insurance,2.3,0.3,3.0,-8.4,1.9,-85.1
 nCino,NCNO,Banking/Lending,59.4,5.7,47.8,56.9,20.5,-18.4
 OpenDoor,OPEN,PropTech,14.63,8.9,83.5,8.6,3.0,-36.3
-Oscar Health,OSCR,Insurance,8.76,1.8,21.6,20.9,0.2,-75.3
+Oscar Health,OSCR,Insurance,8.76,1.8,21.6,20.9,0.1,-75.3
 PagSeguro,PAGS,Payments,24.84,8.2,19.8,43.6,0.8,-56.3
 Paymentus,PAY,Payments,28.59,3.5,28.0,30.7,8.8,-0.5
-Payoneer,PAYO,Payments,7.48,2.5,8.8,71.9,5.1,-27.5
+Payoneer,PAYO,Payments,7.48,2.5,8.8,71.9,4.9,-27.5
 Paypal,PYPL,Payments,180.1,210.7,20.7,46.6,8.4,-23.4
 Q2 Holdings,QTWO,B2B SaaS,75.61,4.3,27.7,43.6,10.1,-39.9
 Redfin,RDFN,PropTech,38.02,4.0,13.6,26.2,3.3,-44.4
@@ -46,6 +46,6 @@ MoneyLion,ML,Banking/Lending,3.98,0.9,36.5,62.9,8.2,-64.8
 FleetCor,FLT,Payments,203.04,16.3,8.8,78.8,7.8,-26.4
 Virtu Financial Inc,VIRT,Wealth/Asset Mgmt,27.63,3.2,123.1,63.6,0.4,13.0
 Lightspeed POS Inc.,LSPD,Payments,45.83,7.0,83.8,57.0,15.0,-33.4
-OlO,OLO,Payments,23.4,3.6,94.2,81.0,22.4,-32.6
+OlO,OLO,Payments,23.4,3.6,94.2,81.0,21.1,-32.6
 LoanDepot,LDI,Banking/Lending,4.67,1.4,217.7,95.5,2.5,-78.1
-Doma,DOMA,PropTech,5.88,1.9,14.4,38.6,3.3,-42.9
+Doma,DOMA,PropTech,5.88,1.9,14.4,38.6,3.0,-42.9
