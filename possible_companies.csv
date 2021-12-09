@@ -1,51 +1,51 @@
 ,ticker,vertical,type
-0,AVLR,B2B SaaS,IPO
-1,BL,B2B SaaS,IPO
-2,INTA,B2B SaaS,IPO
-3,XROLF,B2B SaaS,IPO
-4,ADYEY,Payments,IPO
-5,AFRM,Banking/Lending,IPO
-6,ALKT,B2B SaaS,IPO
-7,BILL,B2B SaaS,IPO
-8,BHG,Insurance,IPO
+0,ADYEY,Payments,IPO
+1,AFRM,Banking/Lending,IPO
+2,ALKT,B2B SaaS,IPO
+3,AVLR,B2B SaaS,IPO
+4,BILL,B2B SaaS,IPO
+5,BTRS,Payments,SPAC
+6,BL,B2B SaaS,IPO
+7,BHG,Insurance,IPO
+8,CLOV,Insurance,SPAC
 9,COIN,Wealth/Asset Mgmt,DL
-10,BTRS,Payments,SPAC
-11,CLOV,Insurance,SPAC
-12,COMP,PropTech,IPO
-13,DLO,Payments,IPO
-14,DCT,B2B SaaS,IPO
-15,ENV,B2B SaaS,IPO
-16,EVER,Insurance,IPO
+10,COMP,PropTech,IPO
+11,DLO,Payments,IPO
+12,DOMA,PropTech,SPAC
+13,DCT,B2B SaaS,IPO
+14,ENV,B2B SaaS,IPO
+15,EVER,Insurance,IPO
+16,FLT,Payments,IPO
 17,FLYW,Payments,IPO
 18,FCH.L,Banking/Lending,IPO
 19,GDOT,Banking/Lending,IPO
 20,HIPO,Insurance,SPAC
-21,KPLT,Banking/Lending,SPAC
-22,LMND,Insurance,IPO
-23,LU,Payments,IPO
-24,MQ,Payments,IPO
-25,MELI,Payments,IPO
-26,MILE,Insurance,SPAC
-27,NCNO,Banking/Lending,IPO
-28,OPEN,PropTech,SPAC
-29,OSCR,Insurance,IPO
-30,PAGS,Payments,IPO
-31,PAY,Payments,IPO
-32,PAYO,Payments,SPAC
-33,PYPL,Payments,IPO
-34,QTWO,B2B SaaS,IPO
-35,RDFN,PropTech,IPO
-36,ROOT,Insurance,IPO
-37,SEZNL,Banking/Lending,IPO
-38,SHOP,Payments,IPO
-39,SOFI,Banking/Lending,SPAC
-40,SQ,Payments,IPO
-41,STNE,Payments,IPO
-42,UPST,Banking/Lending,IPO
-43,ML,Banking/Lending,SPAC
-44,FLT,Payments,IPO
-45,VIRT,Wealth/Asset Mgmt,IPO
-46,LSPD,Payments,IPO
-47,OLO,Payments,IPO
-48,LDI,Banking/Lending,IPO
-49,DOMA,PropTech,SPAC
+21,INTA,B2B SaaS,IPO
+22,KPLT,Banking/Lending,SPAC
+23,LMND,Insurance,IPO
+24,LSPD,Payments,IPO
+25,LDI,Banking/Lending,IPO
+26,LU,Payments,IPO
+27,MQ,Payments,IPO
+28,MELI,Payments,IPO
+29,MILE,Insurance,SPAC
+30,ML,Banking/Lending,SPAC
+31,NCNO,Banking/Lending,IPO
+32,OLO,Payments,IPO
+33,OPEN,PropTech,SPAC
+34,OSCR,Insurance,IPO
+35,PAGS,Payments,IPO
+36,PAY,Payments,IPO
+37,PAYO,Payments,SPAC
+38,PYPL,Payments,IPO
+39,QTWO,B2B SaaS,IPO
+40,RDFN,PropTech,IPO
+41,ROOT,Insurance,IPO
+42,SEZNL,Banking/Lending,IPO
+43,SHOP,Payments,IPO
+44,SOFI,Banking/Lending,SPAC
+45,SQ,Payments,IPO
+46,STNE,Payments,IPO
+47,UPST,Banking/Lending,IPO
+48,VIRT,Wealth/Asset Mgmt,IPO
+49,XROLF,B2B SaaS,IPO
