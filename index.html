@@ -495,7 +495,7 @@ path {
 .top_line{margin-top: 3.5%; margin-bottom: 1.5%;display: flex; align-items: center;}
 .site_redirect{font-family: "Nantes",serif; font-weight: 550; margin-left:auto; color:#eee;display: table-cell; font-size: 1.8rem;}
 .redirect_text{color:#eee;}
-.fprime-logo-gray-bg{margin-left: -1.5%;width:230px;display: table-cell;}
+.fprime-logo-gray-bg{margin-left: -1.5%;width:220px;display: table-cell;}
 .ft__h{color: #eee;font-family: "Nantes",serif;font-size: 3.5vw;}
 .ft__description{color: #eee;font-weight: 400;}
 .ft__intro-main{margin-left: 20%;display: table-cell;width: 35%;vertical-align: middle; padding-left:0%;align-items:center;}
@@ -1648,6 +1648,8 @@ var i = bisectDate(dataValues, x0, 1),
   // focus.select(".tooltip-emcloud").text(formatValue((d.EMCLOUD*100).toFixed(1))+"%");
 }
 var new_ft;
+var performances;
+var new_ft_mcs;
 var proper_tickers;
 var possible_companies;
     d3.csv("possible_companies.csv", function(possible_comps){
@@ -1658,7 +1660,21 @@ var ft_companies;
 d3.csv("normalized_ft_comps.csv", function(ft_comps){
       ft_companies=ft_comps;
       });
-
+var ft_market_caps;
+d3.csv("market_cap.csv", function(ft_mcs){
+    ft_market_caps=ft_mcs;
+      });
+const reducer = (accumulator, curr) => accumulator + curr;
+var mc_sum;
+var items = []
+const produceAndAdd = (arr1 = [], arr2 = []) => {
+  let arr_mult = [];
+  for(let i=0; i < arr1.length; i++) {
+      const product = (arr1[i] * arr2[i]);
+      arr_mult.push(product);
+  };
+  return arr_mult;
+};
 const average = (array) => (array.length>0)?array.reduce((a, b) => a + b) / array.length:undefined;
 
 var time_frame = 'All Time'
@@ -1822,12 +1838,13 @@ d3.csv("Indexes.csv", function(error, data) {
         // d.EMCLOUD = +d.EMCLOUD;
     });
     // Scale the range of the data
+    
     x.domain(d3.extent(data, function(d) { return d.Date; }));
     if (window.innerWidth<780){
-      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.4]);
+      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.6]);
     }
     else{
-      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.2]);
+      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.4]);
     }
     document.getElementById("fintechValueJS").innerHTML = ((data[data.length-1].Fintech*100)<0?"":"+") + (data[data.length-1].Fintech*100).toFixed(1); 
     document.getElementById("faangValueJS").innerHTML = ((data[data.length-1].FAANG*100)<0?"":"+") + (data[data.length-1].FAANG*100).toFixed(1);
@@ -1840,6 +1857,7 @@ d3.csv("Indexes.csv", function(error, data) {
     FAANGVar = data.FAANG;
     NASDAQVar = data.NASDAQ;
     SNP500VAR = data.SNP500;
+    
     // EMCLOUDVAR = data.EMCLOUD;
     // Add the valueline path.
     svg.append("path")
@@ -2032,26 +2050,51 @@ function updateAllTime() {
 	    });
       console.log(removeVerticals)
       console.log(removeType)
+      // console.log(possible_companies)
       var possible_comps_filtered = possible_companies.filter(function (el) {
         return (removeType.indexOf(el.type) < 0)&(removeVerticals.indexOf(el.vertical) < 0); 
       });
       proper_tickers = possible_comps_filtered.map(a => a.ticker)
       console.log(proper_tickers)
-      new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+      // console.log(data)
+      //!!!Market Cap Weighting Index!!!
+      new_ft_mcs = ft_market_caps.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){(i.length>0) ? mc_sum = i.reduce(reducer): mc_sum = 1; return i.map(function(j){return j/mc_sum})})
+      performances = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i)-1)})
+      console.log(new_ft_mcs)
+      console.log(ft_market_caps)
+      console.log(performances)
+      console.log(ft_companies)
+      items = []
+      for (index = 0; index < performances.length; index++) {
+        items.push(produceAndAdd(performances[index],new_ft_mcs[index]))
+        if (index == 1670){
+          console.log(performances[index])
+          console.log(new_ft_mcs[index])
+          console.log(produceAndAdd(performances[index],new_ft_mcs[index]))
+        }
+      }
+      console.log(items)
+      new_ft = items.map(function(i){(i.length>0) ? mc_sum = i.reduce(reducer): mc_sum = NaN; return mc_sum})
+      // console.log(new_ft.reduce(function(a,i){return a*new_ft_mcs[i]},0))
       // console.log(new_ft);
+
+      //!!!Equal Weighting Index!!!
+      // new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+      
       for(var i = 0; i < new_ft.length; i += 1) {
         data[i].Fintech = new_ft[i];
       }
+      // console.log(data)
       // var today = new Date();
       // today.setFullYear(today.getFullYear()-3);
       // console.log(today.toLocaleDateString())
     	// Scale the range of the data again 
     	x.domain(d3.extent(data, function(d) { return d.Date; }));
       if (window.innerWidth<780){
-        y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.4]);
+        y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.6]);
       }
       else{
-        y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.2]);
+        y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.4]);
       }
       
       document.getElementById("fintechValueJS").innerHTML = ((data[data.length-1].Fintech*100)<0?"":"+") + (data[data.length-1].Fintech*100).toFixed(1); 
@@ -2136,9 +2179,21 @@ function update3Y() {
       });
       proper_tickers = possible_comps_filtered.map(a => a.ticker)
       // console.log(proper_tickers)
-      new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
       
-      console.log(new_ft);
+      //!!!Market Cap Weighting Index!!!
+      new_ft_mcs = ft_market_caps.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){(i.length>0) ? mc_sum = i.reduce(reducer): mc_sum = 1; return i.map(function(j){return j/mc_sum})})
+      performances = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))})
+      items = []
+      for (index = 0; index < performances.length; index++) {
+        items.push(produceAndAdd(performances[index],new_ft_mcs[index]))
+      }
+      new_ft = items.map(function(i){(i.length>0) ? mc_sum = i.reduce(reducer): mc_sum = NaN; return mc_sum})
+      // console.log(new_ft.reduce(function(a,i){return a*new_ft_mcs[i]},0))
+      // console.log(new_ft);
+
+      //!!!Equal Weighting Index!!!
+      // new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+      
       for(var i = 0; i < new_ft.length; i += 1) {
         data[i].Fintech = new_ft[i];
       }
@@ -2152,6 +2207,7 @@ function update3Y() {
       var data = data.filter(function (el) {
         return el.Date > dateTresh;
       });
+      console.log(data)
       var first_ft_val = data[0].Fintech
       var first_faang_val = data[0].FAANG
       var first_nasdaq_val = data[0].NASDAQ
@@ -2248,8 +2304,21 @@ function updateYearly() {
           return (removeType.indexOf(el.type) < 0)&(removeVerticals.indexOf(el.vertical) < 0); 
         });
         proper_tickers = possible_comps_filtered.map(a => a.ticker)
-        new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+
+        //!!!Market Cap Weighting Index!!!
+        new_ft_mcs = ft_market_caps.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){(i.length>0) ? mc_sum = i.reduce(reducer): mc_sum = 1; return i.map(function(j){return j/mc_sum})})
+        performances = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))})
+        items = []
+        for (index = 0; index < performances.length; index++) {
+          items.push(produceAndAdd(performances[index],new_ft_mcs[index]))
+        }
+        new_ft = items.map(function(i){(i.length>0) ? mc_sum = i.reduce(reducer)-1: mc_sum = NaN; return mc_sum})
+        // console.log(new_ft.reduce(function(a,i){return a*new_ft_mcs[i]},0))
         // console.log(new_ft);
+
+        //!!!Equal Weighting Index!!!
+        // new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+        
         for(var i = 0; i < new_ft.length; i += 1) {
           data[i].Fintech = new_ft[i];
         }
@@ -2373,8 +2442,21 @@ d3.csv("Indexes.csv", function(error, data) {
         return (removeType.indexOf(el.type) < 0)&(removeVerticals.indexOf(el.vertical) < 0); 
       });
       proper_tickers = possible_comps_filtered.map(a => a.ticker)
-      new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+
+      //!!!Market Cap Weighting Index!!!
+      new_ft_mcs = ft_market_caps.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){(i.length>0) ? mc_sum = i.reduce(reducer): mc_sum = 1; return i.map(function(j){return j/mc_sum})})
+      performances = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))})
+      items = []
+      for (index = 0; index < performances.length; index++) {
+        items.push(produceAndAdd(performances[index],new_ft_mcs[index]))
+      }
+      new_ft = items.map(function(i){(i.length>0) ? mc_sum = i.reduce(reducer) - 1: mc_sum = NaN; return mc_sum})
+      // console.log(new_ft.reduce(function(a,i){return a*new_ft_mcs[i]},0))
       // console.log(new_ft);
+
+      //!!!Equal Weighting Index!!!
+      // new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+      
       for(var i = 0; i < new_ft.length; i += 1) {
         data[i].Fintech = new_ft[i];
       }
@@ -2495,8 +2577,21 @@ document.getElementById("bg7").className = "bg7_off";
         return (removeType.indexOf(el.type) < 0)&(removeVerticals.indexOf(el.vertical) < 0); 
       });
       proper_tickers = possible_comps_filtered.map(a => a.ticker)
-      new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+
+      //!!!Market Cap Weighting Index!!!
+      new_ft_mcs = ft_market_caps.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){(i.length>0) ? mc_sum = i.reduce(reducer): mc_sum = 1; return i.map(function(j){return j/mc_sum})})
+      performances = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))})
+      items = []
+      for (index = 0; index < performances.length; index++) {
+        items.push(produceAndAdd(performances[index],new_ft_mcs[index]))
+      }
+      new_ft = items.map(function(i){(i.length>0) ? mc_sum = i.reduce(reducer) - 1: mc_sum = NaN; return mc_sum})
+      // console.log(new_ft.reduce(function(a,i){return a*new_ft_mcs[i]},0))
       // console.log(new_ft);
+
+      //!!!Equal Weighting Index!!!
+      // new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+      
       for(var i = 0; i < new_ft.length; i += 1) {
         data[i].Fintech = new_ft[i];
       }
@@ -2602,8 +2697,21 @@ d3.csv("Indexes.csv", function(error, data) {
         return (removeType.indexOf(el.type) < 0)&(removeVerticals.indexOf(el.vertical) < 0); 
       });
       proper_tickers = possible_comps_filtered.map(a => a.ticker)
-      new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+
+      //!!!Market Cap Weighting Index!!!
+      new_ft_mcs = ft_market_caps.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){(i.length>0) ? mc_sum = i.reduce(reducer): mc_sum = 1; return i.map(function(j){return j/mc_sum})})
+      performances = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))})
+      items = []
+      for (index = 0; index < performances.length; index++) {
+        items.push(produceAndAdd(performances[index],new_ft_mcs[index]))
+      }
+      new_ft = items.map(function(i){(i.length>0) ? mc_sum = i.reduce(reducer) - 1: mc_sum = NaN; return mc_sum})
+      // console.log(new_ft.reduce(function(a,i){return a*new_ft_mcs[i]},0))
       // console.log(new_ft);
+
+      //!!!Equal Weighting Index!!!
+      // new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+      
       for(var i = 0; i < new_ft.length; i += 1) {
         data[i].Fintech = new_ft[i];
       }
@@ -2711,8 +2819,21 @@ d3.csv("Indexes.csv", function(error, data) {
         return (removeType.indexOf(el.type) < 0)&(removeVerticals.indexOf(el.vertical) < 0); 
       });
       proper_tickers = possible_comps_filtered.map(a => a.ticker)
-      new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+
+      //!!!Market Cap Weighting Index!!!
+      new_ft_mcs = ft_market_caps.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){(i.length>0) ? mc_sum = i.reduce(reducer): mc_sum = 1; return i.map(function(j){return j/mc_sum})})
+      performances = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))})
+      items = []
+      for (index = 0; index < performances.length; index++) {
+        items.push(produceAndAdd(performances[index],new_ft_mcs[index]))
+      }
+      new_ft = items.map(function(i){(i.length>0) ? mc_sum = i.reduce(reducer) - 1: mc_sum = NaN; return mc_sum})
+      // console.log(new_ft.reduce(function(a,i){return a*new_ft_mcs[i]},0))
       // console.log(new_ft);
+
+      //!!!Equal Weighting Index!!!
+      // new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+      
       for(var i = 0; i < new_ft.length; i += 1) {
         data[i].Fintech = new_ft[i];
       }
