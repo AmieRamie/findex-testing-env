@@ -285,7 +285,7 @@ table {
   margin-top: -1%
 }
 
-.faang-dot {
+.EMCLOUD-dot {
   height: 15px;
   width: 15px;
   background-color: #5B56EE;
@@ -294,7 +294,7 @@ table {
   margin-top: 10%
 }
 
-.faang-text{
+.EMCLOUD-text{
   display: block;
   margin-left: 52%;
   margin-top: -1%;
@@ -559,7 +559,7 @@ path {
   width: 100%;
 }
 .index-numbers-fintech{color: #5B56EE; width:15%}
-.index-numbers-faang{color: #A6D0D8;}
+.index-numbers-EMCLOUD{color: #A6D0D8;}
 .index-numbers-nasdaq{color: #1F1F1F;}
 .index-numbers-snp500{color: #FC714D;}
 .index-numbers-emcloud{color: #A9A9A9;}
@@ -572,7 +572,7 @@ path {
 .legend span { border: 0px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px; }
 /* your colors */
 .legend .fintech_legend { background-color: #5B56EE; border-radius: 50%;}
-.legend .faang_legend { background-color: #A6D0D8; border-radius: 50%;}
+.legend .EMCLOUD_legend { background-color: #A6D0D8; border-radius: 50%;}
 .legend .nasdaq_legend { background-color: #1F1F1F; border-radius: 50%;}
 .legend .snp500_legend { background-color: #FC714D; border-radius: 50%;}
 .legend .emcloud_legend { background-color: #A9A9A9; border-radius: 50%;}
@@ -631,7 +631,7 @@ path {
     font-weight: bold;
     fill: #5B56EE;
 }
-.focus .tooltip-faang{
+.focus .tooltip-EMCLOUD{
     font-weight: bold;
     fill: #A6D0D8;
 }
@@ -798,7 +798,7 @@ path {
 .ft__intro-main{margin-left: 10%;display: table-cell;width: 100%;vertical-align: middle; padding-left:0%;align-items:center;}
 .ft__intro-figure{width:55%; height: 55%; margin-left:20%; display:table-cell; vertical-align: middle;top:50%;object-fit: cover;}
 .index-numbers-fintech{color: #5B56EE;font-size: 2.7vw;}
-.index-numbers-faang{color: #A6D0D8;font-size: 2.7vw;}
+.index-numbers-EMCLOUD{color: #A6D0D8;font-size: 2.7vw;}
 .index-numbers-nasdaq{color: #1F1F1F;font-size: 2.7vw;}
 .index-numbers-snp500{color: #FC714D;font-size: 2.7vw;}
 .index-numbers-emcloud{color: #A9A9A9;font-size: 2.7vw;}
@@ -832,7 +832,7 @@ path {
     font-weight: bold;
     fill: #5B56EE;
 }
-.focus .tooltip-faang{
+.focus .tooltip-EMCLOUD{
     font-weight: bold;
     fill: #A6D0D8;
 }
@@ -1380,7 +1380,7 @@ text-align: right !important;
 <div class="indexflex">
   <!-- <span style="font-size: 150%;">+</span> -->
   <div class = "index-numbers-fintech"><span style="font-size: 120%;" id = "fintechValueJS"></span><a style="font-size: 120%;">%</a><a style="font-size: 50%;"><br>Fintech Index</a></div>
-  <div class = "index-numbers-faang"><span style="font-size: 120%;" id = "faangValueJS"></span><span style="font-size: 120%;">%</span><span style="font-size: 50%;"><br>FAANG Index</span></div>
+  <div class = "index-numbers-EMCLOUD"><span style="font-size: 120%;" id = "EMCLOUDValueJS"></span><span style="font-size: 120%;">%</span><span style="font-size: 50%;"><br>EMCLOUD Index</span></div>
   <div class = "index-numbers-nasdaq"><span style="font-size: 120%;" id = "nasdaqValueJS"></span><span style="font-size: 120%;">%</span><span style="font-size: 50%;"><br>NASDAQ</span></div>
   <div class = "index-numbers-snp500"><span style="font-size: 120%;" id = "snp500ValueJS"></span><span style="font-size: 120%;">%</span><span style="font-size: 50%;"><br>S&P 500</span></div>
   <!-- <span class = "index-numbers-emcloud"><span style="font-size: 120%;" id = "emCloudValueJS"></span><span style="font-size: 120%;">%</span>  <span style="font-size: 50%;">EMCLOUD</span></span> -->
@@ -1738,7 +1738,7 @@ var	valueline = d3.svg.line()
 //     .y(function(d) { return y(d.EMCLOUD); });
 var	valueline2 = d3.svg.line()
     .x(function(d) { return x(d.Date); })
-    .y(function(d) { return y(d.FAANG); });
+    .y(function(d) { return y(d.EMCLOUD); });
 
     var	valueline3 = d3.svg.line()
     .x(function(d) { return x(d.Date); })
@@ -1809,8 +1809,8 @@ svg
 //   var csvData = "IndexesWeekly.csv";
 // }
 // Get the data
-var dataVar, DateVar, FintechVar, FAANGVar, NASDAQVar, SNP500VAR;
-function mousemove1(dataValues, Date, Fintech, FAANG, NASDAQ, SNP500, focus,x0) {
+var dataVar, DateVar, FintechVar, EMCLOUDVar, NASDAQVar, SNP500VAR;
+function mousemove1(dataValues, Date, Fintech, EMCLOUD, NASDAQ, SNP500, focus,x0) {
 // console.log("aloha");
 // var htmlString = focus.select(".tooltip-snp")[0][0];
 // console.log(htmlString);
@@ -1822,7 +1822,7 @@ var i = bisectDate(dataValues, x0, 1),
   focus.attr("transform", "translate(" + x(d.Date) + "," + y(d.Fintech) + ")");
   focus.select(".tooltip-date").text(dateFormatter(d.Date));
   focus.select(".tooltip-fintech").text('Fintech: ' + formatValue((d.Fintech*100).toFixed(1))+"%");
-  focus.select(".tooltip-faang").text('FAANG: ' + formatValue((d.FAANG*100).toFixed(1))+"%");
+  focus.select(".tooltip-EMCLOUD").text('EMCLOUD: ' + formatValue((d.EMCLOUD*100).toFixed(1))+"%");
   focus.select(".tooltip-nasdaq").text('NASDAQ: ' + formatValue((d.NASDAQ*100).toFixed(1))+"%");
   focus.select(".tooltip-snp").text('S&P500: ' + formatValue((d.SNP500*100).toFixed(1))+"%");
   // focus.select(".tooltip-emcloud").text(formatValue((d.EMCLOUD*100).toFixed(1))+"%");
@@ -2012,7 +2012,7 @@ d3.csv("Indexes.csv", function(error, data) {
     data.forEach(function(d) {
         d.Date = parseDate(d.Date);
         d.Fintech = +d.Fintech;
-        d.FAANG = +d.FAANG;
+        d.EMCLOUD = +d.EMCLOUD;
         d.NASDAQ = +d.NASDAQ;
         d.SNP500= +d.SNP500;
         // d.EMCLOUD = +d.EMCLOUD;
@@ -2021,20 +2021,20 @@ d3.csv("Indexes.csv", function(error, data) {
     
     x.domain(d3.extent(data, function(d) { return d.Date; }));
     if (window.innerWidth<780){
-      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.6]);
+      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })*1.6]);
     }
     else{
-      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.4]);
+      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })*1.4]);
     }
     document.getElementById("fintechValueJS").innerHTML = ((data[data.length-1].Fintech*100)<0?"":"+") + (data[data.length-1].Fintech*100).toFixed(1); 
-    document.getElementById("faangValueJS").innerHTML = ((data[data.length-1].FAANG*100)<0?"":"+") + (data[data.length-1].FAANG*100).toFixed(1);
+    document.getElementById("EMCLOUDValueJS").innerHTML = ((data[data.length-1].EMCLOUD*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
     document.getElementById("nasdaqValueJS").innerHTML = ((data[data.length-1].NASDAQ*100)<0?"":"+") + (data[data.length-1].NASDAQ*100).toFixed(1);
     document.getElementById("snp500ValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].SNP500*100).toFixed(1);
     // document.getElementById("emCloudValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
     dataVar = data;
     DateVar = data.Date;
     FintechVar = data.Fintech; 
-    FAANGVar = data.FAANG;
+    EMCLOUDVar = data.EMCLOUD;
     NASDAQVar = data.NASDAQ;
     SNP500VAR = data.SNP500;
     
@@ -2120,8 +2120,8 @@ d3.csv("Indexes.csv", function(error, data) {
         .attr("style","fill: #5B56EE;").attr("x",-55).attr("y",-80);
     
 
-    var t_faang = focus.append("text")
-        .attr("class", "tooltip-faang")
+    var t_EMCLOUD = focus.append("text")
+        .attr("class", "tooltip-EMCLOUD")
         .attr("x", -55)
         .attr("y", -60)
         .attr("style","fill: #A6D0D8;");
@@ -2158,7 +2158,7 @@ d3.csv("Indexes.csv", function(error, data) {
         .attr("height", height)
         .on("mouseover", function() { focus.style('display',null); })
         .on("mouseout", function() { focus.attr("style","display: none; position: absolute;"); })
-        .on("mousemove", function(){var x0 = x.invert(d3.mouse(this)[0]); mousemove1(dataVar, DateVar, FintechVar, FAANGVar, NASDAQVar, SNP500VAR,focus,x0);});
+        .on("mousemove", function(){var x0 = x.invert(d3.mouse(this)[0]); mousemove1(dataVar, DateVar, FintechVar, EMCLOUDVar, NASDAQVar, SNP500VAR,focus,x0);});
         // .on("mousemove", mousemove);
   //   function mousemove() {
   //   var x0 = x.invert(d3.mouse(this)[0]),
@@ -2169,7 +2169,7 @@ d3.csv("Indexes.csv", function(error, data) {
   //     focus.attr("transform", "translate(" + x(d.Date) + "," + y(d.Fintech) + ")");
   //     focus.select(".tooltip-date").text(dateFormatter(d.Date));
   //     focus.select(".tooltip-fintech").text(formatValue(d.Fintech.toFixed(2)));
-  //     focus.select(".tooltip-faang").text(formatValue(d.FAANG.toFixed(2)));
+  //     focus.select(".tooltip-EMCLOUD").text(formatValue(d.EMCLOUD.toFixed(2)));
   //     focus.select(".tooltip-nasdaq").text(formatValue(d.NASDAQ.toFixed(2)));
   //     focus.select(".tooltip-snp").text(formatValue(d.SNP500.toFixed(2)));
   //     var htmlString = focus.select(".tooltip-snp")[0][0];
@@ -2177,7 +2177,7 @@ d3.csv("Indexes.csv", function(error, data) {
   // }
       function resized() {
       // if (window.innerWidth<780){
-      //   y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*2]);
+      //   y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })*2]);
       // }
       var scale = width / window.innerWidth;
       // Update SVG height to maintain aspect ratio
@@ -2194,12 +2194,12 @@ d3.csv("Indexes.csv", function(error, data) {
       t_box.attr("transform","scale(" + ((scale)>1 ? 1+(scale-1)/n : 1) + "," + ((scale)>1 ? 1+(scale-1)/n : 1) + ")");
       t_date.attr("transform","scale(" + ((scale)>1 ? 1+(scale-1)/n : 1) + "," + ((scale)>1 ? 1+(scale-1)/n : 1) + ")");
       t_ft.attr("transform","scale(" + ((scale)>1 ? 1+(scale-1)/n : 1) + "," + ((scale)>1 ? 1+(scale-1)/n : 1) + ")");
-      t_faang.attr("transform","scale(" + ((scale)>1 ? 1+(scale-1)/n : 1) + "," + ((scale)>1 ? 1+(scale-1)/n : 1) + ")");
+      t_EMCLOUD.attr("transform","scale(" + ((scale)>1 ? 1+(scale-1)/n : 1) + "," + ((scale)>1 ? 1+(scale-1)/n : 1) + ")");
       t_nasdaq.attr("transform","scale(" + ((scale)>1 ? 1+(scale-1)/n : 1) + "," + ((scale)>1 ? 1+(scale-1)/n : 1) + ")");
       t_snp.attr("transform","scale(" + ((scale)>1 ? 1+(scale-1)/n : 1) + "," + ((scale)>1 ? 1+(scale-1)/n : 1) + ")");
       // t_date.attr("y",-120-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
       // t_ft.attr("y",-100-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
-      // t_faang.attr("y",-80-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
+      // t_EMCLOUD.attr("y",-80-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
       // t_nasdaq.attr("y",-60-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
       // t_snp.attr("y",-40-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
       console.log(((scale)>1 ? 1+(scale-1)/10 : 1))
@@ -2223,7 +2223,7 @@ function updateAllTime() {
        	data.forEach(function(d) {
             d.Date = parseDate(d.Date);
             d.Fintech = +d.Fintech;
-            d.FAANG = +d.FAANG;
+            d.EMCLOUD = +d.EMCLOUD;
             d.NASDAQ = +d.NASDAQ;
             d.SNP500= +d.SNP500;
             // d.EMCLOUD = +d.EMCLOUD;
@@ -2271,21 +2271,21 @@ function updateAllTime() {
     	// Scale the range of the data again 
     	x.domain(d3.extent(data, function(d) { return d.Date; }));
       if (window.innerWidth<780){
-        y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.6]);
+        y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })*1.6]);
       }
       else{
-        y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.4]);
+        y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })*1.4]);
       }
       
       document.getElementById("fintechValueJS").innerHTML = ((data[data.length-1].Fintech*100)<0?"":"+") + (data[data.length-1].Fintech*100).toFixed(1); 
-      document.getElementById("faangValueJS").innerHTML = ((data[data.length-1].FAANG*100)<0?"":"+") + (data[data.length-1].FAANG*100).toFixed(1);
+      document.getElementById("EMCLOUDValueJS").innerHTML = ((data[data.length-1].EMCLOUD*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
       document.getElementById("nasdaqValueJS").innerHTML = ((data[data.length-1].NASDAQ*100)<0?"":"+") + (data[data.length-1].NASDAQ*100).toFixed(1);
       document.getElementById("snp500ValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].SNP500*100).toFixed(1);
       // document.getElementById("emCloudValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
       dataVar = data;
       DateVar = data.Date;
       FintechVar = data.Fintech; 
-      FAANGVar = data.FAANG;
+      EMCLOUDVar = data.EMCLOUD;
       NASDAQVar = data.NASDAQ;
       SNP500VAR = data.SNP500;
 
@@ -2349,7 +2349,7 @@ function update3Y() {
        	data.forEach(function(d) {
             d.Date = parseDate(d.Date);
             d.Fintech = +d.Fintech;
-            d.FAANG = +d.FAANG;
+            d.EMCLOUD = +d.EMCLOUD;
             d.NASDAQ = +d.NASDAQ;
             d.SNP500= +d.SNP500;
             d.EMCLOUD = +d.EMCLOUD;
@@ -2389,12 +2389,12 @@ function update3Y() {
       });
       console.log(data)
       var first_ft_val = data[0].Fintech
-      var first_faang_val = data[0].FAANG
+      var first_EMCLOUD_val = data[0].EMCLOUD
       var first_nasdaq_val = data[0].NASDAQ
       var first_snp_val = data[0].SNP500
       data.map((d) => {
         d.Fintech = ((d.Fintech+1)/(first_ft_val+1))-1
-        d.FAANG = ((d.FAANG+1)/(first_faang_val+1))-1
+        d.EMCLOUD = ((d.EMCLOUD+1)/(first_EMCLOUD_val+1))-1
         d.NASDAQ = ((d.NASDAQ+1)/(first_nasdaq_val+1))-1
         d.SNP500 = ((d.SNP500+1)/(first_snp_val+1))-1
         return data;
@@ -2404,21 +2404,21 @@ function update3Y() {
     	// Scale the range of the data again 
     	x.domain(d3.extent(data, function(d) { return d.Date; }));
       if (window.innerWidth<780){
-        y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.9]);
+        y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })*1.9]);
       }
       else{
-        y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.5]);
+        y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })*1.5]);
       }
       
       document.getElementById("fintechValueJS").innerHTML = ((data[data.length-1].Fintech*100)<0?"":"+") + (data[data.length-1].Fintech*100).toFixed(1); 
-      document.getElementById("faangValueJS").innerHTML = ((data[data.length-1].FAANG*100)<0?"":"+") + (data[data.length-1].FAANG*100).toFixed(1);
+      document.getElementById("EMCLOUDValueJS").innerHTML = ((data[data.length-1].EMCLOUD*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
       document.getElementById("nasdaqValueJS").innerHTML = ((data[data.length-1].NASDAQ*100)<0?"":"+") + (data[data.length-1].NASDAQ*100).toFixed(1);
       document.getElementById("snp500ValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].SNP500*100).toFixed(1);
       // document.getElementById("emCloudValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
       dataVar = data;
       DateVar = data.Date;
       FintechVar = data.Fintech; 
-      FAANGVar = data.FAANG;
+      EMCLOUDVar = data.EMCLOUD;
       NASDAQVar = data.NASDAQ;
       SNP500VAR = data.SNP500;
       // EMCLOUDVAR = data.EMCLOUD;
@@ -2475,7 +2475,7 @@ function updateYearly() {
         data.forEach(function(d) {
           d.Date = parseDate(d.Date);
           d.Fintech = +d.Fintech;
-          d.FAANG = +d.FAANG;
+          d.EMCLOUD = +d.EMCLOUD;
           d.NASDAQ = +d.NASDAQ;
           d.SNP500= +d.SNP500;
           // d.EMCLOUD = +d.EMCLOUD;
@@ -2513,12 +2513,12 @@ function updateYearly() {
           return el.Date > dateTresh;
         });
         var first_ft_val = data[0].Fintech
-        var first_faang_val = data[0].FAANG
+        var first_EMCLOUD_val = data[0].EMCLOUD
         var first_nasdaq_val = data[0].NASDAQ
         var first_snp_val = data[0].SNP500
         data.map((d) => {
           d.Fintech = ((d.Fintech+1)/(first_ft_val+1))-1
-          d.FAANG = ((d.FAANG+1)/(first_faang_val+1))-1
+          d.EMCLOUD = ((d.EMCLOUD+1)/(first_EMCLOUD_val+1))-1
           d.NASDAQ = ((d.NASDAQ+1)/(first_nasdaq_val+1))-1
           d.SNP500 = ((d.SNP500+1)/(first_snp_val+1))-1
           return data;
@@ -2526,21 +2526,21 @@ function updateYearly() {
       // Scale the range of the data again 
       x.domain(d3.extent(data, function(d) { return d.Date; }));
       if (window.innerWidth<780){
-        y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*2.2]);
+        y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })*2.2]);
       }
       else{
-        y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.5]);
+        y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })*1.5]);
       }
       
       document.getElementById("fintechValueJS").innerHTML = ((data[data.length-1].Fintech*100)<0?"":"+") + (data[data.length-1].Fintech*100).toFixed(1); 
-      document.getElementById("faangValueJS").innerHTML = ((data[data.length-1].FAANG*100)<0?"":"+") + (data[data.length-1].FAANG*100).toFixed(1);
+      document.getElementById("EMCLOUDValueJS").innerHTML = ((data[data.length-1].EMCLOUD*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
       document.getElementById("nasdaqValueJS").innerHTML = ((data[data.length-1].NASDAQ*100)<0?"":"+") + (data[data.length-1].NASDAQ*100).toFixed(1);
       document.getElementById("snp500ValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].SNP500*100).toFixed(1);
       // document.getElementById("emCloudValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
       dataVar = data;
       DateVar = data.Date;
       FintechVar = data.Fintech; 
-      FAANGVar = data.FAANG;
+      EMCLOUDVar = data.EMCLOUD;
       NASDAQVar = data.NASDAQ;
       SNP500VAR = data.SNP500;
       // EMCLOUDVAR = data.EMCLOUD;
@@ -2594,7 +2594,7 @@ function updateYearly() {
       //     .attr("height", height)
       //     .attr("mouseover", function() { focus.style('display',null); })
       //     .attr("mouseout", function() { focus.attr("style","display: none; position: absolute;"); })
-      //     .attr("mousemove", function(){var x0 = x.invert(d3.mouse(this)[0]); mousemove1(data, data.Date, data.Fintech, data.FAANG, data.NASDAQ, data.SNP500,focus,x0);});
+      //     .attr("mousemove", function(){var x0 = x.invert(d3.mouse(this)[0]); mousemove1(data, data.Date, data.Fintech, data.EMCLOUD, data.NASDAQ, data.SNP500,focus,x0);});
 
   });
 }
@@ -2613,7 +2613,7 @@ d3.csv("Indexes.csv", function(error, data) {
        data.forEach(function(d) {
         d.Date = parseDate(d.Date);
         d.Fintech = +d.Fintech;
-        d.FAANG = +d.FAANG;
+        d.EMCLOUD = +d.EMCLOUD;
         d.NASDAQ = +d.NASDAQ;
         d.SNP500= +d.SNP500;
         // d.EMCLOUD = +d.EMCLOUD;
@@ -2648,12 +2648,12 @@ d3.csv("Indexes.csv", function(error, data) {
         return el.Date > dateTresh;
       });
       var first_ft_val = data[0].Fintech
-      var first_faang_val = data[0].FAANG
+      var first_EMCLOUD_val = data[0].EMCLOUD
       var first_nasdaq_val = data[0].NASDAQ
       var first_snp_val = data[0].SNP500
       data.map((d) => {
         d.Fintech = ((d.Fintech+1)/(first_ft_val+1))-1
-        d.FAANG = ((d.FAANG+1)/(first_faang_val+1))-1
+        d.EMCLOUD = ((d.EMCLOUD+1)/(first_EMCLOUD_val+1))-1
         d.NASDAQ = ((d.NASDAQ+1)/(first_nasdaq_val+1))-1
         d.SNP500 = ((d.SNP500+1)/(first_snp_val+1))-1
         return data;
@@ -2661,21 +2661,21 @@ d3.csv("Indexes.csv", function(error, data) {
     // Scale the range of the data again 
     x.domain(d3.extent(data, function(d) { return d.Date; }));
     if (window.innerWidth<780){
-      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*2.2]);
+      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })*2.2]);
     }
     else{
-      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.5]);
+      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })*1.5]);
     }
     
     document.getElementById("fintechValueJS").innerHTML = ((data[data.length-1].Fintech*100)<0?"":"+") + (data[data.length-1].Fintech*100).toFixed(1); 
-    document.getElementById("faangValueJS").innerHTML = ((data[data.length-1].FAANG*100)<0?"":"+") + (data[data.length-1].FAANG*100).toFixed(1);
+    document.getElementById("EMCLOUDValueJS").innerHTML = ((data[data.length-1].EMCLOUD*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
     document.getElementById("nasdaqValueJS").innerHTML = ((data[data.length-1].NASDAQ*100)<0?"":"+") + (data[data.length-1].NASDAQ*100).toFixed(1);
     document.getElementById("snp500ValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].SNP500*100).toFixed(1);
     // document.getElementById("emCloudValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
     dataVar = data;
     DateVar = data.Date;
     FintechVar = data.Fintech; 
-    FAANGVar = data.FAANG;
+    EMCLOUDVar = data.EMCLOUD;
     NASDAQVar = data.NASDAQ;
     SNP500VAR = data.SNP500;
     // EMCLOUDVAR = data.EMCLOUD;
@@ -2729,7 +2729,7 @@ var svg = d3.select("body").transition();
     //     .attr("height", height)
     //     .attr("mouseover", function() { focus.style('display',null); })
     //     .attr("mouseout", function() { focus.attr("style","display: none; position: absolute;"); })
-    //     .attr("mousemove", function(){var x0 = x.invert(d3.mouse(this)[0]); mousemove1(data, data.Date, data.Fintech, data.FAANG, data.NASDAQ, data.SNP500,focus,x0);});
+    //     .attr("mousemove", function(){var x0 = x.invert(d3.mouse(this)[0]); mousemove1(data, data.Date, data.Fintech, data.EMCLOUD, data.NASDAQ, data.SNP500,focus,x0);});
 
 });
 }
@@ -2748,7 +2748,7 @@ document.getElementById("bg7").className = "bg7_off";
        	data.forEach(function(d) {
             d.Date = parseDate(d.Date);
             d.Fintech = +d.Fintech;
-            d.FAANG = +d.FAANG;
+            d.EMCLOUD = +d.EMCLOUD;
             d.NASDAQ = +d.NASDAQ;
             d.SNP500= +d.SNP500;
             // d.EMCLOUD = +d.EMCLOUD;
@@ -2786,12 +2786,12 @@ document.getElementById("bg7").className = "bg7_off";
         return el.Date > dateTresh;
       });
       var first_ft_val = data[0].Fintech
-      var first_faang_val = data[0].FAANG
+      var first_EMCLOUD_val = data[0].EMCLOUD
       var first_nasdaq_val = data[0].NASDAQ
       var first_snp_val = data[0].SNP500
       data.map((d) => {
         d.Fintech = ((d.Fintech+1)/(first_ft_val+1))-1
-        d.FAANG = ((d.FAANG+1)/(first_faang_val+1))-1
+        d.EMCLOUD = ((d.EMCLOUD+1)/(first_EMCLOUD_val+1))-1
         d.NASDAQ = ((d.NASDAQ+1)/(first_nasdaq_val+1))-1
         d.SNP500 = ((d.SNP500+1)/(first_snp_val+1))-1
         return data;
@@ -2799,21 +2799,21 @@ document.getElementById("bg7").className = "bg7_off";
     	// Scale the range of the data again 
     	x.domain(d3.extent(data, function(d) { return d.Date; }));
       if (window.innerWidth<780){
-        y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*3]);
+        y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })*3]);
       }
       else{
-        y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*2]);
+        y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })*2]);
       }
       
       document.getElementById("fintechValueJS").innerHTML = ((data[data.length-1].Fintech*100)<0?"":"+") + (data[data.length-1].Fintech*100).toFixed(1); 
-      document.getElementById("faangValueJS").innerHTML = ((data[data.length-1].FAANG*100)<0?"":"+") + (data[data.length-1].FAANG*100).toFixed(1);
+      document.getElementById("EMCLOUDValueJS").innerHTML = ((data[data.length-1].EMCLOUD*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
       document.getElementById("nasdaqValueJS").innerHTML = ((data[data.length-1].NASDAQ*100)<0?"":"+") + (data[data.length-1].NASDAQ*100).toFixed(1);
       document.getElementById("snp500ValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].SNP500*100).toFixed(1);
       // document.getElementById("emCloudValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
       dataVar = data;
       DateVar = data.Date;
       FintechVar = data.Fintech; 
-      FAANGVar = data.FAANG;
+      EMCLOUDVar = data.EMCLOUD;
       NASDAQVar = data.NASDAQ;
       SNP500VAR = data.SNP500;
       // EMCLOUDVAR = data.EMCLOUD;
@@ -2868,7 +2868,7 @@ d3.csv("Indexes.csv", function(error, data) {
        data.forEach(function(d) {
         d.Date = parseDate(d.Date);
         d.Fintech = +d.Fintech;
-        d.FAANG = +d.FAANG;
+        d.EMCLOUD = +d.EMCLOUD;
         d.NASDAQ = +d.NASDAQ;
         d.SNP500= +d.SNP500;
         // d.EMCLOUD = +d.EMCLOUD;
@@ -2906,12 +2906,12 @@ d3.csv("Indexes.csv", function(error, data) {
         return el.Date > dateTresh;
       });
       var first_ft_val = data[0].Fintech
-      var first_faang_val = data[0].FAANG
+      var first_EMCLOUD_val = data[0].EMCLOUD
       var first_nasdaq_val = data[0].NASDAQ
       var first_snp_val = data[0].SNP500
       data.map((d) => {
         d.Fintech = ((d.Fintech+1)/(first_ft_val+1))-1
-        d.FAANG = ((d.FAANG+1)/(first_faang_val+1))-1
+        d.EMCLOUD = ((d.EMCLOUD+1)/(first_EMCLOUD_val+1))-1
         d.NASDAQ = ((d.NASDAQ+1)/(first_nasdaq_val+1))-1
         d.SNP500 = ((d.SNP500+1)/(first_snp_val+1))-1
         return data;
@@ -2919,20 +2919,20 @@ d3.csv("Indexes.csv", function(error, data) {
     // Scale the range of the data again 
     x.domain(d3.extent(data, function(d) { return d.Date; }));
     if (window.innerWidth<780){
-      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })+.4]);
+      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })+.4]);
     }
     else{
-      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })+.3]);
+      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })+.3]);
     }
     document.getElementById("fintechValueJS").innerHTML = ((data[data.length-1].Fintech*100)<0?"":"+") + (data[data.length-1].Fintech*100).toFixed(1); 
-    document.getElementById("faangValueJS").innerHTML = ((data[data.length-1].FAANG*100)<0?"":"+") + (data[data.length-1].FAANG*100).toFixed(1);
+    document.getElementById("EMCLOUDValueJS").innerHTML = ((data[data.length-1].EMCLOUD*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
     document.getElementById("nasdaqValueJS").innerHTML = ((data[data.length-1].NASDAQ*100)<0?"":"+") + (data[data.length-1].NASDAQ*100).toFixed(1);
     document.getElementById("snp500ValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].SNP500*100).toFixed(1);
     // document.getElementById("emCloudValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
     dataVar = data;
     DateVar = data.Date;
     FintechVar = data.Fintech; 
-    FAANGVar = data.FAANG;
+    EMCLOUDVar = data.EMCLOUD;
     NASDAQVar = data.NASDAQ;
     SNP500VAR = data.SNP500;
     // EMCLOUDVAR = data.EMCLOUD;
@@ -2989,7 +2989,7 @@ d3.csv("Indexes.csv", function(error, data) {
        data.forEach(function(d) {
         d.Date = parseDate(d.Date);
         d.Fintech = +d.Fintech;
-        d.FAANG = +d.FAANG;
+        d.EMCLOUD = +d.EMCLOUD;
         d.NASDAQ = +d.NASDAQ;
         d.SNP500= +d.SNP500;
         // d.EMCLOUD = +d.EMCLOUD;
@@ -3028,12 +3028,12 @@ d3.csv("Indexes.csv", function(error, data) {
       });
       console.log(data)
       var first_ft_val = data[0].Fintech
-      var first_faang_val = data[0].FAANG
+      var first_EMCLOUD_val = data[0].EMCLOUD
       var first_nasdaq_val = data[0].NASDAQ
       var first_snp_val = data[0].SNP500
       data.map((d) => {
         d.Fintech = ((d.Fintech+1)/(first_ft_val+1))-1
-        d.FAANG = ((d.FAANG+1)/(first_faang_val+1))-1
+        d.EMCLOUD = ((d.EMCLOUD+1)/(first_EMCLOUD_val+1))-1
         d.NASDAQ = ((d.NASDAQ+1)/(first_nasdaq_val+1))-1
         d.SNP500 = ((d.SNP500+1)/(first_snp_val+1))-1
         return data;
@@ -3041,14 +3041,14 @@ d3.csv("Indexes.csv", function(error, data) {
     // Scale the range of the data again 
     x.domain(d3.extent(data, function(d) { return d.Date; }));
     if (window.innerWidth<780){
-      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.2, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })+.3]);
+      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })-.2, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })+.3]);
     }
     else{
-      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.2, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })+.2]);
+      y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })-.2, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })+.2]);
     }
     
     document.getElementById("fintechValueJS").innerHTML = ((data[data.length-1].Fintech*100)<0?"":"+") + (data[data.length-1].Fintech*100).toFixed(1); 
-    document.getElementById("faangValueJS").innerHTML = ((data[data.length-1].FAANG*100)<0?"":"+") + (data[data.length-1].FAANG*100).toFixed(1);
+    document.getElementById("EMCLOUDValueJS").innerHTML = ((data[data.length-1].EMCLOUD*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
     document.getElementById("nasdaqValueJS").innerHTML = ((data[data.length-1].NASDAQ*100)<0?"":"+") + (data[data.length-1].NASDAQ*100).toFixed(1);
     document.getElementById("snp500ValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].SNP500*100).toFixed(1);
     // document.getElementById("emCloudValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
@@ -3056,7 +3056,7 @@ d3.csv("Indexes.csv", function(error, data) {
     dataVar = data;
     DateVar = data.Date;
     FintechVar = data.Fintech; 
-    FAANGVar = data.FAANG;
+    EMCLOUDVar = data.EMCLOUD;
     NASDAQVar = data.NASDAQ;
     SNP500VAR = data.SNP500;
     // EMCLOUDVAR = data.EMCLOUD;
@@ -3115,14 +3115,14 @@ d3.csv("key_figures.csv", function(error, data2) {
 <div class="legend" id="performance">
   <div>
     <li><span class="fintech_legend"></span> Fintech</li>
-    <li><span class="faang_legend"></span> FAANG</li>
+    <li><span class="EMCLOUD_legend"></span> EMCLOUD</li>
     <li><span class="nasdaq_legend"></span> NASDAQ</li>
     <li><span class="snp500_legend"></span> S&P500</li>
   </div>
 </div>
 <!-- <ul class="legend" id="performance">
   <li><span class="fintech_legend"></span> Fintech</li>
-  <li><span class="faang_legend"></span> FAANG</li>
+  <li><span class="EMCLOUD_legend"></span> EMCLOUD</li>
   <li><span class="nasdaq_legend"></span> NASDAQ</li>
   <li><span class="snp500_legend"></span> S&P500</li>
 </ul> -->
@@ -3156,7 +3156,7 @@ var valueline2 = d3.line()
 
 var valueline3 = d3.line()
     .x(function(d) { return x(d.Date); })
-    .y(function(d) { return y(d.FAANG); });
+    .y(function(d) { return y(d.EMCLOUD); });
 
 var valueline4 = d3.line()
     .x(function(d) { return x(d.Date); })
@@ -3177,7 +3177,7 @@ d3.csv("Indexes.csv", function(error, data) {
       data.forEach(function(d) {
           d.Date = parseDate(d.Date);
           d.FinTech = +d.FinTech;
-          d.FAANG = +d.FAANG;
+          d.EMCLOUD = +d.EMCLOUD;
           d.SNP500 = +d.SNP500;
           d.NASDAQ = +d.NASDAQ;
     
@@ -3186,7 +3186,7 @@ d3.csv("Indexes.csv", function(error, data) {
   // Scale the range of the data
   x.domain(d3.extent(data, function(d) { return d.Date; }));
   y.domain([0, d3.max(data, function(d) {
-	  return Math.max(d.Fintech, d.NASDAQ, d.FAANG, d.SNP500); })]);
+	  return Math.max(d.Fintech, d.NASDAQ, d.EMCLOUD, d.SNP500); })]);
 
   // Add the valueline path.
   svg.append("path")
@@ -3236,7 +3236,7 @@ d3.csv("Indexes.csv", function(error, data) {
       data.forEach(function(d) {
           d.Date = parseDate(d.Date);
           d.FinTech = +d.FinTech;
-          d.FAANG = +d.FAANG;
+          d.EMCLOUD = +d.EMCLOUD;
           d.SNP500 = +d.SNP500;
           d.NASDAQ = +d.NASDAQ;
     
@@ -3245,7 +3245,7 @@ d3.csv("Indexes.csv", function(error, data) {
   // Scale the range of the data
   x.domain(d3.extent(data, function(d) { return d.Date; }));
   y.domain([0, d3.max(data, function(d) {
-	  return Math.max(d.Fintech, d.NASDAQ, d.FAANG, d.SNP500); })]);
+	  return Math.max(d.Fintech, d.NASDAQ, d.EMCLOUD, d.SNP500); })]);
 
   // Add the valueline path.
   svg.append("path")
