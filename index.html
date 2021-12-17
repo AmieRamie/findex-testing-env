@@ -239,13 +239,13 @@ table {
     }
 
     /* Smartphones (portrait and landscape) ----------- */
-    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    /* @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
       body {
         padding: 0;
         margin: 0;
         width: 400px;
       }
-    }
+    } */
 
     /* iPads (portrait and landscape) ----------- */
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
@@ -476,7 +476,17 @@ path {
   margin-left:10%;
   margin-top:3%;
   margin-bottom: 2%;
+  display: flex;
+  width: 80%;
 }
+/* .future_additions{
+  display: flex;
+  justify-content: space-around;
+  margin:auto;
+  margin-top:1%;
+  margin-bottom: 1%;
+  width: 80%;
+} */
 
 /* @media (min-width: 768px){.base-intro{padding-left:60px}}
 @media (min-width: 1200px){.base-intro{padding-left:80px}}
@@ -723,6 +733,44 @@ path {
 .dataTables_filter{
   font-size: 1.0vw;
 }
+.about_us_info{  
+  display: flex;
+  width:55%;
+  min-width: 800px;
+  margin:auto;
+  margin-bottom:2%;
+}
+.base-button{
+  min-width: 161px;
+  margin-top: 8%;
+  border-style: hidden;
+}
+.about_us_buttons a:not([href]):not([tabindex]){
+  color:#fff;
+}
+/* .base-button__text{
+  color: white !important;
+}
+.base-button:before{
+  background-color: #A9A9A9 !important;
+} */
+.about_us_button{
+  display:table-cell;
+  vertical-align: middle;
+}
+.fintech_images{
+  width:55%;
+  min-width: 800px;
+  margin: auto;
+  margin-bottom: 2%;
+}
+.fprime_fintech_desc{
+  width:55%;
+  min-width: 500px;
+  font-family: "MessinaSans",serif;
+  font-size:20px;
+  line-height: 1.2;
+}
 /* .table-design thead .sorting, .sorting_asc,.sorting_desc{
   vertical-align: middle;
 } */
@@ -826,6 +874,30 @@ path {
 .dataTables_filter{
   font-size: 1.6vw;
 }
+.about_us_info{  
+  width:55%;
+  min-width: 600px;
+}
+.base-button{
+  min-width: 130px;
+  margin-top: 8%;
+}
+.base-button__text{
+  font-size: 9px !important;
+}
+.about_us_button{
+  display:table-cell;
+  vertical-align: middle;
+}
+.fintech_images{
+  width:55%;
+  min-width: 600px;
+}
+.fprime_fintech_desc{
+  width:75%;
+  min-width: 0px;
+  font-size:15px;
+}
 }
 @media screen and (max-width: 778px) {
   #navbar a{
@@ -869,6 +941,30 @@ path {
 }
 .col-sm-12{
   width: 100%
+}
+.about_us_info{  
+  width:55%;
+  min-width: 530px;
+}
+.base-button{
+  min-width: 105px;
+  margin-top: 8%;
+}
+.base-button__text{
+  font-size: 7px !important;
+}
+.about_us_button{
+  display:table-cell;
+  vertical-align: middle;
+}
+.fintech_images{
+  width:55%;
+  min-width: 530px;
+}
+.fprime_fintech_desc{
+  width:80%;
+  min-width: 0px;
+  font-size:14px;
 }
 }
 
@@ -922,7 +1018,78 @@ g.tick text{font-size: max(7.5vw, 40px) !important;}
 .topnav a{
   font-size: 1.8vw;
 }
-};
+.about_us_info{  
+  width:55%;
+  min-width: 400px;
+}
+.base-button{
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  margin-top: 8%;
+}
+.base-button__text{
+  font-size: 7px !important;
+}
+.about_us_button{
+  display:table-cell;
+  vertical-align: middle;
+}
+.fintech_images{
+  width:55%;
+  min-width: 400px;
+}
+.fprime_fintech_desc{
+  width:85%;
+  min-width: 0px;
+  font-size:11px;
+}
+}
+@media screen and (max-width: 450px) {
+  .about_us_info{  
+  width:55%;
+  min-width: 300px;
+  display:inline;
+  }
+  .base-button{
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    margin-top: 2%;
+    min-width:180px;
+  }
+  .base-button__text{
+    font-size: 7px !important;
+  }
+  .about_us_button{
+    display:table-cell;
+    vertical-align: middle;
+  }
+  .fintech_images{
+  width:55%;
+  min-width: 300px;
+}
+.fprime_fintech_desc{
+  margin:none;
+  width:100%;
+  min-width: 0px;
+  font-size:9px;
+}
+}
+@media screen and (max-width: 350px) {
+  .about_us_info{  
+  width:55%;
+  min-width: 250px;
+  }
+  .fintech_images{
+  width:55%;
+  min-width: 250px;
+  margin: none;
+}
+.fprime_fintech_desc{
+  width:100%;
+  min-width: 0px;
+  font-size:9px;
+}
+}
 .modal_box {
   display:none; /* Hidden by default */
   position: static;
@@ -3362,6 +3529,19 @@ SOFTWARE. -->
       x.style.display = "none";
     }
   }
+  function clipboardCopy() {
+  // /* Get the text field */
+  // var copyText = document.getElementById("contact_us");
+  // /* Select the text field */
+  // copyText.select();
+  // copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  navigator.clipboard.writeText("fintechindex@fprimecapital.com");
+  
+  /* Alert the copied text */
+  alert("Copied our email: " + "fintechindex@fprimecapital.com");
+}
 </script>
 <div class="section_headers_div">
   <h2 class="section_headers" id = "thesis">State of Fintech</h2>
@@ -3370,8 +3550,25 @@ SOFTWARE. -->
 <!-- <div class="about_us">
   <p><a href="https://fprimecapital.com/" style = "color:#5B56EE;">F-Prime Capital</a> has been investing in Fintech for over 50 years, and together with our international sister fund <a href="https://eightroads.com/en/"  style = "color:#5B56EE;">Eight Roads</a>, has one of the largest Fintech portfolios in venture capital. We have had the privilege of backing iconic companies like Alibaba, Flywire, Toast, Xoom, Kensho, Quovo, Snapdocs, Recurly and Papaya.</p>
 </div> -->
-<br />
-<br />
+<div class="section_headers_div">
+  <h2 class="section_headers" id = "thesis">About Us</h2>
+  <!-- <p class = 'fprime_fintech_desc'><a href="https://fprimecapital.com/" style = 'color: #5B56EE;'>F-Prime Capital</a> has been investing in fintech for over 50 years, and together with our international sister fund <a href="https://eightroads.com/en/" style = 'color: #5B56EE;'>Eight Roads</a>, has one of the largest Fintech portfolios in venture capital. <br><br> We have had the privilege of backing iconic companies like Alibaba, Flywire, Toast, Kensho, Quovo, and Snapdocs.</p> -->
+</div>
+<div class = 'about_us_info'>
+  <div>
+  <p class = 'fprime_fintech_desc'><a href="https://fprimecapital.com/" style = 'color: #5B56EE;'>F-Prime Capital</a> has been investing in fintech for over 50 years, and together with our international sister fund <a href="https://eightroads.com/en/" style = 'color: #5B56EE;'>Eight Roads</a>, has one of the largest Fintech portfolios in venture capital. <br><br> We have had the privilege of backing iconic companies like Alibaba, Flywire, Toast, Kensho, Quovo, and Snapdocs.</p>
+  </div>
+  <div class= "about_us_buttons">
+    <button class="base-button" onclick="clipboardCopy()">
+      <span class="base-button__text">Contact Us</span>
+    </button>
+    <!-- <button class="base-button">
+      <span class="base-button__text">Methodology</span>
+    </button> -->
+  </div>
+</div>
+<img class = 'fintech_images' src="fprime_fintech_logos.png">
+
 <!-- <div class= 'future-ipo-img'>
   <img src="Future Additions.PNG">
 </div> -->
