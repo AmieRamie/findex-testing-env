@@ -1,0 +1,3 @@
+[submodule "findex"]
+    path = findex
+    url = https://github.com/AmieRamie/findex.git
