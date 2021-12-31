@@ -8,7 +8,7 @@
 6,BL,B2B SaaS,IPO
 7,BHG,Insurance,IPO
 8,CLOV,Insurance,SPAC
-9,COIN,Wealth/Asset Mgmt,DL
+9,COIN,Wealth/Asset Mgmt,Direct Listing
 10,COMP,PropTech,IPO
 11,DLO,Payments,IPO
 12,DOMA,PropTech,SPAC
@@ -49,3 +49,8 @@
 47,UPST,Banking/Lending,IPO
 48,VIRT,Wealth/Asset Mgmt,IPO
 49,XROLF,B2B SaaS,IPO
+50,HOOD,Wealth/Asset Mgmt,IPO
+51,BLND,PropTech,IPO
+52,WPLCF,Payments,IPO
+53,TOST,Payments,IPO
+54,RELY,Payments,IPO
