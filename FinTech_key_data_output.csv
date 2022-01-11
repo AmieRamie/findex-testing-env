@@ -1,55 +1,55 @@
 Company,Ticker,Vertical,Price,Market Cap ($B),Revenue Growth,Gross Margin,EV/Revenue,YTD Performance
-Adyen,ADYEY,Payments,26.8,81.4,37.1,13.8,16.6,1.4
-Affirm,AFRM,Banking/Lending,102.0,28.3,70.8,49.6,30.1,2.3
-Alkami Technology,ALKT,B2B SaaS,20.15,1.8,52.5,52.8,10.3,-0.1
-Avalara,AVLR,B2B SaaS,129.0,11.2,30.9,71.4,16.5,-0.1
-Bill.com,BILL,B2B SaaS,250.16,25.6,51.2,74.2,79.7,0.2
-Billtrust,BTRS,Payments,7.86,1.3,12.6,70.0,7.5,4.3
-Blackline,BL,B2B SaaS,103.7,6.1,21.7,80.4,14.8,0.2
-Bright Health,BHG,Insurance,3.48,2.2,330.2,13.3,0.3,2.4
-Clover Health,CLOV,Insurance,3.78,1.8,51.7,14.4,1.0,-0.5
-Coinbase,COIN,Wealth/Asset Mgmt,256.27,66.1,143.8,100.0,8.8,-0.1
-Compass,COMP,PropTech,9.2,3.6,55.9,94.3,0.6,3.3
-dLocal,DLO,Payments,35.85,10.5,88.4,57.7,50.6,1.9
-Doma,DOMA,PropTech,5.13,1.6,14.4,38.6,2.5,0.8
-Duck Creek,DCT,B2B SaaS,30.0,4.0,23.0,57.7,13.9,2.4
-Envestnet,ENV,B2B SaaS,79.42,4.3,10.9,29.4,4.3,-2.4
-EverQuote,EVER,Insurance,15.73,0.5,39.4,93.8,1.0,5.8
-FleetCor,FLT,Payments,225.23,18.2,8.8,78.8,8.5,-0.9
-Flywire,FLYW,Payments,37.96,4.0,38.8,63.7,19.5,1.4
-Funding Circle,FCH,Banking/Lending,108.0,0.4,18.0,17.7,2.0,-1.1
-Green Dot,GDOT,Banking/Lending,36.32,2.0,13.7,100.0,0.1,1.7
-Hippo Insurance,HIPO,Insurance,2.83,1.6,48.7,13.6,10.6,0.4
-Intapp Inc.,INTA,B2B SaaS,25.46,1.5,14.9,65.3,6.5,1.1
-Katapult,KPLT,Banking/Lending,3.32,0.3,169.1,37.5,1.1,10.9
-Lemonade,LMND,Insurance,43.43,2.6,40.3,42.1,20.1,6.2
-Lightspeed POS Inc.,LSPD,Payments,40.77,6.0,83.8,57.0,12.5,0.4
-LoanDepot,LDI,Banking/Lending,4.85,1.5,217.7,95.5,2.5,6.2
-Lufax,LU,Payments,5.76,13.9,15.2,87.9,-0.2,8.5
-Marqeta,MQ,Payments,17.37,9.3,102.6,40.6,16.9,2.0
-MercadoLibre,MELI,Payments,1355.01,68.0,73.0,51.2,10.9,1.9
-MoneyLion,ML,Banking/Lending,4.04,0.9,36.5,62.9,8.2,14.8
-nCino,NCNO,Banking/Lending,54.9,5.3,47.8,56.9,19.5,0.2
-OlO,OLO,Payments,20.92,3.2,94.2,81.0,18.3,-0.0
-OpenDoor,OPEN,PropTech,14.85,9.0,83.5,8.6,3.0,3.5
-Oscar Health,OSCR,Insurance,8.1,1.6,21.6,20.9,-0.0,3.0
-PagSeguro,PAGS,Payments,26.48,8.6,19.8,43.6,0.8,2.3
-Paymentus,PAY,Payments,35.0,4.2,28.0,30.7,10.9,4.9
-Payoneer,PAYO,Payments,7.37,2.5,8.8,71.9,4.8,7.9
-Paypal,PYPL,Payments,191.41,221.6,20.7,46.6,8.9,-0.7
-Q2 Holdings,QTWO,B2B SaaS,79.83,4.5,27.7,43.6,10.0,1.2
-Redfin,RDFN,PropTech,39.17,4.0,13.6,26.2,3.3,1.2
-Root Insurance,ROOT,Insurance,3.18,0.8,19.5,-4.6,0.5,7.6
-Sezzle Inc.,SEZNL,Banking/Lending,2.2,0.4,272.1,61.7,3.7,5.0
-Shopify,SHOP,Payments,1391.9,171.6,85.6,52.6,39.6,-1.1
-SoFi,SOFI,Banking/Lending,16.1,12.6,11.6,68.4,18.1,9.3
-Square,SQ,Payments,162.87,74.5,101.5,28.9,4.5,-0.2
-Stone,STNE,Payments,17.06,5.2,33.0,76.2,1.5,7.0
-Upstart,UPST,Banking/Lending,153.62,12.4,26.6,84.4,19.0,2.3
-Virtu Financial Inc,VIRT,Wealth/Asset Mgmt,28.75,3.3,123.1,63.6,0.5,0.6
-Xero,XROLF,B2B SaaS,103.84,15.4,18.2,86.0,16.0,0.0
-Robinhood,HOOD,Wealth/Asset Mgmt,18.05,14.8,245.5,74.0,4.5,3.8
-Blend Labs,BLND,PropTech,7.42,1.7,89.5,64.3,7.4,1.2
-Wise,WPLCF,Payments,10.45,10.4,39.1,64.0,10.5,1.6
-Toast,TOST,Payments,34.9,17.5,23.8,17.5,11.3,-6.5
-Remitly,RELY,Payments,20.92,3.4,103.0,47.1,7.3,0.9
+Adyen,ADYEY,Payments,22.64,75.4,37.1,13.8,15.3,-6.1
+Affirm,AFRM,Banking/Lending,76.75,22.4,70.8,49.6,24.0,-19.0
+Alkami Technology,ALKT,B2B SaaS,17.62,1.6,52.5,52.8,9.0,-10.6
+Avalara,AVLR,B2B SaaS,106.23,9.5,30.9,71.4,13.8,-15.5
+Bill.com,BILL,B2B SaaS,193.88,20.7,51.2,74.2,64.0,-18.8
+Billtrust,BTRS,Payments,6.75,1.1,12.6,70.0,6.1,-10.8
+Blackline,BL,B2B SaaS,95.0,5.6,21.7,80.4,13.8,-6.9
+Bright Health,BHG,Insurance,2.95,1.9,330.2,13.3,0.2,-12.2
+Clover Health,CLOV,Insurance,3.18,1.5,51.7,14.4,0.8,-15.5
+Coinbase,COIN,Wealth/Asset Mgmt,224.43,60.8,143.8,100.0,8.0,-8.0
+Compass,COMP,PropTech,8.44,3.4,55.9,94.3,0.5,-3.0
+dLocal,DLO,Payments,29.26,9.2,88.4,57.7,43.9,-11.2
+Doma,DOMA,PropTech,4.25,1.4,14.4,38.6,2.1,-14.5
+Duck Creek,DCT,B2B SaaS,27.0,3.6,23.0,57.7,11.9,-7.5
+Envestnet,ENV,B2B SaaS,77.69,4.3,10.9,29.4,4.3,-4.1
+EverQuote,EVER,Insurance,15.23,0.4,39.4,93.8,1.0,1.6
+FleetCor,FLT,Payments,243.0,19.7,8.8,78.8,9.1,7.6
+Flywire,FLYW,Payments,32.34,3.5,38.8,63.7,16.6,-11.8
+Funding Circle,FCH,Banking/Lending,105.0,0.4,18.0,17.7,1.9,-5.1
+Green Dot,GDOT,Banking/Lending,35.83,2.0,13.7,100.0,0.1,1.2
+Hippo Insurance,HIPO,Insurance,2.46,1.4,48.7,13.6,8.0,-12.4
+Intapp Inc.,INTA,B2B SaaS,22.02,1.4,14.9,65.3,5.8,-9.1
+Katapult,KPLT,Banking/Lending,2.83,0.3,169.1,37.5,1.0,-4.6
+Lemonade,LMND,Insurance,36.63,2.3,40.3,42.1,17.3,-6.3
+Lightspeed POS Inc.,LSPD,Payments,35.82,5.4,83.8,57.0,11.0,-9.5
+LoanDepot,LDI,Banking/Lending,4.91,1.5,217.7,95.5,2.5,8.2
+Lufax,LU,Payments,5.38,13.2,15.2,87.9,-0.2,3.5
+Marqeta,MQ,Payments,15.11,8.4,102.6,40.6,15.0,-7.5
+MercadoLibre,MELI,Payments,1048.42,54.8,73.0,51.2,8.9,-18.0
+MoneyLion,ML,Banking/Lending,3.35,0.8,36.5,62.9,7.1,-4.0
+nCino,NCNO,Banking/Lending,49.95,4.9,47.8,56.9,17.9,-7.2
+OlO,OLO,Payments,18.46,2.8,94.2,81.0,16.1,-9.9
+OpenDoor,OPEN,PropTech,11.15,7.0,83.5,8.6,2.6,-19.5
+Oscar Health,OSCR,Insurance,6.88,1.4,21.6,20.9,-0.2,-9.6
+PagSeguro,PAGS,Payments,23.24,7.8,19.8,43.6,0.7,-7.5
+Paymentus,PAY,Payments,28.15,3.4,28.0,30.7,8.7,-15.3
+Payoneer,PAYO,Payments,6.5,2.3,8.8,71.9,4.2,-2.5
+Paypal,PYPL,Payments,185.75,220.4,20.7,46.6,8.8,-1.2
+Q2 Holdings,QTWO,B2B SaaS,74.32,4.3,27.7,43.6,9.5,-3.7
+Redfin,RDFN,PropTech,32.55,3.5,13.6,26.2,2.9,-12.7
+Root Insurance,ROOT,Insurance,2.83,0.7,19.5,-4.6,0.3,-0.7
+Sezzle Inc.,SEZNL,Banking/Lending,1.7,0.4,272.1,61.7,3.0,-12.5
+Shopify,SHOP,Payments,1117.01,142.7,85.6,52.6,32.6,-17.8
+SoFi,SOFI,Banking/Lending,13.46,11.0,11.6,68.4,16.2,-5.0
+Square,SQ,Payments,139.65,65.3,101.5,28.9,3.9,-12.5
+Stone,STNE,Payments,16.07,5.0,33.0,76.2,1.4,2.3
+Upstart,UPST,Banking/Lending,113.51,9.6,26.6,84.4,14.6,-20.9
+Virtu Financial Inc,VIRT,Wealth/Asset Mgmt,29.69,3.3,123.1,63.6,0.5,3.3
+Xero,XROLF,B2B SaaS,105.0,15.7,18.2,86.0,16.4,2.6
+Robinhood,HOOD,Wealth/Asset Mgmt,15.35,13.3,245.5,74.0,3.6,-7.1
+Blend Labs,BLND,PropTech,6.95,1.6,89.5,64.3,7.0,-3.2
+Wise,WPLCF,Payments,8.48,13.1,39.1,64.0,8.4,-8.6
+Toast,TOST,Payments,27.6,14.3,23.8,17.5,9.1,-23.5
+Remitly,RELY,Payments,15.58,2.6,103.0,47.1,5.4,-22.1
