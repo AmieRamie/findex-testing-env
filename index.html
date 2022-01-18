@@ -1987,12 +1987,12 @@ function spac_check_box_clicked(){
 };
 function dl_check_box_clicked(){
   if (dl_bool){    
-    const index = removeType.indexOf('DL');
+    const index = removeType.indexOf('Direct Listing');
     if (index > -1) {
       removeType.splice(index, 1);
     }
   }
-  else{removeType.push('DL')}
+  else{removeType.push('Direct Listing')}
   change_time_scale();
 };
 function ipo_check_box_clicked(){
