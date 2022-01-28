@@ -1687,7 +1687,7 @@ function getHeight() {
 function changeGraphSize(){
 var widthBrowser = getWidth();
 var heightBrowser = getHeight();
-console.log(widthBrowser)
+//console.log(widthBrowser)
 var	margin = {top: 30, right: 225, bottom: 30, left: 225},
     width = widthBrowser  - margin.left - margin.right,
     height = heightBrowser - 350,
@@ -1783,7 +1783,7 @@ function redraw(){
 // Extract the width and height that was computed by CSS.
 var width = chartDiv.clientWidth;
 var height = chartDiv.clientHeight;
-console.log(width)
+//console.log(width)
 // Use the extracted size to set the size of an SVG element.
 svg
   .attr("width", width + margin.left + margin.right)
@@ -2150,7 +2150,7 @@ d3.csv("Indexes.csv", function(error, data) {
     //     .attr("style","fill: #A9A9A9;");
     resized();
     var htmlString = focus[0][0];
-    console.log(htmlString);
+    //console.log(htmlString);
     var engHello = "hello"
     svg.append("rect")
         .attr("class", "mouseOverlay")
@@ -2202,7 +2202,7 @@ d3.csv("Indexes.csv", function(error, data) {
       // t_EMCLOUD.attr("y",-80-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
       // t_nasdaq.attr("y",-60-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
       // t_snp.attr("y",-40-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
-      console.log(((scale)>1 ? 1+(scale-1)/10 : 1))
+      //console.log(((scale)>1 ? 1+(scale-1)/10 : 1))
       }
       window.onresize = resized;
 });
@@ -2228,32 +2228,32 @@ function updateAllTime() {
             d.SNP500= +d.SNP500;
             // d.EMCLOUD = +d.EMCLOUD;
 	    });
-      console.log(removeVerticals)
-      console.log(removeType)
+      //console.log(removeVerticals)
+      //console.log(removeType)
       // console.log(possible_companies)
       var possible_comps_filtered = possible_companies.filter(function (el) {
         return (removeType.indexOf(el.type) < 0)&(removeVerticals.indexOf(el.vertical) < 0); 
       });
       proper_tickers = possible_comps_filtered.map(a => a.ticker)
-      console.log(proper_tickers)
+      //console.log(proper_tickers)
       // console.log(data)
       //!!!Market Cap Weighting Index!!!
       new_ft_mcs = ft_market_caps.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){(i.length>0) ? mc_sum = i.reduce(reducer): mc_sum = 1; return i.map(function(j){return j/mc_sum})})
       performances = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i)-1)})
-      console.log(new_ft_mcs)
-      console.log(ft_market_caps)
-      console.log(performances)
-      console.log(ft_companies)
+      //console.log(new_ft_mcs)
+      //console.log(ft_market_caps)
+      //console.log(performances)
+      //console.log(ft_companies)
       items = []
       for (index = 0; index < performances.length; index++) {
         items.push(produceAndAdd(performances[index],new_ft_mcs[index]))
-        if (index == 1670){
-          console.log(performances[index])
-          console.log(new_ft_mcs[index])
-          console.log(produceAndAdd(performances[index],new_ft_mcs[index]))
-        }
+        // if (index == 1670){
+        //   console.log(performances[index])
+        //   console.log(new_ft_mcs[index])
+        //   console.log(produceAndAdd(performances[index],new_ft_mcs[index]))
+        // }
       }
-      console.log(items)
+      //console.log(items)
       new_ft = items.map(function(i){(i.length>0) ? mc_sum = i.reduce(reducer): mc_sum = NaN; return mc_sum})
       // console.log(new_ft.reduce(function(a,i){return a*new_ft_mcs[i]},0))
       // console.log(new_ft);
@@ -2387,7 +2387,7 @@ function update3Y() {
       var data = data.filter(function (el) {
         return el.Date > dateTresh;
       });
-      console.log(data)
+      //console.log(data)
       var first_ft_val = data[0].Fintech
       var first_EMCLOUD_val = data[0].EMCLOUD
       var first_nasdaq_val = data[0].NASDAQ
@@ -3026,7 +3026,7 @@ d3.csv("Indexes.csv", function(error, data) {
       var data = data.filter(function (el) {
         return el.Date > dateTresh;
       });
-      console.log(data)
+      //console.log(data)
       var first_ft_val = data[0].Fintech
       var first_EMCLOUD_val = data[0].EMCLOUD
       var first_nasdaq_val = data[0].NASDAQ
@@ -3544,7 +3544,8 @@ SOFTWARE. -->
 <div class="section_headers_div">
   <h2 class="section_headers" id = "thesis">State of Fintech</h2>
 </div>
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRqv1L86HOgTAvddIP2R-BrCGyf9E9ibKDTeaFv8GyKL6kzxgoAic5CmTEP-CCqhXJBS6_b_UK4khFO/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="670" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class = "slides_frame"></iframe>
+<!-- <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRqv1L86HOgTAvddIP2R-BrCGyf9E9ibKDTeaFv8GyKL6kzxgoAic5CmTEP-CCqhXJBS6_b_UK4khFO/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="670" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class = "slides_frame"></iframe>-->
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQGfrU1cNA8eGZefs2lJKS7XefKKt6mdT8msZKaIzcjRvqx7ZFTtb5738bTmd1ILx4S6Qw-qLamzgqP/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="670" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class = "slides_frame"></iframe>
 <!-- <div class="about_us">
   <p><a href="https://fprimecapital.com/" style = "color:#5B56EE;">F-Prime Capital</a> has been investing in Fintech for over 50 years, and together with our international sister fund <a href="https://eightroads.com/en/"  style = "color:#5B56EE;">Eight Roads</a>, has one of the largest Fintech portfolios in venture capital. We have had the privilege of backing iconic companies like Alibaba, Flywire, Toast, Xoom, Kensho, Quovo, Snapdocs, Recurly and Papaya.</p>
 </div> -->
