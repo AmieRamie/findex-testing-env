@@ -1754,8 +1754,8 @@ var yAxis = d3.svg.axis().scale(y)
 // Define the line
 var	valueline = d3.svg.line()
     .x(function(d) { return x(d.Date); })
-    .y(function(d) { return y(d.Fintech); });
-    //.defined(function(d) { return d.Fintech; });
+    .y(function(d) { return y(d.Fintech); })
+    .defined(function(d) { return d.Fintech; });
 // var	valueline5 = d3.svg.line()
 //     .x(function(d) { return x(d.Date); })
 //     .y(function(d) { return y(d.EMCLOUD); });
@@ -1770,6 +1770,10 @@ var	valueline2 = d3.svg.line()
   var	valueline4 = d3.svg.line()
     .x(function(d) { return x(d.Date); })
     .y(function(d) { return y(d.SNP500); });
+  
+    var	valueline5 = d3.svg.line()
+    .x(function(d) { return x(d.Date); })
+    .y(function(d) { return y(d.Fintech); });
 
   
 
@@ -2720,7 +2724,7 @@ var svg = d3.select("body").transition();
         .duration(750)
         .attr("class", "line")
         .style("stroke", "#5B56EE")
-        .attr("d", valueline(data));
+        .attr("d", valueline5(data));
     svg.select(".line2")   // change the line
         .duration(750)
         .attr("class", "line2")
@@ -2860,7 +2864,7 @@ document.getElementById("bg7").className = "bg7_off";
             .duration(750)
             .attr("class", "line")
             .style("stroke", "#5B56EE")
-            .attr("d", valueline(data));
+            .attr("d", valueline5(data));
         svg.select(".line2")   // change the line
             .duration(750)
             .attr("class", "line2")
@@ -2981,7 +2985,7 @@ var svg = d3.select("body").transition();
         .duration(750)
         .attr("class", "line")
         .style("stroke", "#5B56EE")
-        .attr("d", valueline(data));
+        .attr("d", valueline5(data));
     svg.select(".line2")   // change the line
         .duration(750)
         .attr("class", "line2")
@@ -3105,7 +3109,7 @@ var svg = d3.select("body").transition();
         .duration(750)
         .attr("class", "line")
         .style("stroke", "#5B56EE")
-        .attr("d", valueline(data));
+        .attr("d", valueline5(data));
     svg.select(".line2")   // change the line
         .duration(750)
         .attr("class", "line2")
