@@ -652,6 +652,30 @@ path {
     font-weight: bold;
     fill: #FC714D;
 }
+
+.focus_new circle {
+        fill: #FC714D;
+    }
+.focus_new text {
+    font-size: 14px;
+}
+
+.focus_new .tooltip-date_new{
+    font-weight: bold;
+}
+.focus_new .tooltip-lt20{
+    font-weight: bold;
+    fill: #5B56EE;
+}
+.focus_new .tooltip-bt2040{
+    font-weight: bold;
+    fill: #A6D0D8;
+}
+.focus_new .tooltip-gt40{
+    font-weight: bold;
+    fill: #FC714D;
+}
+
 .section_headers{
   font-family: "Nantes",serif;
   font-size:35px;
@@ -2293,7 +2317,7 @@ function updateAllTime() {
       for(var i = 0; i < new_ft.length; i += 1) {
         data[i].Fintech = new_ft[i];
       }
-      // console.log(data)
+      //console.log(data)
       // var today = new Date();
       // today.setFullYear(today.getFullYear()-3);
       // console.log(today.toLocaleDateString())
@@ -2692,7 +2716,7 @@ d3.csv("Indexes.csv", function(error, data) {
         d.SNP500 = ((d.SNP500+1)/(first_snp_val+1))-1
         return data;
       });
-      console.log(data[0].Fintech)
+      //console.log(data[0].Fintech)
     // Scale the range of the data again 
     x.domain(d3.extent(data, function(d) { return d.Date; }));
     min_value = d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })
@@ -3463,7 +3487,840 @@ SOFTWARE. -->
       ]
   });
 </script>
+<div class="section_headers_div">
+  <h2 class="section_headers" id = "companies">Multiples</h2>
+</div>
+<div class="dropdown" style="margin-left: 82%;float:right;">
+  <button class="dropbtn"><span class="glyphicon">&#xe138;</span></button>
+  <div class="dropdown-content">
+    <div class = 'vertical_toggles'>
+      <div class="pretty p-default" style = "margin-left: 2%;margin-top: 5%;">
+        <input id = "insurance_bool_new" type="checkbox" checked = "" />
+        <div class="state">
+            <label>Insurance</label>
+        </div>
+      </div>
 
+      <div class="pretty p-default" style = "margin-left: 2%;margin-top: 5%;">
+        <input id = "payments_bool_new" type="checkbox" checked = "" />
+        <div class="state">
+            <label>Payments</label>
+        </div>
+      </div>
+
+      <div class="pretty p-default" style = "margin-left: 2%;margin-top: 5%;">
+        <input id = "banking_bool_new" type="checkbox" checked = "" />
+        <div class="state">
+            <label>Banking/Lending</label>
+        </div>
+      </div>
+
+      <div class="pretty p-default" style = "margin-left: 2%;margin-top: 5%;">
+        <input id = "saas_bool_new" type="checkbox" checked = "" />
+        <div class="state">
+            <label>B2B SaaS</label>
+        </div>
+      </div>
+
+      <div class="pretty p-default" style = "margin-left: 2%;margin-top: 5%;">
+        <input id = "wealth_bool_new" type="checkbox" checked = "" />
+        <div class="state">
+            <label>Wealth/Asset Mgmt</label>
+        </div>
+      </div>
+
+      <div class="pretty p-default" style = "margin-left: 2%;margin-top: 5%;margin-bottom: 1.5%;">
+        <input id = "re_bool_new" type="checkbox" checked = "" />
+        <div class="state">
+            <label>PropTech</label>
+        </div>
+      </div>
+    </div>
+    <div class = "type_toggles">
+      <div class="pretty p-switch" style = "margin-left: 2%;margin-top: 5%;">
+        <input id = "spac_bool_new" type="checkbox" checked = "" />
+        <div class="state">
+            <label>SPAC</label>
+        </div>
+      </div>
+      <div class="pretty p-switch" style = "margin-left: 2%;margin-top: 5%;">
+        <input id = "dl_bool_new" type="checkbox" checked = "" />
+        <div class="state">
+            <label>Direct Listing</label>
+        </div>
+      </div>
+      <div class="pretty p-switch" style = "margin-left: 2%;margin-top: 5%;margin-bottom: 5%;">
+        <input id = "ipo_bool_new" type="checkbox" checked = "" />
+        <div class="state">
+            <label>Traditional IPO</label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+
+  // var modal = document.getElementById("myModal");
+  // modal.style.display = "none";
+  // // Get the button that opens the modal
+  // var btn = document.getElementById("myBtn");
+  
+  // // Get the <span> element that closes the modal
+  // var span = document.getElementsByClassName("close")[0];
+  
+  // // When the user clicks the button, open the modal 
+  // btn.onclick = function() {
+  //   if (modal.style.display == "block"){modal.style.display = "none";}
+  //   else {modal.style.display = "block";}
+  // }
+  
+  // // When the user clicks on <span> (x), close the modal
+  // span.onclick = function() {
+  //   modal.style.display = "none";
+  // }
+  
+  // // When the user clicks anywhere outside of the modal, close it
+  // window.onclick = function(event) {
+  //   if (event.target == modal) {
+  //     modal.style.display = "none";
+  //   }
+  // }
+  // function popupmenu() {
+  //   document.getElementById("myDropdown").classList.toggle("show");
+  // }
+  
+  // // Close the dropdown if the user clicks outside of it
+  // window.onclick = function(event) {
+  //   if (!event.target.matches('.vertical-type_toggle')) {
+  //     var dropdowns = document.getElementsByClassName("dropdown-content");
+  //     var i;
+  //     for (i = 0; i < dropdowns.length; i++) {
+  //       var openDropdown = dropdowns[i];
+  //       if (openDropdown.classList.contains('show')) {
+  //         openDropdown.classList.remove('show');
+  //       }
+  //     }
+  //   }
+  // }
+  
+    $("a").click(function(){
+    var pageId = $(this).attr("data-page");
+    $("html, body").animate({ scrollTop: $("#"+pageId).offset().top }, 10);
+  });
+  
+    function getWidth() {
+      var windowWidth = document.documentElement.clientWidth;
+    // Math.max(
+    //   document.body.scrollWidth,
+    //   document.documentElement.scrollWidth,
+    //   document.body.offsetWidth,
+    //   document.documentElement.offsetWidth,
+    //   document.documentElement.clientWidth
+    // );
+  
+    return windowWidth
+  }
+  
+  function getHeight() {
+    var windowHeight = document.documentElement.clientHeight;
+    // Math.max(
+    //   document.body.scrollHeight,
+    //   document.documentElement.scrollHeight,
+    //   document.body.offsetHeight,
+    //   document.documentElement.offsetHeight,
+    //   document.documentElement.clientHeight
+    // );
+    return windowHeight
+  }
+  
+  
+  // console.log('Width:  ' +  winWidth);
+  // console.log('Height: ' + window.innerHeight);
+  // function changeGraphSize(){
+  // var widthBrowser = getWidth();
+  // var heightBrowser = getHeight();
+  // //console.log(widthBrowser)
+  // var	margin = {top: 30, right: 225, bottom: 30, left: 225},
+  //     width = widthBrowser  - margin.left - margin.right,
+  //     height = heightBrowser - 350,
+  //     tooltip = { width: 100, height: 100, x: 10, y: -30 };
+  
+  // // Set the dimensions of the canvas / graph
+  // }
+  // window.addEventListener("resize", changeGraphSize);
+    // Set the dimensions of the canvas / graph
+    var	margin_new = {top: 30, right: 350, bottom: 80, left: 350},
+      width_new = 1920  - margin_new.left - margin_new.right,
+      height_new = 500,
+      tooltip = { width_new: 100, height_new: 100, x: 10, y: -30 };
+   // Parse the Date / time
+  var parseDate = d3.time.format("%m/%d/%Y").parse,
+          bisectDate = d3.bisector(function(d) { return d.Date; }).left,
+          formatValue = d3.format(","),
+          dateFormatter = d3.time.format("%m/%d/%Y");
+  
+  
+  // var parseDate = d3.time.format("%m/%e/%Y").parse,
+  //         bisectDate = d3.bisector(function(d) { return d.date; }).left,
+  //         formatValue = d3.format(","),
+  //         dateFormatter = d3.time.format("%m/%d/%y");
+  
+  // Set the ranges
+  var x_new = d3.time.scale().range([0, width_new]);
+  var y_new = d3.scale.linear().range([height_new, 0]);
+  
+  var formatPercent_new = d3.format(".0%");
+  // Define the axes
+  var xAxis_new = d3.svg.axis().scale(x_new)
+      .orient("bottom").ticks(10);
+  
+  var yAxis_new = d3.svg.axis().scale(y_new)
+      .orient("left").ticks(10);
+  
+  // Define the line
+  var	valueline_new = d3.svg.line()
+      .x(function(d) { return x_new(d.Date); })
+      .y(function(d) { return y_new(d.lt20); })
+      .defined(function(d) { return d.lt20; });
+  // var	valueline5 = d3.svg.line()
+  //     .x(function(d) { return x(d.Date); })
+  //     .y(function(d) { return y(d.EMCLOUD); });
+  var	valueline2_new = d3.svg.line()
+      .x(function(d) { return x_new(d.Date); })
+      .y(function(d) { return y_new(d.bt2040); })
+      .defined(function(d) { return d.bt2040; });
+  
+  var	valueline3_new = d3.svg.line()
+  .x(function(d) { return x_new(d.Date); })
+  .y(function(d) { return y_new(d.gt40); })
+  .defined(function(d) { return d.gt40; });
+    
+    
+  
+  // Adds the svg canvas
+  var svg_new = d3.select("body")
+  .append("svg")
+    .attr("viewBox", "0 0 " + (width_new + margin_new.left + margin_new.right) + " " + (height_new + margin_new.top + margin_new.bottom))
+    .attr("preserveAspectRatio", "xMinYMid meet")
+    .classed("svg-style_new", true)
+      // .attr("width", width + margin.left + margin.right)
+      // .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+      .attr("transform", 
+            "translate(" + margin_new.left + "," + margin_new.top + ")")
+      .classed("g-style", true);
+  // gridlines in x axis function
+  function make_x_axis() {        
+      return d3.svg_new.axis()
+          .scale(x_new)
+           .orient("bottom")
+           .ticks(5)
+  }
+  
+  // gridlines in y axis function
+  function make_y_axis() {        
+      return d3.svg_new.axis()
+          .scale(y_new)
+          .orient("left")
+          .ticks(5);
+  }
+  var text_new = svg_new.selectAll("text");
+  
+  // function redraw(){
+  // // Extract the width and height that was computed by CSS.
+  // var width = chartDiv.clientWidth;
+  // var height = chartDiv.clientHeight;
+  // //console.log(width)
+  // // Use the extracted size to set the size of an SVG element.
+  // svg_new
+  //   .attr("width", width + margin.left + margin.right)
+  //   .attr("height", height + margin.top + margin.bottom);
+  // }
+  
+  // // Draw for the first time to initialize.
+  // redraw();
+  
+  // // Redraw based on the new size whenever the browser window is resized.
+  // window.addEventListener("resize", redraw);        
+  // var csvData = "Indexes.csv";
+  // function updateAllTime() {
+  //   var csvData = "Indexes.csv";
+  // }
+  // function updateYearly() {
+  //   var csvData = "IndexesYearly.csv";
+  // }
+  // function updateMonthly() {
+  //   var csvData = "IndexesMonthly.csv";
+  // }
+  // function updateWeekly() {
+  //   var csvData = "IndexesWeekly.csv";
+  // }
+  // Get the data
+  function return_tooltip_text(value){
+    if (isNaN(value)==false){return value.toFixed(1)}
+    else {return ""}
+  }
+  function clean_mult_val(value){
+    if (isNaN(value)==false){return value.toFixed(1)}
+    else {return 0}
+  }
+  var dataVar_new, DateVar_new, LT20Var_new, BT2040Var_new, GT40Var_new;
+  function mousemove1_new(dataValues, Date, lt20, bt2040, gt40, focus_new,x0) {
+  //console.log("aloha");
+  // var htmlString = focus.select(".tooltip-snp")[0][0];
+  // console.log(htmlString);
+  // var x0 = x.invert(d3.mouse(this)[0]);
+  var i = bisectDate(dataValues, x0, 1),
+      d0 = dataValues[i - 1],
+      d1 = dataValues[i],
+      d = x0 - d0.Date > d1.Date - x0 ? d1 : d0;
+    focus_new.attr("transform", "translate(" + x_new(d.Date) + "," + y_new(d.gt40) + ")");
+    focus_new.select(".tooltip-date_new").text(dateFormatter(d.Date));
+    focus_new.select(".tooltip-lt20").text('<20%: ' + return_tooltip_text(d.lt20));
+    focus_new.select(".tooltip-bt2040").text('20%-40%: ' + return_tooltip_text(d.bt2040));
+    focus_new.select(".tooltip-gt40").text('>40%: ' + return_tooltip_text(d.gt40));
+    // focus.select(".tooltip-emcloud").text(formatValue((d.EMCLOUD*100).toFixed(1))+"%");
+  }
+  var new_ft;
+  var performances;
+  var new_ft_mcs;
+  var proper_tickers;
+  var possible_companies;
+      d3.csv("possible_companies.csv", function(possible_comps){
+        possible_companies=possible_comps;
+        });
+  
+  var ft_multiples;
+  d3.csv("multiples.csv", function(multiples){
+      ft_multiples=multiples;
+        });
+  
+  var removeVerticals_new = []
+  var removeType_new = []
+  var insurance_bool_new = true;
+  var payments_bool_new = true;
+  var banking_bool_new = true;
+  var saas_bool_new = true;
+  var wealth_bool_new = true;
+  var re_bool_new = true;
+  var spac_bool_new = true;
+  var dl_bool_new = true;
+  var ipo_bool_new = true;
+  $('#insurance_bool_new').change(function() {
+      insurance_bool_new = this.checked;
+      insur_check_box_clicked_new();
+    });
+    $('#payments_bool_new').change(function() {
+      payments_bool_new = this.checked;
+      pay_check_box_clicked_new();
+    });
+    $('#banking_bool_new').change(function() {
+      banking_bool_new = this.checked;
+      bank_check_box_clicked_new();
+    });
+    $('#saas_bool_new').change(function() {
+      saas_bool_new = this.checked;
+      saas_check_box_clicked_new();
+    });
+    $('#wealth_bool_new').change(function() {
+      wealth_bool_new = this.checked;
+      wealth_check_box_clicked_new();
+    });
+    $('#re_bool_new').change(function() {
+      re_bool_new = this.checked;
+      re_check_box_clicked_new();
+    });
+    $('#spac_bool_new').change(function() {
+      spac_bool_new = this.checked;
+      spac_check_box_clicked_new();
+    });
+    $('#dl_bool_new').change(function() {
+      dl_bool_new = this.checked;
+      dl_check_box_clicked_new();
+    });
+    $('#ipo_bool_new').change(function() {
+      ipo_bool_new = this.checked;
+      ipo_check_box_clicked_new();
+    });
+  function insur_check_box_clicked_new(){
+    if (insurance_bool_new){    
+      const index = removeVerticals_new.indexOf('Insurance');
+      if (index > -1) {
+        removeVerticals_new.splice(index, 1);
+      }
+    }
+    else{removeVerticals_new.push('Insurance')}
+    updateAllTime_new() 
+  };
+  function pay_check_box_clicked_new(){
+    if (payments_bool_new){    
+      const index = removeVerticals_new.indexOf('Payments');
+      if (index > -1) {
+        removeVerticals_new.splice(index, 1);
+      }
+    }
+    else{removeVerticals_new.push('Payments')}
+    updateAllTime_new() 
+  };
+  function bank_check_box_clicked_new(){
+    if (banking_bool_new){    
+      const index = removeVerticals_new.indexOf('Banking/Lending');
+      if (index > -1) {
+        removeVerticals_new.splice(index, 1);
+      }
+    }
+    else{removeVerticals_new.push('Banking/Lending')}
+    updateAllTime_new() 
+  };
+  function saas_check_box_clicked_new(){
+    if (saas_bool_new){    
+      const index = removeVerticals_new.indexOf('B2B SaaS');
+      if (index > -1) {
+        removeVerticals_new.splice(index, 1);
+      }
+    }
+    else{removeVerticals_new.push('B2B SaaS')}
+    updateAllTime_new() 
+  };
+  function wealth_check_box_clicked_new(){
+    if (wealth_bool_new){    
+      const index = removeVerticals_new.indexOf('Wealth/Asset Mgmt');
+      if (index > -1) {
+        removeVerticals_new.splice(index, 1);
+      }
+    }
+    else{removeVerticals_new.push('Wealth/Asset Mgmt')}
+    updateAllTime_new() 
+  };
+  function re_check_box_clicked_new(){
+    if (re_bool_new){    
+      const index = removeVerticals_new.indexOf('PropTech');
+      if (index > -1) {
+        removeVerticals_new.splice(index, 1);
+      }
+    }
+    else{removeVerticals_new.push('PropTech')}
+    updateAllTime_new() 
+  };
+  function spac_check_box_clicked_new(){
+    if (spac_bool_new){    
+      const index = removeType_new.indexOf('SPAC');
+      if (index > -1) {
+        removeType_new.splice(index, 1);
+      }
+    }
+    else{removeType_new.push('SPAC')}
+    updateAllTime_new() 
+  };
+  function dl_check_box_clicked_new(){
+    if (dl_bool_new){    
+      const index = removeType_new.indexOf('Direct Listing');
+      if (index > -1) {
+        removeType_new.splice(index, 1);
+      }
+    }
+    else{removeType_new.push('Direct Listing')}
+    updateAllTime_new() 
+  };
+  function ipo_check_box_clicked_new(){
+    if (ipo_bool_new){    
+      const index = removeType_new.indexOf('IPO');
+      if (index > -1) {
+        removeType_new.splice(index, 1);
+      }
+    }
+    else{removeType_new.push('IPO')}
+    updateAllTime_new() 
+  };
+  var container = d3.select("body").append("div")
+      .style("width",width);
+     
+  d3.csv("Indexes.csv", function(error, data) {
+      data.forEach(function(d) {
+          d.Date = parseDate(d.Date);
+          d.Fintech = +d.Fintech;
+          d.EMCLOUD = +d.EMCLOUD;
+          d.NASDAQ = +d.NASDAQ;
+          d.SNP500= +d.SNP500;
+          // d.EMCLOUD = +d.EMCLOUD;
+      });
+      // Scale the range of the data
+      var possible_comps_filtered = possible_companies.filter(function (el) {
+        return (removeType_new.indexOf(el.type) < 0)&(removeVerticals_new.indexOf(el.vertical) < 0); 
+      });
+      proper_tickers = possible_comps_filtered.map(a => a.ticker)
+      filtered_ft_multiples = ft_multiples.map(function(a) {return _.pick(a,proper_tickers)})
+      //console.log(filtered_ft_multiples)
+      // worstGrowth = []
+      // averageGrowth = []
+      // bestGrowth = []
+      cleaned_multiples = []
+      categories = ["Less than 20%","Between 20%40%","Greater than 40%"]
+      var multiple_ds = [];
+      for (index = 0; index < filtered_ft_multiples.length; index++) {
+        //console.log(filtered_ft_multiples[index])
+        ticker_vals = Object.keys(filtered_ft_multiples[index]).map((key) => filtered_ft_multiples[index][key])
+        row_obj = {Date: parseDate(ft_multiples[index]['Date']), lt20: 0, bt2040: 0, gt40: 0}
+        categories.forEach(function (category, i) {
+          filtered = ticker_vals.filter(function (str) { return str.includes(category) })
+          count = 0;
+          multiple_sum = 0.0;
+          filtered.forEach(function (item){
+            row = item.split(",");
+            multiple = row[0]
+            if(multiple != 'nan'){
+              multiple_sum+=parseFloat(multiple)
+              // if(index == 20){
+              // console.log(multiple);
+              // console.log(multiple_sum)
+              // } 
+              count++;
+            }
+          });
+          if (count>0){
+            average_mult = multiple_sum/parseFloat(count).toFixed(1);
+          }
+          else {average_mult = NaN;}
+          if (category == "Less than 20%"){
+            row_obj['lt20'] = average_mult
+          }
+          else if (category == "Between 20%40%"){
+            row_obj['bt2040'] = average_mult
+          }    
+          else if (category == "Greater than 40%"){
+            row_obj['gt40'] = average_mult
+          }                 
+        });
+        multiple_ds.push(row_obj);
+        
+      }
+      //console.log(multiple_ds)
+      //multiple_ds.forEach(function(d) {console.log(Math.max(d.lt20, d.bt2040, d.gt40))})
+      x_new.domain(d3.extent(multiple_ds, function(d) { return d.Date; }));
+      min_value = d3.min(multiple_ds, function(d) {return Math.min(clean_mult_val(d.lt20), clean_mult_val(d.bt2040), clean_mult_val(d.gt40)); })
+      max_value = d3.max(multiple_ds, function(d) {return Math.max(clean_mult_val(d.lt20), clean_mult_val(d.bt2040), clean_mult_val(d.gt40)); })
+      if (window.innerWidth<780){
+        y_new.domain([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*.6]);
+      }
+      else{
+        y_new.domain([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*.35]);
+        //console.log([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*.3]);
+      }
+      // document.getElementById("emCloudValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
+      dataVar_new = multiple_ds;
+      DateVar_new = multiple_ds.Date;
+      LT20Var_new = multiple_ds.lt20; 
+      BT2040Var_new = multiple_ds.bt2040;
+      GT40Var_new = multiple_ds.gt40;
+      // EMCLOUDVAR = data.EMCLOUD;
+      // Add the valueline path.
+      svg_new.append("path")
+          .attr("class", "line_new")
+          .style("stroke", "#5B56EE")
+          .attr("d", valueline_new(multiple_ds));
+
+      svg_new.append("path")   // change the line
+        .attr("class", "line2_new")
+        .style("stroke", "#A6D0D8")
+        .attr("d", valueline2_new(multiple_ds));
+      
+      svg_new.append("path")   // change the line
+        .attr("class", "line3_new")
+        .style("stroke", "#FC714D")
+        .attr("d", valueline3_new(multiple_ds));
+      
+      // svg.append("path")   // change the line
+      //   .attr("class", "line5")
+      //   .style("stroke", "#A9A9A9")
+      //   .attr("d", valueline5(data));
+  
+      // Add the X Axis
+  
+    // add the Y gridlines
+  
+  
+      svg_new.append("g")
+          .attr("class", "xaxis_new")
+          .attr("transform", "translate(0," + height_new + ")")
+          .call(xAxis_new);
+  
+      // Add the Y Axis
+      svg_new.append("g")
+          .attr("class", "yaxis_new")
+          .call(yAxis_new);
+      // svg.append("g")         
+      // .attr("class", "grid")
+      // .attr("style","color: black;")
+      // .attr("transform", "translate(0," + height + ")")
+      // .call(make_x_axis()
+      //     .tickSize(-height, 0, 0)
+      //     .tickFormat("")
+      // )
+      // svg.append("g")			
+      // .attr("class", "grid")
+      // .call(make_y_axis()
+      //         .tickSize(-width, 0, 0)
+      //         .tickFormat("")
+      // )
+      var focus_new = svg_new.append("g")
+          .attr("class", "focus_new")
+          .attr("style","display: none; position: absolute; z-index: -1;");
+    
+      focus_new.append("circle")
+          .attr("r", 5);
+      focus_new.append("rect")
+          .attr("width", 1)
+          .attr("y", -1000)
+          .attr("height", 1600)
+          .attr("style","border-style: dotted; position: absolute;");
+      var t_box_new = focus_new.append("rect")
+          .attr("class", "hover-data-style")
+          .attr("width", 120)
+          .attr("height", 90)
+          .attr("x", -75)
+          .attr("y", -120)
+          .attr("rx", 4)
+          .attr("ry", 4)
+          .attr("style","fill:white; stroke:black;");
+
+      var t_date_new = focus_new.append("text")
+          .attr("class", "tooltip-date_new")
+          .attr("x", -60)
+          .attr("y", -100);
+  
+      var t_lt20 = focus_new.append("text").classed("tooltip-lt20", true)
+          .attr("style","fill: #5B56EE;").attr("x",-60).attr("y",-80);
+      
+      var t_bt2040 = focus_new.append("text")
+          .attr("class", "tooltip-bt2040")
+          .attr("x", -60)
+          .attr("y", -60)
+          .attr("style","fill: #A6D0D8;");
+  
+      var t_gt40 = focus_new.append("text")
+          .attr("class", "tooltip-gt40")
+          .attr("x", -60)
+          .attr("y", -40)
+          .attr("style","fill: #FC714D;");
+
+      // focus.append("text")
+      //     .attr("x", -55)
+      //     .attr("y", -20)
+      //     .text("Cloud:")
+      //     .attr("style","fill: #A9A9A9;");
+  
+      // focus.append("text")
+      //     .attr("class", "tooltip-emcloud")
+      //     .attr("x", 10)
+      //     .attr("y", -20)
+      //     .attr("style","fill: #A9A9A9;");
+      // resized_new();
+      var htmlString = focus_new[0][0];
+      //console.log(htmlString);
+      var engHello = "hello"
+      svg_new.append("rect")
+          .attr("class", "mouseOverlay")
+          .attr("width", width_new)
+          .attr("height", height_new)
+          .on("mouseover", function() { focus_new.style('display',null); })
+          .on("mouseout", function() { focus_new.attr("style","display: none; position: absolute;"); })
+          .on("mousemove", function(){var x0_new = x_new.invert(d3.mouse(this)[0]); mousemove1_new(dataVar_new, DateVar_new, LT20Var_new, BT2040Var_new, GT40Var_new,focus_new,x0_new);});
+          // .on("mousemove", mousemove);
+    //   function mousemove() {
+    //   var x0 = x.invert(d3.mouse(this)[0]),
+    //         i = bisectDate(data, x0, 1),
+    //         d0 = data[i - 1],
+    //         d1 = data[i],
+    //         d = x0 - d0.Date > d1.Date - x0 ? d1 : d0;
+    //     focus.attr("transform", "translate(" + x(d.Date) + "," + y(d.Fintech) + ")");
+    //     focus.select(".tooltip-date").text(dateFormatter(d.Date));
+    //     focus.select(".tooltip-fintech").text(formatValue(d.Fintech.toFixed(2)));
+    //     focus.select(".tooltip-EMCLOUD").text(formatValue(d.EMCLOUD.toFixed(2)));
+    //     focus.select(".tooltip-nasdaq").text(formatValue(d.NASDAQ.toFixed(2)));
+    //     focus.select(".tooltip-snp").text(formatValue(d.SNP500.toFixed(2)));
+    //     var htmlString = focus.select(".tooltip-snp")[0][0];
+    //     console.log(htmlString);
+    // }
+        // function resized_new() {
+        // // if (window.innerWidth<780){
+        // //   y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })*2]);
+        // // }
+        // var scale_new = width / window.innerWidth;
+        // // Update SVG height to maintain aspect ratio
+        // svg_new.attr("height",height / scale_new);
+        // const newWidth = d3.select("svg").style("width");
+        // const newFontSize = 40 * (600 / parseInt(newWidth));
+        // d3.selectAll(".tick").select("text")
+        //     .style("font-size", newFontSize)
+        // // Increase text scale proportional to overall scale reduction
+        // // e.g. 3/4 of the original width -> scale text by 4/3
+        // var n = 2;
+        // // t_box.attr("height",110+((scale)>1 ? 1+((scale-1)/n*10) : 1));
+        // // t_box.attr("y",-140-((scale)>1 ? 1+((scale-1)/n*10) : 1));
+        // t_box_new.attr("transform","scale(" + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + "," + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + ")");
+        // t_date_new.attr("transform","scale(" + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + "," + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + ")");
+        // t_lt20.attr("transform","scale(" + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + "," + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + ")");
+        // t_bt2040.attr("transform","scale(" + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + "," + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + ")");
+        // t_gt40.attr("transform","scale(" + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + "," + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + ")");
+        // // t_date.attr("y",-120-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
+        // // t_ft.attr("y",-100-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
+        // // t_EMCLOUD.attr("y",-80-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
+        // // t_nasdaq.attr("y",-60-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
+        // // t_snp.attr("y",-40-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
+        // //console.log(((scale)>1 ? 1+(scale-1)/10 : 1))
+        // }
+  });
+  function updateAllTime_new() {
+    // Get the data again
+
+    d3.csv("Indexes.csv", function(error, data) {
+       	data.forEach(function(d) {
+            d.Date = parseDate(d.Date);
+            d.Fintech = +d.Fintech;
+            d.EMCLOUD = +d.EMCLOUD;
+            d.NASDAQ = +d.NASDAQ;
+            d.SNP500= +d.SNP500;
+            // d.EMCLOUD = +d.EMCLOUD;
+	    });
+      // console.log(possible_companies)
+      var possible_comps_filtered = possible_companies.filter(function (el) {
+        return (removeType_new.indexOf(el.type) < 0)&(removeVerticals_new.indexOf(el.vertical) < 0); 
+      });
+      //console.log(ft_multiples)
+      proper_tickers = possible_comps_filtered.map(a => a.ticker)
+      filtered_ft_multiples = ft_multiples.map(function(a) {return _.pick(a,proper_tickers)})
+      // worstGrowth = []
+      // averageGrowth = []
+      // bestGrowth = []
+      cleaned_multiples = []
+      categories = ["Less than 20%","Between 20%40%","Greater than 40%"]
+      var multiple_ds = [];
+      for (index = 0; index < filtered_ft_multiples.length; index++) {
+        //console.log(filtered_ft_multiples[index])
+        ticker_vals = Object.keys(filtered_ft_multiples[index]).map((key) => filtered_ft_multiples[index][key])
+        row_obj = {Date: parseDate(ft_multiples[index]['Date']), lt20: 0, bt2040: 0, gt40: 0}
+        categories.forEach(function (category, index) {
+          filtered = ticker_vals.filter(function (str) { return str.includes(category) })
+          count = 0;
+          multiple_sum = 0.0;
+          filtered.forEach(function (item){
+            row = item.split(",");
+            multiple = row[0]
+            // if (index == 20){
+            //   console.log(multiple)
+            // }
+            if(multiple != 'nan'){
+              multiple_sum+=parseFloat(multiple)
+              count++;
+            }
+          });
+          if (count>0){
+            average_mult = multiple_sum/count.toFixed(1);}
+          else {average_mult = NaN;}
+          if (category == "Less than 20%"){
+            row_obj['lt20'] = average_mult
+          }
+          else if (category == "Between 20%40%"){
+            row_obj['bt2040'] = average_mult
+          }    
+          else if (category == "Greater than 40%"){
+            row_obj['gt40'] = average_mult
+          }                 
+        });
+        multiple_ds.push(row_obj);
+        
+      }
+      //console.log(multiple_ds)
+      //console.log(proper_tickers)
+      // console.log(data)
+      //!!!Market Cap Weighting Index!!!
+      
+    	x_new.domain(d3.extent(multiple_ds, function(d) { return d.Date; }));
+      min_value = d3.min(multiple_ds, function(d) {return Math.min(clean_mult_val(d.lt20), clean_mult_val(d.bt2040), clean_mult_val(d.gt40)); })
+      max_value = d3.max(multiple_ds, function(d) {return Math.max(clean_mult_val(d.lt20), clean_mult_val(d.bt2040), clean_mult_val(d.gt40)); })
+      if (window.innerWidth<780){
+        y_new.domain([0, max_value + (max_value-min_value)*.6]);
+      }
+      else{
+        y_new.domain([0, max_value + (max_value-min_value)*.35]);
+      }
+      // document.getElementById("emCloudValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
+      dataVar_new = multiple_ds;
+      DateVar_new = multiple_ds.Date;
+      LT20Var_new = multiple_ds.lt20; 
+      BT2040Var_new = multiple_ds.bt2040;
+      GT40Var_new = multiple_ds.gt40;
+      // var today = new Date();
+      // today.setFullYear(today.getFullYear()-1);
+      // console.log(today.toLocaleDateString())
+
+      // EMCLOUDVAR = data.EMCLOUD;
+    // Select the section we want to apply our changes to
+    lt20_nanCount = 0;
+    bt2040_nanCount = 0;
+    gt40_nanCount = 0;
+    for (row = 0; row < multiple_ds.length; row++) {
+      if(isNaN(multiple_ds[row].lt20)){lt20_nanCount++}
+      if(isNaN(multiple_ds[row].bt2040)){bt2040_nanCount++}
+      if(isNaN(multiple_ds[row].gt40)){gt40_nanCount++}
+    }
+    var svg_new = d3.select("body").transition();
+    if(lt20_nanCount>=multiple_ds.length){
+      multiple_ds.forEach(function(d) {d.lt20 = .001})
+    }
+    if(bt2040_nanCount>=multiple_ds.length){
+      multiple_ds.forEach(function(d) {d.bt2040 = .001})
+    }
+    if(gt40_nanCount>=multiple_ds.length){
+      multiple_ds.forEach(function(d) {d.gt40 = .001})
+    }
+    // Make the changes
+    // console.log(multiple_ds)
+      svg_new.select(".line_new")   // change the line
+          .duration(750)
+          .attr("class", "line_new")
+          .style("stroke", "#5B56EE")
+          .attr("d", valueline_new(multiple_ds));
+
+      // // svg_new.select(".line_new").remove();
+      // multiple_ds.forEach(function(d) {d.lt20 = 1.1})
+      // console.log(multiple_ds)
+      // svg_new.select(".line_new")   // change the line
+      // .duration(750)
+      // .attr("class", "line_new")
+      // .style("stroke", "#5B56EE")
+      // .attr("d", valueline_new(multiple_ds));
+    
+      svg_new.select(".line2_new")   // change the line
+          .duration(750)
+          .attr("class", "line2_new")
+          .style("stroke", "#A6D0D8")
+          .attr("d", valueline2_new(multiple_ds));
+
+
+      svg_new.select(".line3_new")   // change the line
+          .duration(750)
+          .attr("class", "line3_new")
+          .style("stroke", "#FC714D")
+          .attr("d", valueline3_new(multiple_ds));
+
+  
+        // svg.select(".line5")   // change the line
+        //     .duration(750)
+        //     .attr("class", "line5")
+        //     .style("stroke", "#A9A9A9")
+        //     .attr("d", valueline5(data));
+        svg_new.select(".xaxis_new") // change the x axis
+            .duration(750)
+            .call(xAxis_new.tickFormat(d3.time.format("%Y")).ticks(10));
+
+        svg_new.select(".yaxis_new") // change the y axis
+            .duration(750)
+            .call(yAxis_new);
+    });
+}
+    </script>
 <br />
 <br />
 <br />
