@@ -3783,6 +3783,7 @@ SOFTWARE. -->
     var d0 = dataValues[i - 1];
     var d1 = dataValues[i];
     var d = x0 - d0.Date > d1.Date - x0 ? d1 : d0;
+    console.log(d)
     focus_new.attr("transform", "translate(" + x_new(d.Date) + "," + y_new(d.gt40) + ")");
     focus_new.select(".tooltip-date_new").text(dateFormatter(d.Date));
     focus_new.select(".tooltip-lt20").text('<20%: ' + return_tooltip_text(d.lt20));
