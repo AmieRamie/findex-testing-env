@@ -415,6 +415,7 @@ path {
     stroke-width: 1;
     shape-rendering: crispEdges;
 }
+
 .container-fluid{
   width:80%;
 }
@@ -2250,6 +2251,9 @@ d3.csv("Indexes.csv", function(error, data) {
       t_EMCLOUD.attr("transform","scale(" + ((scale)>1 ? 1+(scale-1)/n : 1) + "," + ((scale)>1 ? 1+(scale-1)/n : 1) + ")");
       t_nasdaq.attr("transform","scale(" + ((scale)>1 ? 1+(scale-1)/n : 1) + "," + ((scale)>1 ? 1+(scale-1)/n : 1) + ")");
       t_snp.attr("transform","scale(" + ((scale)>1 ? 1+(scale-1)/n : 1) + "," + ((scale)>1 ? 1+(scale-1)/n : 1) + ")");
+      // t_lt20.attr("transform","scale(" + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + "," + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + ")");
+      // t_bt2040.attr("transform","scale(" + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + "," + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + ")");
+      // t_gt40.attr("transform","scale(" + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + "," + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + ")");
       // t_date.attr("y",-120-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
       // t_ft.attr("y",-100-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
       // t_EMCLOUD.attr("y",-80-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
@@ -2257,7 +2261,11 @@ d3.csv("Indexes.csv", function(error, data) {
       // t_snp.attr("y",-40-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
       //console.log(((scale)>1 ? 1+(scale-1)/10 : 1))
       }
-      window.onresize = resized;
+      window.addEventListener("resize", function() {
+        resized();
+      });
+        //window.onresize = resized;
+      //window.onresize = resized;
 });
 
 // ** UpDate data section (Called from the onclick)
@@ -3936,15 +3944,7 @@ SOFTWARE. -->
   var container = d3.select("body").append("div")
       .style("width",width);
      
-  d3.csv("Indexes.csv", function(error, data) {
-      data.forEach(function(d) {
-          d.Date = parseDate(d.Date);
-          d.Fintech = +d.Fintech;
-          d.EMCLOUD = +d.EMCLOUD;
-          d.NASDAQ = +d.NASDAQ;
-          d.SNP500= +d.SNP500;
-          // d.EMCLOUD = +d.EMCLOUD;
-      });
+  d3.csv("possible_comps.csv", function(error, possible_comps) {
       // Scale the range of the data
       var possible_comps_filtered = possible_companies.filter(function (el) {
         return (removeType_new.indexOf(el.type) < 0)&(removeVerticals_new.indexOf(el.vertical) < 0); 
@@ -4001,9 +4001,11 @@ SOFTWARE. -->
       min_value = d3.min(multiple_ds, function(d) {return Math.min(clean_mult_val(d.lt20), clean_mult_val(d.bt2040), clean_mult_val(d.gt40)); })
       max_value = d3.max(multiple_ds, function(d) {return Math.max(clean_mult_val(d.lt20), clean_mult_val(d.bt2040), clean_mult_val(d.gt40)); })
       if (window.innerWidth<780){
-        y_new.domain([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*.6]);
+        console.log(window.innerWidth)
+        y_new.domain([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*1]);
       }
       else{
+        console.log(window.innerWidth)
         y_new.domain([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*.35]);
         //console.log([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*.3]);
       }
@@ -4115,7 +4117,7 @@ SOFTWARE. -->
       //     .attr("x", 10)
       //     .attr("y", -20)
       //     .attr("style","fill: #A9A9A9;");
-      // resized_new();
+      resized_new();
       var htmlString = focus_new[0][0];
       //console.log(htmlString);
       var engHello = "hello"
@@ -4142,47 +4144,48 @@ SOFTWARE. -->
     //     var htmlString = focus.select(".tooltip-snp")[0][0];
     //     console.log(htmlString);
     // }
-        // function resized_new() {
-        // // if (window.innerWidth<780){
-        // //   y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })*2]);
-        // // }
-        // var scale_new = width / window.innerWidth;
-        // // Update SVG height to maintain aspect ratio
-        // svg_new.attr("height",height / scale_new);
-        // const newWidth = d3.select("svg").style("width");
-        // const newFontSize = 40 * (600 / parseInt(newWidth));
-        // d3.selectAll(".tick").select("text")
-        //     .style("font-size", newFontSize)
-        // // Increase text scale proportional to overall scale reduction
-        // // e.g. 3/4 of the original width -> scale text by 4/3
-        // var n = 2;
-        // // t_box.attr("height",110+((scale)>1 ? 1+((scale-1)/n*10) : 1));
-        // // t_box.attr("y",-140-((scale)>1 ? 1+((scale-1)/n*10) : 1));
-        // t_box_new.attr("transform","scale(" + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + "," + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + ")");
-        // t_date_new.attr("transform","scale(" + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + "," + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + ")");
-        // t_lt20.attr("transform","scale(" + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + "," + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + ")");
-        // t_bt2040.attr("transform","scale(" + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + "," + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + ")");
-        // t_gt40.attr("transform","scale(" + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + "," + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + ")");
-        // // t_date.attr("y",-120-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
-        // // t_ft.attr("y",-100-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
-        // // t_EMCLOUD.attr("y",-80-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
-        // // t_nasdaq.attr("y",-60-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
-        // // t_snp.attr("y",-40-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
-        // //console.log(((scale)>1 ? 1+(scale-1)/10 : 1))
+    function resized_new() {
+        // if (window.innerWidth<780){
+        //   y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })*2]);
         // }
+        var scale_new = width / window.innerWidth;
+        // y_domain = y_new.domain();
+        // console.log(y_domain)
+        // Update SVG height to maintain aspect ratio
+        svg_new.attr("height",height / scale_new);
+        const newWidth = d3.select("svg").style("width");
+        const newFontSize = 40 * (600 / parseInt(newWidth));
+        d3.selectAll(".tick").select("text")
+            .style("font-size", newFontSize)
+        // Increase text scale proportional to overall scale reduction
+        // e.g. 3/4 of the original width -> scale text by 4/3
+        var n = 2;
+        // t_box.attr("height",110+((scale)>1 ? 1+((scale-1)/n*10) : 1));
+        // t_box.attr("y",-140-((scale)>1 ? 1+((scale-1)/n*10) : 1));
+        t_box_new.attr("transform","scale(" + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + "," + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + ")");
+        t_date_new.attr("transform","scale(" + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + "," + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + ")");
+        t_lt20.attr("transform","scale(" + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + "," + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + ")");
+        t_bt2040.attr("transform","scale(" + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + "," + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + ")");
+        t_gt40.attr("transform","scale(" + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + "," + ((scale_new)>1 ? 1+(scale_new-1)/n : 1) + ")");
+        // t_date.attr("y",-120-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
+        // t_ft.attr("y",-100-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
+        // t_EMCLOUD.attr("y",-80-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
+        // t_nasdaq.attr("y",-60-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
+        // t_snp.attr("y",-40-((scale)>1 ? 1+(scale-1)/n : 1)*-7);
+        //console.log(((scale)>1 ? 1+(scale-1)/10 : 1))
+        }
+    window.addEventListener("resize", function() {
+      resized_new();
+    });
+    //     function resize_all(){
+    //       resized();
+    //       resized_new();
+    //     }
   });
   function updateAllTime_new() {
     // Get the data again
 
-    d3.csv("Indexes.csv", function(error, data) {
-       	data.forEach(function(d) {
-            d.Date = parseDate(d.Date);
-            d.Fintech = +d.Fintech;
-            d.EMCLOUD = +d.EMCLOUD;
-            d.NASDAQ = +d.NASDAQ;
-            d.SNP500= +d.SNP500;
-            // d.EMCLOUD = +d.EMCLOUD;
-	    });
+    d3.csv("possible_comps.csv", function(error, possible_comps) {
       // console.log(possible_companies)
       var possible_comps_filtered = possible_companies.filter(function (el) {
         return (removeType_new.indexOf(el.type) < 0)&(removeVerticals_new.indexOf(el.vertical) < 0); 
@@ -4240,7 +4243,7 @@ SOFTWARE. -->
       min_value = d3.min(multiple_ds, function(d) {return Math.min(clean_mult_val(d.lt20), clean_mult_val(d.bt2040), clean_mult_val(d.gt40)); })
       max_value = d3.max(multiple_ds, function(d) {return Math.max(clean_mult_val(d.lt20), clean_mult_val(d.bt2040), clean_mult_val(d.gt40)); })
       if (window.innerWidth<780){
-        y_new.domain([0, max_value + (max_value-min_value)*.6]);
+        y_new.domain([0, max_value + (max_value-min_value)*1]);
       }
       else{
         y_new.domain([0, max_value + (max_value-min_value)*.35]);
@@ -4321,6 +4324,13 @@ SOFTWARE. -->
     });
 }
     </script>
+    <div class="legend" id="performance">
+      <div>
+        <li><span class="fintech_legend"></span>&#60;20% Rev. Growth</li>
+        <li><span class="EMCLOUD_legend"></span> 20-40% Rev. Growth</li>
+        <li><span class="snp500_legend"></span> &#62;40% Rev. Growth</li>
+      </div>
+    </div>
 <br />
 <br />
 <br />
