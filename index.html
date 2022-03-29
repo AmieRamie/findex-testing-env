@@ -3948,6 +3948,7 @@ SOFTWARE. -->
         });
   d3.csv("possible_companies.csv", function(error, data) {
       // Scale the range of the data
+      console.log(ft_multiples)
       // console.log(data)
       var possible_comps_filtered_new = data.filter(function (el) {
         return (removeType_new.indexOf(el.type) < 0)&(removeVerticals_new.indexOf(el.vertical) < 0); 
