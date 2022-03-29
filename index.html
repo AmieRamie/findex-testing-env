@@ -3794,15 +3794,6 @@ SOFTWARE. -->
   var performances;
   var new_ft_mcs;
   var proper_tickers;
-  var possible_companies;
-      d3.csv("possible_companies.csv", function(possible_comps){
-        possible_companies=possible_comps;
-        });
-  
-  var ft_multiples;
-  d3.csv("multiples.csv", function(multiples){
-      ft_multiples=multiples;
-        });
   
   var removeVerticals_new = []
   var removeType_new = []
@@ -3943,14 +3934,29 @@ SOFTWARE. -->
   };
   var container = d3.select("body").append("div")
       .style("width",width);
-     
+
+  var possible_companies_new;
+  d3.csv("possible_companies.csv", function(possible_comps){
+    possible_companies_new=possible_comps;
+    });
+  
+  var ft_multiples;
+  d3.csv("multiples.csv", function(multiples){
+      ft_multiples=multiples;
+        });
   d3.csv("possible_comps.csv", function(error, possible_comps) {
+      // possible_companies.forEach(function(d) {
+      //     d.ticker = +d.ticker;
+      //     d.vertical = +d.vertical;
+      //     d.type = +d.type;
+      //     // d.EMCLOUD = +d.EMCLOUD;
+      // });
       // Scale the range of the data
-      var possible_comps_filtered = possible_companies.filter(function (el) {
+      var possible_comps_filtered_new = possible_companies_new.filter(function (el) {
         return (removeType_new.indexOf(el.type) < 0)&(removeVerticals_new.indexOf(el.vertical) < 0); 
       });
-      proper_tickers = possible_comps_filtered.map(a => a.ticker)
-      filtered_ft_multiples = ft_multiples.map(function(a) {return _.pick(a,proper_tickers)})
+      proper_tickers_new = possible_comps_filtered_new.map(a => a.ticker)
+      filtered_ft_multiples = ft_multiples.map(function(a) {return _.pick(a,proper_tickers_new)})
       //console.log(filtered_ft_multiples)
       // worstGrowth = []
       // averageGrowth = []
@@ -4187,12 +4193,12 @@ SOFTWARE. -->
 
     d3.csv("possible_comps.csv", function(error, possible_comps) {
       // console.log(possible_companies)
-      var possible_comps_filtered = possible_companies.filter(function (el) {
+      var possible_comps_filtered_new = possible_companies_new.filter(function (el) {
         return (removeType_new.indexOf(el.type) < 0)&(removeVerticals_new.indexOf(el.vertical) < 0); 
       });
       //console.log(ft_multiples)
-      proper_tickers = possible_comps_filtered.map(a => a.ticker)
-      filtered_ft_multiples = ft_multiples.map(function(a) {return _.pick(a,proper_tickers)})
+      proper_tickers_new = possible_comps_filtered_new.map(a => a.ticker)
+      filtered_ft_multiples = ft_multiples.map(function(a) {return _.pick(a,proper_tickers_new)})
       // worstGrowth = []
       // averageGrowth = []
       // bestGrowth = []
@@ -4316,7 +4322,7 @@ SOFTWARE. -->
         //     .attr("d", valueline5(data));
         svg_new.select(".xaxis_new") // change the x axis
             .duration(750)
-            .call(xAxis_new.tickFormat(d3.time.format("%Y")).ticks(10));
+            .call(xAxis_new.tickFormat(d3.time.format("%Y")).ticks(5));
 
         svg_new.select(".yaxis_new") // change the y axis
             .duration(750)
