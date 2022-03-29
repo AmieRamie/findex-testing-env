@@ -3940,9 +3940,11 @@ SOFTWARE. -->
   //   possible_companies_new=possible_comps;
   //   });
   
-  var ft_multiples;
-  d3.csv("multiples.csv", function(multiples){
-      ft_multiples=multiples;
+  var ft_multiples = [];
+  d3.csv("multiples.csv", function(d){
+      for (var i = 0; i < d.length; i++) {
+        ft_multiples.push(d[i])
+      }
         });
   d3.csv("possible_companies.csv", function(error, data) {
       // Scale the range of the data
@@ -4002,11 +4004,9 @@ SOFTWARE. -->
       min_value = d3.min(multiple_ds, function(d) {return Math.min(clean_mult_val(d.lt20), clean_mult_val(d.bt2040), clean_mult_val(d.gt40)); })
       max_value = d3.max(multiple_ds, function(d) {return Math.max(clean_mult_val(d.lt20), clean_mult_val(d.bt2040), clean_mult_val(d.gt40)); })
       if (window.innerWidth<780){
-        console.log(window.innerWidth)
         y_new.domain([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*1]);
       }
       else{
-        console.log(window.innerWidth)
         y_new.domain([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*.35]);
         //console.log([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*.3]);
       }
