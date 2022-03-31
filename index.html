@@ -1024,7 +1024,7 @@ path {
   font-size:4.2vw;
 }
 .footer__inner:after{left: 0; width:100% !important;}
-  .graphButtons{ margin-left: auto;font-size: 1.8vw;}
+  .graphButtons{ margin-left: -5%; margin-bottom: 0%; font-size: 1.6vw;}
   /* .g-style{
   font-size:45px;
 } */
@@ -1122,6 +1122,8 @@ g.tick text{font-size: max(7.5vw, 40px) !important;}
   min-width: 0px;
   font-size:9px;
 }
+
+
 }
 @media screen and (max-width: 350px) {
   .about_us_info{  
@@ -1278,6 +1280,7 @@ g.tick text{font-size: max(7.5vw, 40px) !important;}
 .dropdown {
   position: relative;
   display: inline-block;
+  font-size: 15px !important;
   /* float: right; */
 }
 
@@ -1736,10 +1739,19 @@ function changeGraphSize(){
 var widthBrowser = getWidth();
 var heightBrowser = getHeight();
 //console.log(widthBrowser)
-var	margin = {top: 30, right: 225, bottom: 30, left: 225},
+if (window.innerWidth<400){
+  var	margin = {top: 120, right: 225, bottom: 30, left: 225},
     width = widthBrowser  - margin.left - margin.right,
     height = heightBrowser - 350,
     tooltip = { width: 100, height: 100, x: 10, y: -30 };
+      }
+else{
+    var	margin = {top: 30, right: 225, bottom: 30, left: 225},
+    width = widthBrowser  - margin.left - margin.right,
+    height = heightBrowser - 350,
+    tooltip = { width: 100, height: 100, x: 10, y: -30 };
+    //console.log([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*.3]);
+  }
 
 // Set the dimensions of the canvas / graph
 }
@@ -2075,7 +2087,7 @@ d3.csv("Indexes.csv", function(error, data) {
     min_value = d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })
     max_value = d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500);})
     if (window.innerWidth<780){
-      y.domain([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*.6]);
+      y.domain([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*.8]);
     }
     else{
       y.domain([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*.35]);
@@ -2334,7 +2346,7 @@ function updateAllTime() {
       min_value = d3.min(data, function(d) {return Math.min(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500); })
       max_value = d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.Fintech, d.SNP500);})
       if (window.innerWidth<780){
-        y.domain([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*.6]);
+        y.domain([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*.8]);
       }
       else{
         y.domain([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*.35]);
@@ -3658,10 +3670,20 @@ SOFTWARE. -->
   // }
   // window.addEventListener("resize", changeGraphSize);
     // Set the dimensions of the canvas / graph
-    var	margin_new = {top: 30, right: 350, bottom: 80, left: 350},
-      width_new = 1920  - margin_new.left - margin_new.right,
-      height_new = 500,
-      tooltip = { width_new: 100, height_new: 100, x: 10, y: -30 };
+    if (window.innerWidth<400){
+        var	margin_new = {top: 100, right: 150, bottom: 80, left: 150},
+        width_new = 1920  - margin_new.left - margin_new.right,
+        height_new = 500,
+        tooltip = { width_new: 100, height_new: 100, x: 10, y: -30 };
+      }
+    else{
+        var	margin_new = {top: 30, right: 350, bottom: 80, left: 350},
+        width_new = 1920  - margin_new.left - margin_new.right,
+        height_new = 500,
+        tooltip = { width_new: 100, height_new: 100, x: 10, y: -30 };
+        //console.log([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*.3]);
+      }
+
    // Parse the Date / time
   var parseDate = d3.time.format("%m/%d/%Y").parse,
           bisectDate = d3.bisector(function(d) { return d.Date; }).left,
@@ -4245,10 +4267,11 @@ SOFTWARE. -->
       min_value = d3.min(multiple_ds, function(d) {return Math.min(clean_mult_val(d.lt20), clean_mult_val(d.bt2040), clean_mult_val(d.gt40)); })
       max_value = d3.max(multiple_ds, function(d) {return Math.max(clean_mult_val(d.lt20), clean_mult_val(d.bt2040), clean_mult_val(d.gt40)); })
       if (window.innerWidth<780){
-        y_new.domain([0, max_value + (max_value-min_value)*1]);
+        y_new.domain([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*1]);
       }
       else{
-        y_new.domain([0, max_value + (max_value-min_value)*.35]);
+        y_new.domain([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*.35]);
+        //console.log([min_value - (max_value-min_value)*.1, max_value + (max_value-min_value)*.3]);
       }
       // document.getElementById("emCloudValueJS").innerHTML = ((data[data.length-1].SNP500*100)<0?"":"+") + (data[data.length-1].EMCLOUD*100).toFixed(1);
       dataVar_new = multiple_ds;
