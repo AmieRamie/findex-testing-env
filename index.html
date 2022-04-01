@@ -403,7 +403,7 @@ table {
   margin-bottom: 5%;
 }
 path { 
-    stroke: steelblue;
+    stroke: grey;
     stroke-width: 2;
     fill: none;
 }
@@ -412,9 +412,10 @@ path {
 .axis line {
     fill: none;
     stroke: grey;
-    stroke-width: 1;
+    stroke-width: 2;
     shape-rendering: crispEdges;
 }
+
 
 .container-fluid{
   width:80%;
@@ -3434,83 +3435,9 @@ d3.csv("Indexes.csv", function(error, data) {
 
 </div>
 <div class="section_headers_div">
-  <h2 class="section_headers" id = "companies">All Companies</h2>
-</div>
-
-<!-- <div id="DivContent"></div> -->
-
-<!-- The MIT License (MIT)
-
-Copyright (c) 2018 Derek Eder
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE. -->
-
-<!-- https://github.com/derekeder/csv-to-html-table -->
-
-<div class="container-fluid">
-  <!-- <h2 class="section_headers" style = "margin-bottom: -2%;">All Companies</h2> -->
-  <main class="row">
-      <div class="col">
-          <div id="table-container" class = "table-design"></div>
-      </div>
-  </main>
-</div>
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="jquery.csv.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-
-<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-<script src="csv-to-html-table.js"></script>
-
-<script>
-  function format_link(link) {
-      if (link)
-          return "<a href='" + link + "' target='_blank'>" + link + "</a>";
-      else return "";
-  }
-
-  CsvToHtmlTable.init({
-      csv_path: "FinTech_key_data_output.csv",
-      element: "table-container",
-      allow_download: true,
-      csv_options: {
-          separator: ",",
-          delimiter: '"'
-      },
-      datatables_options: {
-          paging: false,
-          info: false,
-          column:[{data: 'Price ($)',render: function ( data, type, row ) {return '$'+ data;}}]
-      },
-      custom_formatting: [
-          [4, format_link]
-      ]
-  });
-</script>
-<div class="section_headers_div">
   <h2 class="section_headers" id = "companies">Multiples</h2>
 </div>
-<div class="dropdown" style="margin-left: 82%;float:right;">
+<div class="dropdown" style="margin-left: 90.5%;float:right;">
   <button class="dropbtn"><span class="glyphicon">&#xe138;</span></button>
   <div class="dropdown-content">
     <div class = 'vertical_toggles'>
@@ -3677,7 +3604,7 @@ SOFTWARE. -->
         tooltip = { width_new: 100, height_new: 100, x: 10, y: -30 };
       }
     else{
-        var	margin_new = {top: 30, right: 350, bottom: 80, left: 350},
+        var	margin_new = {top: 30, right: 175, bottom: 80, left: 175},
         width_new = 1920  - margin_new.left - margin_new.right,
         height_new = 500,
         tooltip = { width_new: 100, height_new: 100, x: 10, y: -30 };
@@ -4355,6 +4282,81 @@ $(document).ready(function() {
     },3000); 
 });
     </script>
+<div class="section_headers_div">
+  <h2 class="section_headers" id = "companies">All Companies</h2>
+</div>
+
+<!-- <div id="DivContent"></div> -->
+
+<!-- The MIT License (MIT)
+
+Copyright (c) 2018 Derek Eder
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. -->
+
+<!-- https://github.com/derekeder/csv-to-html-table -->
+
+<div class="container-fluid">
+  <!-- <h2 class="section_headers" style = "margin-bottom: -2%;">All Companies</h2> -->
+  <main class="row">
+      <div class="col">
+          <div id="table-container" class = "table-design"></div>
+      </div>
+  </main>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="jquery.csv.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script src="csv-to-html-table.js"></script>
+
+<script>
+  function format_link(link) {
+      if (link)
+          return "<a href='" + link + "' target='_blank'>" + link + "</a>";
+      else return "";
+  }
+
+  CsvToHtmlTable.init({
+      csv_path: "FinTech_key_data_output.csv",
+      element: "table-container",
+      allow_download: true,
+      csv_options: {
+          separator: ",",
+          delimiter: '"'
+      },
+      datatables_options: {
+          paging: false,
+          info: false,
+          column:[{data: 'Price ($)',render: function ( data, type, row ) {return '$'+ data;}}]
+      },
+      custom_formatting: [
+          [4, format_link]
+      ]
+  });
+</script>
+
     <div class="legend" id="performance">
       <div>
         <li><span class="fintech_legend"></span>&#60;20% Rev. Growth</li>
