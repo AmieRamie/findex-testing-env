@@ -3682,6 +3682,7 @@ d3.csv("Indexes.csv", function(error, data) {
           .orient("left")
           .ticks(5);
   }
+  
   var text_new = svg_new.selectAll("text");
   
   // function redraw(){
@@ -3939,6 +3940,8 @@ d3.csv("Indexes.csv", function(error, data) {
             row_obj['lt20'] = average_mult
           }
           else if (category == "Between 20%40%"){
+            // console.log(multiple_sum)
+            // console.log(parseFloat(count).toFixed(1))
             row_obj['bt2040'] = average_mult
           }    
           else if (category == "Greater than 40%"){
@@ -3948,7 +3951,7 @@ d3.csv("Indexes.csv", function(error, data) {
         multiple_ds.push(row_obj);
         
       }
-      //console.log(multiple_ds)
+      // console.log(multiple_ds)
       //multiple_ds.forEach(function(d) {console.log(Math.max(d.lt20, d.bt2040, d.gt40))})
       x_new.domain(d3.extent(multiple_ds, function(d) { return d.Date; }));
       min_value = d3.min(multiple_ds, function(d) {return Math.min(clean_mult_val(d.lt20), clean_mult_val(d.bt2040), clean_mult_val(d.gt40)); })
@@ -4378,12 +4381,12 @@ SOFTWARE. -->
     <div class="topnav">
       <a href="#home" class="active" onclick="myDropdown()">&lt; 3 Months Since Listing</a>
       <div id="myLinks">
-        <!-- <a href="https://www.moneylion.com/">&#10070; Money Lion</a> -->
+        <!-- <a href="https://www.moneylion.com/">&#10070; Money Lion</a>
         <a href="https://www.bakkt.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Bakkt</a>
         <a href="https://www.nerdwallet.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> NerdWallet</a>
         <a href="https://nubank.com.br/en/"style = "vertical-align: middle;"><div class="parallelogram"></div> NuBank</a>
         <a href="avidxchange.com"style = "vertical-align: middle;"><div class="parallelogram"></div> AvidXchange</a>
-        <a href="https://dave.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Dave</a>
+        <a href="https://dave.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Dave</a> -->
       </div>
     </div>
     
@@ -4412,6 +4415,7 @@ SOFTWARE. -->
         <!-- <a href="https://www.moneylion.com/">&#10070; Money Lion</a> -->
         <!-- <a href="https://www.acorns.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Acorns</a> -->
         <a href="https://better.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Better</a>
+        <a href="https://better.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Acorns</a>
         <a href="https://finaccel.co/"style = "vertical-align: middle;"><div class="parallelogram"></div> FinAccel</a>
       </div>
     </div>
