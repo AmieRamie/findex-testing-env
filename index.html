@@ -3925,6 +3925,9 @@ d3.csv("Indexes.csv", function(error, data) {
             multiple = row[0]
             if(multiple != 'nan'){
               multiple_sum+=parseFloat(multiple)
+              // if ((index == filtered_ft_multiples.length - 1)&(category == 'Between 20%40%')){
+              //   console.log(multiple)
+              // }
               // if(index == 20){
               // console.log(multiple);
               // console.log(multiple_sum)
@@ -4285,6 +4288,13 @@ $(document).ready(function() {
     },3000); 
 });
     </script>
+        <div class="legend" id="performance">
+          <div>
+            <li><span class="fintech_legend"></span>&#60;20% Rev. Growth</li>
+            <li><span class="EMCLOUD_legend"></span> 20-40% Rev. Growth</li>
+            <li><span class="snp500_legend"></span> &#62;40% Rev. Growth</li>
+          </div>
+        </div>
 <div class="section_headers_div">
   <h2 class="section_headers" id = "companies">All Companies</h2>
 </div>
@@ -4360,13 +4370,6 @@ SOFTWARE. -->
   });
 </script>
 
-    <div class="legend" id="performance">
-      <div>
-        <li><span class="fintech_legend"></span>&#60;20% Rev. Growth</li>
-        <li><span class="EMCLOUD_legend"></span> 20-40% Rev. Growth</li>
-        <li><span class="snp500_legend"></span> &#62;40% Rev. Growth</li>
-      </div>
-    </div>
 <br />
 <br />
 <br />
