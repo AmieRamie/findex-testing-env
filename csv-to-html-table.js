@@ -42,7 +42,7 @@ CsvToHtmlTable = {
         });
         console.log(datatables_options)
 
-        var $table = $("<table class='table table-responsive table-hover' style = 'table-layout: fixed;' id='" + el + "-table'></table>");
+        var $table = $("<table class='table table-responsive table-hover' id='" + el + "-table'></table>");
         var $containerElement = $("#" + el);
         $containerElement.append($table);
 
@@ -53,7 +53,7 @@ CsvToHtmlTable = {
                 var csvHeaderRow = csvData[0];
                 var $tableHeadRow = $("<tr></tr>");
                 for (var headerIdx = 0; headerIdx < csvHeaderRow.length; headerIdx++) {
-                    $tableHeadRow.append($("<th style = 'text-align:center; color: black; font-weight: bold;vertical-align: middle;'></th>").text(csvHeaderRow[headerIdx]));
+                    $tableHeadRow.append($("<th style = 'text-align:center; color: black; font-weight: bold;vertical-align: middle; width: 100px;'></th>").text(csvHeaderRow[headerIdx]));
                 }
                 $tableHead.append($tableHeadRow);
 
@@ -71,7 +71,12 @@ CsvToHtmlTable = {
                                 $tableBodyRowTd.text('$' + csvData[rowIdx][colIdx]);
                             }
                             else if (((colIdx>=5)&(colIdx<7))|(colIdx==8)){
-                                $tableBodyRowTd.text(csvData[rowIdx][colIdx]+'%');
+                                if (csvData[rowIdx][colIdx]==''){
+                                    $tableBodyRowTd.text(csvData[rowIdx][colIdx]);
+                                }
+                                else{
+                                    $tableBodyRowTd.text(csvData[rowIdx][colIdx]+'%');
+                                }
                             }
                             else{
                                 $tableBodyRowTd.text(csvData[rowIdx][colIdx]);
@@ -81,7 +86,12 @@ CsvToHtmlTable = {
                                 $tableBodyRowTd.text('$' + csvData[rowIdx][colIdx]);
                             }
                             else if (((colIdx>=5)&(colIdx<7))|(colIdx==8)){
-                                $tableBodyRowTd.text(csvData[rowIdx][colIdx]+'%');
+                                if (csvData[rowIdx][colIdx]==''){
+                                    $tableBodyRowTd.text(csvData[rowIdx][colIdx]);
+                                }
+                                else{
+                                    $tableBodyRowTd.text(csvData[rowIdx][colIdx]+'%');
+                                }
                             }
                             else{
                                 $tableBodyRowTd.text(csvData[rowIdx][colIdx]);
