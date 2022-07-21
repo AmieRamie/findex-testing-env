@@ -3909,6 +3909,7 @@ d3.csv("Indexes.csv", function(error, data) {
       // worstGrowth = []
       // averageGrowth = []
       // bestGrowth = []
+      console.log(filtered_ft_multiples)
       cleaned_multiples = []
       categories = ["Less than 20%","Between 20%40%","Greater than 40%"]
       var multiple_ds = [];
@@ -4147,7 +4148,6 @@ d3.csv("Indexes.csv", function(error, data) {
       var possible_comps_filtered_new = data.filter(function (el) {
         return (removeType_new.indexOf(el.type) < 0)&(removeVerticals_new.indexOf(el.vertical) < 0); 
       });
-      //console.log(ft_multiples)
       proper_tickers_new = possible_comps_filtered_new.map(a => a.ticker)
       filtered_ft_multiples = ft_multiples.map(function(a) {return _.pick(a,proper_tickers_new)})
       // worstGrowth = []
@@ -4164,6 +4164,7 @@ d3.csv("Indexes.csv", function(error, data) {
           filtered = ticker_vals.filter(function (str) { return str.includes(category) })
           count = 0;
           multiple_sum = 0.0;
+          if (filtered.length>0){
           filtered.forEach(function (item){
             row = item.split(",");
             multiple = row[0]
@@ -4174,15 +4175,22 @@ d3.csv("Indexes.csv", function(error, data) {
               multiple_sum+=parseFloat(multiple)
               count++;
             }
-          });
+          });}
+          
+          
           if (count>0){
             average_mult = multiple_sum/count.toFixed(1);}
           else {average_mult = NaN;}
+          // console.log(average_mult)
           if (category == "Less than 20%"){
             row_obj['lt20'] = average_mult
           }
           else if (category == "Between 20%40%"){
             row_obj['bt2040'] = average_mult
+            // console.log('This is the mult for 20-40% growth')
+            // console.log(row_obj)
+            // console.log(average_mult)
+            // console.log('end')
           }    
           else if (category == "Greater than 40%"){
             row_obj['gt40'] = average_mult
@@ -4191,7 +4199,7 @@ d3.csv("Indexes.csv", function(error, data) {
         multiple_ds.push(row_obj);
         
       }
-      //console.log(multiple_ds)
+    
       //console.log(proper_tickers)
       // console.log(data)
       //!!!Market Cap Weighting Index!!!
@@ -4227,15 +4235,16 @@ d3.csv("Indexes.csv", function(error, data) {
       if(isNaN(multiple_ds[row].gt40)){gt40_nanCount++}
     }
     var svg_new = d3.select("body").transition();
-    if(lt20_nanCount>=multiple_ds.length){
-      multiple_ds.forEach(function(d) {d.lt20 = .001})
-    }
-    if(bt2040_nanCount>=multiple_ds.length){
-      multiple_ds.forEach(function(d) {d.bt2040 = .001})
-    }
-    if(gt40_nanCount>=multiple_ds.length){
-      multiple_ds.forEach(function(d) {d.gt40 = .001})
-    }
+    //IMPORTANT IF THERE ARE ISSUES WITH THE GRAPH
+    // if(lt20_nanCount>=multiple_ds.length){
+    //   multiple_ds.forEach(function(d) {d.lt20 = .001})
+    // }
+    // if(bt2040_nanCount>=multiple_ds.length){
+    //   multiple_ds.forEach(function(d) {d.bt2040 = .001})
+    // }
+    // if(gt40_nanCount>=multiple_ds.length){
+    //   multiple_ds.forEach(function(d) {d.gt40 = .001})
+    // }
     // Make the changes
     // console.log(multiple_ds)
       svg_new.select(".line_new")   // change the line
