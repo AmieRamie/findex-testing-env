@@ -18,7 +18,7 @@
       $("#DivContent").load("data.html"); 
     });
     </script> 
-    <script id="mcjs">
+    <!-- <script id="mcjs">
       function showPopup() {
     !function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/235bbd97a1426ca3bf743117a/28f231c56aede2fbd6904bbb1.js");
     //unsetting the cookie
@@ -27,7 +27,7 @@
 }
     
     //document.getElementById("payments_presentation").onclick = function() { showPopup(); }
-    </script>
+    </script> -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3P3DR1M2XB"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -72,6 +72,23 @@ crossorigin="anonymous">
 			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/fprimecapital.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.6"}};
 			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
 		</script>
+
+<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:600px;  z-index: 1;}
+  .popup{
+  display: none;
+  margin: auto;
+  margin-top: -30%;
+  margin-bottom: 20%;
+  background:#fff;
+  }
+  /* .popup .show {
+  visibility: visible !important;
+} */
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
 		<style type="text/css">
 img.wp-smiley,
 img.emoji {
@@ -4533,7 +4550,7 @@ SOFTWARE. -->
   <h2 class="section_headers" id = "thesis">State of Fintech</h2>
 </div>
 <!-- <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRqv1L86HOgTAvddIP2R-BrCGyf9E9ibKDTeaFv8GyKL6kzxgoAic5CmTEP-CCqhXJBS6_b_UK4khFO/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="670" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class = "slides_frame"></iframe> -->
-<!-- <div class = "sof_download">
+<div class = "sof_download">
   <button class="base-button" style = "max-width: 170px;" id = "SOF_presentation">
     <span class="base-button__text">SoF</span>
   </button>
@@ -4546,42 +4563,124 @@ SOFTWARE. -->
   <button class="base-button" style = "max-width: 170px;" id = "WAM_presentation">
     <span class="base-button__text">WAM</span>
   </button>
-</div> -->
+</div>
 <script>
 document.getElementById("SOF_presentation").onclick = function(){
     document.getElementById("google_iframe").src = "https://docs.google.com/presentation/d/e/2PACX-1vSb5TCJK8fumtnZCYPDsEueEV1lhqLJM-LYc5DX3bNWF4ncb0wqqqCjp5CmTdksgraswnKiiLicoBcR/embed?start=false&loop=false&delayms=60000"
+    if (showAgain ==false) {
     document.getElementById("presentation_download").href = "State of Fintech (SoF).pdf"
     document.getElementById("presentation_download").download = "State of Fintech (SoF).pdf"
+    }
 };
   document.getElementById("payments_presentation").onclick = function(){
     document.getElementById("google_iframe").src = "https://docs.google.com/presentation/d/e/2PACX-1vQeQXY4ZhJu8zZvRxvGXEOsROWwjP300nlnfdNnDwtVv6f5YDq0rFIrBW0pv_bkIaefZq74OykP1dm1/embed?start=false&loop=false&delayms=60000"
+    if (showAgain ==false) {
     document.getElementById("presentation_download").href = "SoF - Payments.pdf"
     document.getElementById("presentation_download").download = "SoF - Payments.pdf"
-    showPopup();
+    }
+    //showPopup();
 };
 document.getElementById("banking_presentation").onclick = function(){
     document.getElementById("google_iframe").src = "https://docs.google.com/presentation/d/e/2PACX-1vRM8XQWoJT8ROOzOmj-HgAu7D2uM8WnQov4y8EWhQPGNgINBeASybKX8wz1QDCTgNYJMPgLkRMX1cJX/embed?start=false&loop=false&delayms=60000"
+    if (showAgain ==false) {
     document.getElementById("presentation_download").href = "SoF - Banking.pdf"
     document.getElementById("presentation_download").download = "SoF - Banking.pdf"
-    showPopup();
+    }
+    //showPopup();
 };
 document.getElementById("WAM_presentation").onclick = function(){
     document.getElementById("google_iframe").src = "https://docs.google.com/presentation/d/e/2PACX-1vTL36FeqD33D-Kd-_3V7Yx57wWqAQ7kPBFytB0fjpPoClviv-QPoMsx7InZdkKlCb9Vr8eNWthoVk-_/embed?start=false&loop=false&delayms=60000"
+    if (showAgain ==false) {
     document.getElementById("presentation_download").href = "State of Fintech - WAM section.pdf"
     document.getElementById("presentation_download").download = "SoF - WAM.pdf"
-    showPopup();
+    }
+    //showPopup();
 };
 </script>
-<iframe id = "google_iframe" src="https://docs.google.com/presentation/d/e/2PACX-1vQGfrU1cNA8eGZefs2lJKS7XefKKt6mdT8msZKaIzcjRvqx7ZFTtb5738bTmd1ILx4S6Qw-qLamzgqP/embed?start=false&loop=false&delayms=3000&rm = minimal" frameborder="0" width="950" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class = "slides_frame"></iframe>
+
+
+<iframe id = "google_iframe" src="https://docs.google.com/presentation/d/e/2PACX-1vSb5TCJK8fumtnZCYPDsEueEV1lhqLJM-LYc5DX3bNWF4ncb0wqqqCjp5CmTdksgraswnKiiLicoBcR/embed?start=false&loop=false&delayms=60000" frameborder="0" width="950" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class = "slides_frame"></iframe>
 <div class = "sof_download">
-  <a class="base-button" style = "max-width: 70px;" href = "State of Fintech (2021 Report).pdf" download = "State of Fintech (2021 Report).pdf">
-    <span class="base-button__text" id = "presentation_download"><i class="fa fa-download"></i>Download</span>
+  <a class="base-button" id = "presentation_download" style = "max-width: 70px;" href = "State of Fintech (SoF).pdf" download = "State of Fintech (SoF).pdf">
+    <span class="base-button__text"><i class="fa fa-download"></i>Download</span>
   </a>
 </div>
+
+<div id="mc_embed_signup" class = "popup">
+  <form action="https://fprimecapital.us11.list-manage.com/subscribe/post?u=1429371588554bec356ef353d&amp;id=392fe0ec99" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+    <h2>Tell us more about you</h2>
+  <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+  <div class="mc-field-group">
+    <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+  </label>
+    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+  </div>
+  <div class="mc-field-group input-group">
+      <strong>Deep dive you are most interested in  <span class="asterisk">*</span>
+  </strong>
+      <ul style = "display: inline-block !important; margin:auto;"><li><input type="radio" value="Payments" name="MMERGE20" id="mce-MMERGE20-0"><label for="mce-MMERGE20-0">Payments</label></li>
+  <li><input type="radio" value="Banking" name="MMERGE20" id="mce-MMERGE20-1"><label for="mce-MMERGE20-1">Banking</label></li>
+  <li><input type="radio" value="WAM" name="MMERGE20" id="mce-MMERGE20-2"><label for="mce-MMERGE20-2">WAM</label></li>
+  </ul>
+  </div>
+  <div hidden="true"><input type="hidden" name="tags" value="9143154"></div>
+    <div id="mce-responses" class="clear">
+      <div class="response" id="mce-error-response" style="display:none"></div>
+      <div class="response" id="mce-success-response" style="display:none"></div>
+    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1429371588554bec356ef353d_392fe0ec99" tabindex="-1" value=""></div>
+      <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+      </div>
+  </form>
+  </div>
+
+  <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+  <script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='MMERGE3';ftypes[3]='text';fnames[4]='MMERGE4';ftypes[4]='text';fnames[5]='MMERGE5';ftypes[5]='text';fnames[6]='MMERGE6';ftypes[6]='text';fnames[7]='MMERGE7';ftypes[7]='text';fnames[8]='MMERGE8';ftypes[8]='url';fnames[9]='MMERGE9';ftypes[9]='url';fnames[10]='MMERGE10';ftypes[10]='text';fnames[11]='MMERGE11';ftypes[11]='text';fnames[12]='MMERGE12';ftypes[12]='text';fnames[13]='MMERGE13';ftypes[13]='zip';fnames[14]='MMERGE14';ftypes[14]='text';fnames[15]='MMERGE15';ftypes[15]='text';fnames[16]='MMERGE16';ftypes[16]='phone';fnames[17]='MMERGE17';ftypes[17]='phone';fnames[18]='MMERGE18';ftypes[18]='phone';fnames[19]='MMERGE19';ftypes[19]='phone';fnames[20]='MMERGE20';ftypes[20]='radio';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+<script>
+  var showAgain = true
+  var deep_dive_section = 'payments'
+  function toggleSubscriptionEntry(deep_dive){
+    deep_dive_section  = deep_dive
+    var popup = document.getElementById("mc_embed_signup");
+    if (((popup.style.display == "none")|(popup.style.display == ""))&(showAgain==true)) {
+      popup.style.display = "block";
+    } 
+    // popup.classList.toggle("show");
+  }
+
+  document.getElementById("payments_presentation").addEventListener("click", function(){toggleSubscriptionEntry('payments')});
+  document.getElementById("banking_presentation").addEventListener("click", function(){toggleSubscriptionEntry('banking')});
+  document.getElementById("WAM_presentation").addEventListener("click", function(){toggleSubscriptionEntry('banking')});
+
+	var mc1Submitted = false;
+	jQuery('#mc-embedded-subscribe-form').on('submit reset', function (event) {
+		console.log(event);
+		 if ("submit" === event.type) {
+		 	mc1Submitted = true;
+		 } else if ( "reset" === event.type && mc1Submitted ) {
+      document.getElementById("mc_embed_signup").style.display = "none"
+      showAgain = false;
+      if (deep_dive_section =='payments'){
+        document.getElementById("presentation_download").href = "SoF - Payments.pdf"
+        document.getElementById("presentation_download").download = "SoF - Payments.pdf"
+      }
+      else if (deep_dive_section =='banking'){
+        document.getElementById("presentation_download").href = "SoF - Banking.pdf"
+        document.getElementById("presentation_download").download = "SoF - Banking.pdf"
+      }
+      else{
+        document.getElementById("presentation_download").href = "State of Fintech - WAM section.pdf"
+        document.getElementById("presentation_download").download = "SoF - WAM.pdf"
+      }
+		 }
+	});
+</script>
 <!-- <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQGfrU1cNA8eGZefs2lJKS7XefKKt6mdT8msZKaIzcjRvqx7ZFTtb5738bTmd1ILx4S6Qw-qLamzgqP/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="670" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class = "slides_frame"></iframe> -->
 <!-- <div class="about_us">
   <p><a href="https://fprimecapital.com/" style = "color:#5B56EE;">F-Prime Capital</a> has been investing in Fintech for over 50 years, and together with our international sister fund <a href="https://eightroads.com/en/"  style = "color:#5B56EE;">Eight Roads</a>, has one of the largest Fintech portfolios in venture capital. We have had the privilege of backing iconic companies like Alibaba, Flywire, Toast, Xoom, Kensho, Quovo, Snapdocs, Recurly and Papaya.</p>
 </div> -->
+
 <div class="section_headers_div">
   <h2 class="section_headers" id = "about">About Us</h2>
   <!-- <p class = 'fprime_fintech_desc'><a href="https://fprimecapital.com/" style = 'color: #5B56EE;'>F-Prime Capital</a> has been investing in fintech for over 50 years, and together with our international sister fund <a href="https://eightroads.com/en/" style = 'color: #5B56EE;'>Eight Roads</a>, has one of the largest Fintech portfolios in venture capital. <br><br> We have had the privilege of backing iconic companies like Alibaba, Flywire, Toast, Kensho, Quovo, and Snapdocs.</p> -->
