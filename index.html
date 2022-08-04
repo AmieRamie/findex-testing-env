@@ -83,6 +83,16 @@ crossorigin="anonymous">
   margin-bottom: 20%;
   background:#fff;
   }
+  /* @media screen and (max-width: 1500px) 
+  {
+    .popup{
+      margin-top: -20%;
+  }
+  }
+  @media screen and (max-width: 600px) 
+  {
+    #mc_embed_signup{width:90%;}
+  } */
   /* .popup .show {
   visibility: visible !important;
 } */
@@ -2361,7 +2371,7 @@ function updateAllTime() {
 
       //!!!Equal Weighting Index!!!
       // new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
-      
+      console.log(new_ft)
       for(var i = 0; i < new_ft.length; i += 1) {
         data[i].Fintech = new_ft[i];
       }
@@ -4589,7 +4599,7 @@ document.getElementById("banking_presentation").onclick = function(){
     //showPopup();
 };
 document.getElementById("WAM_presentation").onclick = function(){
-    document.getElementById("google_iframe").src = "https://docs.google.com/presentation/d/e/2PACX-1vTL36FeqD33D-Kd-_3V7Yx57wWqAQ7kPBFytB0fjpPoClviv-QPoMsx7InZdkKlCb9Vr8eNWthoVk-_/embed?start=false&loop=false&delayms=60000"
+    document.getElementById("google_iframe").src = "https://docs.google.com/presentation/d/e/2PACX-1vRQXHiiaCNWCNAH4K2NB4JO2g6AjIeljnZb-KOmkcMOY4rY5m_MOOLeLJrrXLjxYwYKAtoyXXEBVAIK/embed?start=false&loop=false&delayms=60000"
     if (showAgain ==false) {
     document.getElementById("presentation_download").href = "State of Fintech - WAM section.pdf"
     document.getElementById("presentation_download").download = "SoF - WAM.pdf"
