@@ -83,16 +83,44 @@ crossorigin="anonymous">
   margin-bottom: 20%;
   background:#fff;
   }
-  /* @media screen and (max-width: 1500px) 
+  @media screen and (max-height: 850px) 
   {
     .popup{
-      margin-top: -20%;
+      margin-top: -40%;
+  }
+  }
+  @media screen and (max-width: 1250px) 
+  {
+    .popup{
+      margin-top: -45%;
+  }
+  }
+  @media screen and (max-width: 1000px) 
+  {
+    .popup{
+      margin-top: -52%;
+  }
+  }
+  @media screen and (max-width: 850px) 
+  {
+    .popup{
+      margin-top: -60%;
   }
   }
   @media screen and (max-width: 600px) 
   {
     #mc_embed_signup{width:90%;}
-  } */
+    .popup{
+      margin-top: -70%;
+  }
+  }
+  @media screen and (max-width: 475px) 
+  {
+    #mc_embed_signup{width:80%;}
+    .popup{
+      margin-top: -100%;
+  }
+  }
   /* .popup .show {
   visibility: visible !important;
 } */
@@ -830,6 +858,14 @@ path {
 }
 .sof_download {
   margin: auto;
+}
+.dd_toggle {
+  margin:auto;
+}
+@media screen and (max-width: 600px){
+  .dd_toggle {
+  padding-left: 12vw;
+}
 }
 .sof_download a:not([href]):not([tabindex]){
   color:#fff;
@@ -4560,7 +4596,7 @@ SOFTWARE. -->
   <h2 class="section_headers" id = "thesis">State of Fintech</h2>
 </div>
 <!-- <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRqv1L86HOgTAvddIP2R-BrCGyf9E9ibKDTeaFv8GyKL6kzxgoAic5CmTEP-CCqhXJBS6_b_UK4khFO/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="670" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class = "slides_frame"></iframe> -->
-<div class = "sof_download">
+<div class = "dd_toggle">
   <button class="base-button" style = "max-width: 170px;" id = "SOF_presentation">
     <span class="base-button__text">SoF</span>
   </button>
