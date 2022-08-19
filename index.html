@@ -79,20 +79,24 @@ crossorigin="anonymous">
   .popup{
   display: none;
   margin: auto;
-  margin-top: -30%;
+  margin-top: -35%;
   margin-bottom: 20%;
   background:#fff;
   }
+.close-button {
+    outline: none;
+    opacity: 0.3;
+}
   @media screen and (max-height: 850px) 
   {
     .popup{
-      margin-top: -40%;
+      margin-top: -44%;
   }
   }
   @media screen and (max-width: 1250px) 
   {
     .popup{
-      margin-top: -45%;
+      margin-top: -50%;
   }
   }
   @media screen and (max-width: 1000px) 
@@ -4372,7 +4376,7 @@ $(document).ready(function() {
     setTimeout(function(){
       updateAllTime_new();
       console.log('Loaded multiples graph')
-    },3000); 
+    },3001); 
 });
     </script>
         <div class="legend" id="performance">
@@ -4642,11 +4646,12 @@ document.getElementById("banking_presentation").onclick = function(){
 document.getElementById("WAM_presentation").onclick = function(){
     document.getElementById("google_iframe").src = "https://docs.google.com/presentation/d/e/2PACX-1vRQXHiiaCNWCNAH4K2NB4JO2g6AjIeljnZb-KOmkcMOY4rY5m_MOOLeLJrrXLjxYwYKAtoyXXEBVAIK/embed?start=false&loop=false&delayms=60000"
     if (showAgain ==false) {
-    document.getElementById("presentation_download").href = "State of Fintech - WAM section.pdf"
+    document.getElementById("presentation_download").href = "SoF - WAM.pdf"
     document.getElementById("presentation_download").download = "SoF - WAM.pdf"
     }
     //showPopup();
 };
+
 </script>
 
 
@@ -4658,47 +4663,65 @@ document.getElementById("WAM_presentation").onclick = function(){
 </div>
 
 <div id="mc_embed_signup" class = "popup">
+  <button id = "popup-close" class="btn-close"  aria-label="Close alert" type="button" data-close>
+  </button>
   <form action="https://fprimecapital.us11.list-manage.com/subscribe/post?u=1429371588554bec356ef353d&amp;id=949b4fa4d6&amp;f_id=00d18ce0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
       <div id="mc_embed_signup_scroll">
-    <h2>Subscribe</h2>
-  <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-  <div class="mc-field-group">
-    <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
-  </label>
-    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-    <span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
+      <h2>Subscribe</h2>
+      <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+<div class="mc-field-group">
+<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+</label>
+<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
+<span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
+</div>
+<div class="mc-field-group input-group">
+  <strong>Fintech verticals you're most interested in: </strong>
+  <ul style = "display: inline-block !important; margin:auto;"><li>
+  <input type="checkbox" value="1" name="group[34178][1]" id="mce-group[34178]-34178-0">
+  <label for="mce-group[34178]-34178-0">Banking</label>
+</li>
+<li>
+  <input type="checkbox" value="2" name="group[34178][2]" id="mce-group[34178]-34178-1">
+  <label for="mce-group[34178]-34178-1">Payments</label>
+</li>
+<li>
+  <input type="checkbox" value="4" name="group[34178][4]" id="mce-group[34178]-34178-2">
+  <label for="mce-group[34178]-34178-2">Wealth and Asset Management</label>
+</li>
+<li>
+  <input type="checkbox" value="8" name="group[34178][8]" id="mce-group[34178]-34178-3">
+  <label for="mce-group[34178]-34178-3">Insurtech</label>
+</li>
+<li>
+  <input type="checkbox" value="16" name="group[34178][16]" id="mce-group[34178]-34178-4">
+  <label for="mce-group[34178]-34178-4">Lending</label>
+</li>
+<li>
+  <input type="checkbox" value="32" name="group[34178][32]" id="mce-group[34178]-34178-5">
+  <label for="mce-group[34178]-34178-5">Property Tech/Real Estate</label>
+</li>
+<li>
+  <input type="checkbox" value="64" name="group[34178][64]" id="mce-group[34178]-34178-6">
+  <label for="mce-group[34178]-34178-6">Crypto/Web3</label>
+</li>
+</ul>
+  <span id="mce-group[34178]-HELPERTEXT" class="helper_text">Select all that apply</span>
+</div>
+<div id="mce-responses" class="clear">
+  <div class="response" id="mce-error-response" style="display:none"></div>
+  <div class="response" id="mce-success-response" style="display:none"></div>
+</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+  <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1429371588554bec356ef353d_949b4fa4d6" tabindex="-1" value=""></div>
+  <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
   </div>
-  <div class="mc-field-group input-group">
-      <strong>What deep dives are you most interested in?  <span class="asterisk">*</span>
-  </strong>
-      <ul style = "display: inline-block !important; margin:auto;"><li>
-      <input type="radio" value="Payments" name="MMERGE5" id="mce-MMERGE5-0">
-      <label for="mce-MMERGE5-0">Payments</label>
-  </li>
-  <li>
-      <input type="radio" value="Banking" name="MMERGE5" id="mce-MMERGE5-1">
-      <label for="mce-MMERGE5-1">Banking</label>
-  </li>
-  <li>
-      <input type="radio" value="WAM" name="MMERGE5" id="mce-MMERGE5-2">
-      <label for="mce-MMERGE5-2">WAM</label>
-  </li>
-  </ul>
-      <span id="mce-MMERGE5-HELPERTEXT" class="helper_text"></span>
-  </div>
-    <div id="mce-responses" class="clear">
-      <div class="response" id="mce-error-response" style="display:none"></div>
-      <div class="response" id="mce-success-response" style="display:none"></div>
-    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1429371588554bec356ef353d_949b4fa4d6" tabindex="-1" value=""></div>
-      <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-      </div>
-  </form>
-  </div>
+</form>
+</div>
 
 
-  <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
-  <script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='MMERGE5';ftypes[5]='radio';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+<script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='MMERGE5';ftypes[5]='radio';fnames[6]='MMERGE6';ftypes[6]='text';fnames[7]='MMERGE7';ftypes[7]='text';fnames[8]='MMERGE8';ftypes[8]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+
 <script>
   var showAgain = true
   var deep_dive_section = 'payments'
@@ -4710,11 +4733,15 @@ document.getElementById("WAM_presentation").onclick = function(){
     } 
     // popup.classList.toggle("show");
   }
+  function closePopUp(){
+    var popup = document.getElementById("mc_embed_signup");
+    popup.style.display = "none";
+  };
 
   document.getElementById("payments_presentation").addEventListener("click", function(){toggleSubscriptionEntry('payments')});
   document.getElementById("banking_presentation").addEventListener("click", function(){toggleSubscriptionEntry('banking')});
   document.getElementById("WAM_presentation").addEventListener("click", function(){toggleSubscriptionEntry('banking')});
-
+  document.getElementById("popup-close").addEventListener("click", function(){closePopUp()});
 	var mc1Submitted = false;
 	jQuery('#mc-embedded-subscribe-form').on('submit reset', function (event) {
 		console.log(event);
