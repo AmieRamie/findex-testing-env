@@ -850,6 +850,11 @@ path {
   margin-top: 8%;
   border-style: hidden;
 }
+.base-button_2{
+  min-width: 161px;
+  margin-top: 8%;
+  border-style: hidden;
+}
 
 /* .base-button_download{
   min-width: 50px;
@@ -865,17 +870,22 @@ path {
 }
 .dd_toggle {
   margin:auto;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 @media screen and (max-width: 600px){
   .dd_toggle {
-  padding-left: 12vw;
+    align-items: center;
+    justify-content: center;
 }
 }
-@media screen and (max-width: 440px){
+/* @media screen and (max-width: 440px){
   .dd_toggle {
   padding-left: 22vw;
 }
-}
+} */
 .sof_download a:not([href]):not([tabindex]){
   color:#fff;
 }
@@ -4606,17 +4616,17 @@ SOFTWARE. -->
 </div>
 <!-- <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRqv1L86HOgTAvddIP2R-BrCGyf9E9ibKDTeaFv8GyKL6kzxgoAic5CmTEP-CCqhXJBS6_b_UK4khFO/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="670" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class = "slides_frame"></iframe> -->
 <div class = "dd_toggle">
-  <button class="base-button" style = "max-width: 170px;" id = "SOF_presentation">
-    <span class="base-button__text">SoF</span>
+  <button class="base-button" style = "max-width: 170px; min-height: 68px; margin-left: 8px;" id = "SOF_presentation">
+    <span class="base-button__text">State of Fintech</span>
   </button>
-  <button class="base-button" style = "max-width: 170px;" id = "payments_presentation">
+  <button class="base-button" style = "max-width: 170px;  min-height: 68px; margin-left: 8px;" id = "payments_presentation">
     <span class="base-button__text">Payments</span>
 </button>
-  <button class="base-button" style = "max-width: 170px;" id = "banking_presentation">
+  <button class="base-button" style = "max-width: 170px;  min-height: 68px; margin-left: 8px;" id = "banking_presentation">
     <span class="base-button__text">Banking</span>
   </button>
-  <button class="base-button" style = "max-width: 170px;" id = "WAM_presentation">
-    <span class="base-button__text">WAM</span>
+  <button class="base-button" style = "max-width: 170px;  min-height: 68px; margin-left: 8px;" id = "WAM_presentation">
+    <span class="base-button__text">Wealth & Asset. Mgmt</span>
   </button>
 </div>
 <script>
