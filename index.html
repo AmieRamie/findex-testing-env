@@ -8,7 +8,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="lodash.js"></script>
-
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/1429371588554bec356ef353d/07751bcbb6ea019136a0d069c.js");</script>
     <script src="sorttable.js"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
@@ -75,55 +75,37 @@ crossorigin="anonymous">
 
 <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
 <style type="text/css">
-	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:600px;  z-index: 1;}
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:45%;  z-index: 100;}
   .popup{
   display: none;
-  margin: auto;
-  margin-top: -35%;
-  margin-bottom: 20%;
-  background:#fff;
+  position:fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   }
 .close-button {
     outline: none;
     opacity: 0.3;
 }
-  @media screen and (max-height: 850px) 
-  {
-    .popup{
-      margin-top: -44%;
-  }
-  }
   @media screen and (max-width: 1250px) 
   {
-    .popup{
-      margin-top: -50%;
-  }
+    #mc_embed_signup{width:55%;}
   }
   @media screen and (max-width: 1000px) 
   {
-    .popup{
-      margin-top: -52%;
-  }
+    #mc_embed_signup{width:65%;}
   }
   @media screen and (max-width: 850px) 
   {
-    .popup{
-      margin-top: -60%;
-  }
+    #mc_embed_signup{width:75%;}
   }
   @media screen and (max-width: 600px) 
   {
-    #mc_embed_signup{width:90%;}
-    .popup{
-      margin-top: -70%;
-  }
+    #mc_embed_signup{width:80%;}
   }
   @media screen and (max-width: 475px) 
   {
     #mc_embed_signup{width:80%;}
-    .popup{
-      margin-top: -100%;
-  }
   }
   /* .popup .show {
   visibility: visible !important;
@@ -874,6 +856,7 @@ path {
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
+  
 }
 @media screen and (max-width: 600px){
   .dd_toggle {
@@ -1682,7 +1665,14 @@ text-align: right !important;
         <div class="pretty p-default" style = "margin-left: 2%;margin-top: 5%;">
           <input id = "banking_bool" type="checkbox" checked = "" />
           <div class="state">
-              <label>Banking/Lending</label>
+              <label>Banking</label>
+          </div>
+        </div>
+
+        <div class="pretty p-default" style = "margin-left: 2%;margin-top: 5%;">
+          <input id = "lending_bool" type="checkbox" checked = "" />
+          <div class="state">
+              <label>Lending</label>
           </div>
         </div>
 
@@ -2021,6 +2011,7 @@ var removeType = []
 var insurance_bool = true;
 var payments_bool = true;
 var banking_bool = true;
+var lending_bool = true;
 var saas_bool = true;
 var wealth_bool = true;
 var re_bool = true;
@@ -2038,6 +2029,10 @@ $('#insurance_bool').change(function() {
   $('#banking_bool').change(function() {
     banking_bool = this.checked;
     bank_check_box_clicked();
+  });
+  $('#lending_bool').change(function() {
+    lending_bool = this.checked;
+    lending_check_box_clicked();
   });
   $('#saas_bool').change(function() {
     saas_bool = this.checked;
@@ -2094,12 +2089,22 @@ function pay_check_box_clicked(){
 };
 function bank_check_box_clicked(){
   if (banking_bool){    
-    const index = removeVerticals.indexOf('Banking/Lending');
+    const index = removeVerticals.indexOf('Banking');
     if (index > -1) {
       removeVerticals.splice(index, 1);
     }
   }
-  else{removeVerticals.push('Banking/Lending')}
+  else{removeVerticals.push('Banking')}
+  change_time_scale();
+};
+function lending_check_box_clicked(){
+  if (lending_bool){    
+    const index = removeVerticals.indexOf('Lending');
+    if (index > -1) {
+      removeVerticals.splice(index, 1);
+    }
+  }
+  else{removeVerticals.push('Lending')}
   change_time_scale();
 };
 function saas_check_box_clicked(){
@@ -2401,17 +2406,15 @@ function updateAllTime() {
         return (removeType.indexOf(el.type) < 0)&(removeVerticals.indexOf(el.vertical) < 0); 
       });
       proper_tickers = possible_comps_filtered.map(a => a.ticker)
-    
-      console.log(proper_tickers)
+      //console.log(proper_tickers)
       // console.log(data)
       //!!!Market Cap Weighting Index!!!
       new_ft_mcs = ft_market_caps.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){(i.length>0) ? mc_sum = i.reduce(reducer): mc_sum = 1; return i.map(function(j){return j/mc_sum})})
-      console.log(new_ft_mcs)
       performances = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i)-1)})
-      console.log(performances)
       //console.log(new_ft_mcs)
+      //console.log(ft_market_caps)
       //console.log(performances)
-      console.log(ft_market_caps)
+      //console.log(ft_companies)
       items = []
       for (index = 0; index < performances.length; index++) {
         items.push(produceAndAdd(performances[index],new_ft_mcs[index]))
@@ -2421,7 +2424,7 @@ function updateAllTime() {
         //   console.log(produceAndAdd(performances[index],new_ft_mcs[index]))
         // }
       }
-      console.log(items)
+      //console.log(items)
       new_ft = items.map(function(i){(i.length>0) ? mc_sum = i.reduce(reducer): mc_sum = NaN; return mc_sum})
       // console.log(new_ft.reduce(function(a,i){return a*new_ft_mcs[i]},0))
       // console.log(new_ft);
@@ -3552,7 +3555,14 @@ d3.csv("Indexes.csv", function(error, data) {
       <div class="pretty p-default" style = "margin-left: 2%;margin-top: 5%;">
         <input id = "banking_bool_new" type="checkbox" checked = "" />
         <div class="state">
-            <label>Banking/Lending</label>
+            <label>Banking</label>
+        </div>
+      </div>
+
+      <div class="pretty p-default" style = "margin-left: 2%;margin-top: 5%;">
+        <input id = "lending_bool_new" type="checkbox" checked = "" />
+        <div class="state">
+            <label>Lending</label>
         </div>
       </div>
 
@@ -3844,6 +3854,7 @@ d3.csv("Indexes.csv", function(error, data) {
   var insurance_bool_new = true;
   var payments_bool_new = true;
   var banking_bool_new = true;
+  var lending_bool_new = true;
   var saas_bool_new = true;
   var wealth_bool_new = true;
   var re_bool_new = true;
@@ -3861,6 +3872,10 @@ d3.csv("Indexes.csv", function(error, data) {
     $('#banking_bool_new').change(function() {
       banking_bool_new = this.checked;
       bank_check_box_clicked_new();
+    });
+    $('#lending_bool_new').change(function() {
+      lending_bool_new = this.checked;
+      lending_check_box_clicked_new();
     });
     $('#saas_bool_new').change(function() {
       saas_bool_new = this.checked;
@@ -3908,12 +3923,23 @@ d3.csv("Indexes.csv", function(error, data) {
   };
   function bank_check_box_clicked_new(){
     if (banking_bool_new){    
-      const index = removeVerticals_new.indexOf('Banking/Lending');
+      const index = removeVerticals_new.indexOf('Banking');
       if (index > -1) {
         removeVerticals_new.splice(index, 1);
       }
     }
-    else{removeVerticals_new.push('Banking/Lending')}
+    else{removeVerticals_new.push('Banking')}
+    updateAllTime_new() 
+  };
+
+  function lending_check_box_clicked_new(){
+    if (lending_bool_new){    
+      const index = removeVerticals_new.indexOf('Lending');
+      if (index > -1) {
+        removeVerticals_new.splice(index, 1);
+      }
+    }
+    else{removeVerticals_new.push('Lending')}
     updateAllTime_new() 
   };
   function saas_check_box_clicked_new(){
@@ -4514,15 +4540,13 @@ SOFTWARE. -->
       <a href="#home" class="active" onclick="myDropdown3()">Announced IPOs, SPACs, & DLs</a>
       <div id="myLinks3">
         
-        <a href="https://www.expensify.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Expensify</a>
+        <!-- <a href="https://www.expensify.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Expensify</a>
         <a href="https://www.etoro.com/en-us/"style = "vertical-align: middle;"><div class="parallelogram"></div> eToro</a>
         <a href="https://www.aspiration.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Aspiration</a>
         <a href="https://www.apexfintechsolutions.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Apex</a>
-        <!-- <a href="https://www.moneylion.com/">&#10070; Money Lion</a> -->
-        <!-- <a href="https://www.acorns.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Acorns</a> -->
         <a href="https://better.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Better</a>
         <a href="https://better.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Acorns</a>
-        <a href="https://finaccel.co/"style = "vertical-align: middle;"><div class="parallelogram"></div> FinAccel</a>
+        <a href="https://finaccel.co/"style = "vertical-align: middle;"><div class="parallelogram"></div> FinAccel</a> -->
       </div>
     </div>
     <!-- End smartphone / tablet look -->
@@ -4539,7 +4563,10 @@ SOFTWARE. -->
         <a href="https://www.checkout.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Checkout</a>
         <a href="https://www.revolut.com/en-US"style = "vertical-align: middle;"><div class="parallelogram"></div> Revolut</a>
         <a href="https://www.chime.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Chime</a>
-        <a href="https://ftx.com/en"style = "vertical-align: middle;"><div class="parallelogram"></div> FTX</a>
+        <a href="https://n26.com/en-eu/bank-account"style = "vertical-align: middle;"><div class="parallelogram"></div> N26</a>
+        <a href="https://www.brex.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Brex</a>
+        <a href="https://www.deel.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Deel</a>
+        <a href="https://gusto.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Gusto</a>
       </div>
     </div>
     <!-- End smartphone / tablet look -->
@@ -4750,6 +4777,23 @@ document.getElementById("WAM_presentation").onclick = function(){
     popup.style.display = "none";
   };
 
+  $(window).scroll(function (e) {
+    var popup = document.getElementById("mc_embed_signup");
+    available = $(document).height();
+    percentage_of_page = 0.2;
+    half_screen = available * percentage_of_page;
+    height = $(window).scrollTop();
+    if ((height > half_screen)&&(showAgain == true)) {
+        popup.style.display = "block";
+    } else {
+        popup.style.display = "none";
+    }
+});
+  document.cookie = "MCPopupSubscribed=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/";
+  document.cookie = "MCPopupClosed=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/";
+
+
+  document.getElementById("SOF_presentation").addEventListener("click", function(){toggleSubscriptionEntry('SoF')});
   document.getElementById("payments_presentation").addEventListener("click", function(){toggleSubscriptionEntry('payments')});
   document.getElementById("banking_presentation").addEventListener("click", function(){toggleSubscriptionEntry('banking')});
   document.getElementById("WAM_presentation").addEventListener("click", function(){toggleSubscriptionEntry('banking')});
@@ -4762,7 +4806,11 @@ document.getElementById("WAM_presentation").onclick = function(){
 		 } else if ( "reset" === event.type && mc1Submitted ) {
       document.getElementById("mc_embed_signup").style.display = "none"
       showAgain = false;
-      if (deep_dive_section =='payments'){
+      if (deep_dive_section =='SoF'){
+        document.getElementById("presentation_download").href = "State of Fintech (SoF).pdf"
+        document.getElementById("presentation_download").download = "State of Fintech (SoF).pdf"
+      }
+      else if (deep_dive_section =='payments'){
         document.getElementById("presentation_download").href = "SoF - Payments.pdf"
         document.getElementById("presentation_download").download = "SoF - Payments.pdf"
       }
