@@ -4698,7 +4698,7 @@ document.getElementById("WAM_presentation").onclick = function(){
 
 <iframe id = "google_iframe" src="https://docs.google.com/presentation/d/e/2PACX-1vSb5TCJK8fumtnZCYPDsEueEV1lhqLJM-LYc5DX3bNWF4ncb0wqqqCjp5CmTdksgraswnKiiLicoBcR/embed?start=false&loop=false&delayms=60000" frameborder="0" width="950" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class = "slides_frame"></iframe>
 <div class = "sof_download">
-  <a class="base-button" id = "presentation_download" style = "max-width: 70px;" href = "State of Fintech (SoF).pdf" download = "State of Fintech (SoF).pdf">
+  <a class="base-button" id = "presentation_download" style = "max-width: 70px;" onclick="downloadMessage()">
     <span class="base-button__text"><i class="fa fa-download"></i>Download</span>
   </a>
 </div>
@@ -4785,6 +4785,12 @@ document.getElementById("WAM_presentation").onclick = function(){
     var popup = document.getElementById("mc_embed_signup");
     popup.style.display = "none";
     stop_scroll_popup = true;
+  };
+
+  function downloadMessage(){
+    if (showAgain == true){
+    alert("Please subscribe to our email content in order to download our presentations");
+    }
   };
 
   $(window).scroll(function (e) {
