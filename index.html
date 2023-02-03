@@ -4698,7 +4698,8 @@ document.getElementById("WAM_presentation").onclick = function(){
 
 <iframe id = "google_iframe" src="https://docs.google.com/presentation/d/e/2PACX-1vSb5TCJK8fumtnZCYPDsEueEV1lhqLJM-LYc5DX3bNWF4ncb0wqqqCjp5CmTdksgraswnKiiLicoBcR/embed?start=false&loop=false&delayms=60000" frameborder="0" width="950" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class = "slides_frame"></iframe>
 <div class = "sof_download">
-  <a class="base-button" id = "presentation_download" style = "max-width: 70px;" onclick="downloadMessage()">
+  <!-- <a class="base-button" id = "presentation_download" style = "max-width: 70px;" onclick="downloadMessage()"> -->
+  <a class="base-button" id = "presentation_download" style = "max-width: 70px;">
     <span class="base-button__text"><i class="fa fa-download"></i>Download</span>
   </a>
 </div>
@@ -4708,7 +4709,7 @@ document.getElementById("WAM_presentation").onclick = function(){
   </button>
   <form action="https://fprimecapital.us11.list-manage.com/subscribe/post?u=1429371588554bec356ef353d&amp;id=949b4fa4d6&amp;f_id=00d18ce0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
       <div id="mc_embed_signup_scroll">
-      <h2 class = 'section_headers' style = "font-size: 1.8em;"><div class="parallelogram" style = 'background:#000; margin-right: 15px;margin-bottom: 5px;transform: skew(-15deg, 0deg);	width: 10px; height: 20px;'></div>Subscribe</h2>
+      <h2 class = 'section_headers' style = "font-size: 1.8em;" id = "popup_title"><div class="parallelogram" style = 'background:#000; margin-right: 15px;margin-bottom: 5px;transform: skew(-15deg, 0deg);	width: 10px; height: 20px;'></div>Subscribe</h2>
 
 <div class="mc-field-group">
 <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
@@ -4773,12 +4774,18 @@ document.getElementById("WAM_presentation").onclick = function(){
   var showAgain = true
   var stop_scroll_popup = false
   var deep_dive_section = 'payments'
-  function toggleSubscriptionEntry(deep_dive){
-    deep_dive_section  = deep_dive
+  function toggleSubscriptionEntry(deep_dive,download_button){
+    if (download_button == false){
+      deep_dive_section = deep_dive
+    }
+    else{
     var popup = document.getElementById("mc_embed_signup");
-    if (((popup.style.display == "none")|(popup.style.display == ""))&&(showAgain==true)) {
+    if (((popup.style.display == "none")|(popup.style.display == ""))&&(showAgain==true)&&(stop_scroll_popup ==true)) {
+      stop_scroll_popup = false;
       popup.style.display = "block";
+      document.getElementById("popup_title").innerHTML = "Please Subscribe to Download"
     } 
+    }
     // popup.classList.toggle("show");
   }
   function closePopUp(){
@@ -4802,7 +4809,7 @@ document.getElementById("WAM_presentation").onclick = function(){
     presentation_popup_start = available * .6;
     presentation_popup_stop = available * .68;
     height = $(window).scrollTop();
-    if (((height > graph_popup_start)&&(height<=presentation_popup_start))) {
+    if (height > graph_popup_start) {
       if (stop_scroll_popup==false){
         popup.style.display = "block";
       }
@@ -4810,11 +4817,11 @@ document.getElementById("WAM_presentation").onclick = function(){
         popup.style.display = "none";
       }
     } 
-    else if (((height > presentation_popup_start)&&(height<=presentation_popup_stop))){
-      if (showAgain==true){
-        popup.style.display = "block";
-      }
-    }
+    // else if (((height > presentation_popup_start)&&(height<=presentation_popup_stop))){
+    //   if (showAgain==true){
+    //     popup.style.display = "block";
+    //   }
+    // }
     else {
         popup.style.display = "none";
     }
@@ -4823,10 +4830,11 @@ document.getElementById("WAM_presentation").onclick = function(){
   document.cookie = "MCPopupClosed=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/";
 
 
-  document.getElementById("SOF_presentation").addEventListener("click", function(){toggleSubscriptionEntry('SoF')});
-  document.getElementById("payments_presentation").addEventListener("click", function(){toggleSubscriptionEntry('payments')});
-  document.getElementById("banking_presentation").addEventListener("click", function(){toggleSubscriptionEntry('banking')});
-  document.getElementById("WAM_presentation").addEventListener("click", function(){toggleSubscriptionEntry('banking')});
+  document.getElementById("SOF_presentation").addEventListener("click", function(){toggleSubscriptionEntry('SoF',false)});
+  document.getElementById("payments_presentation").addEventListener("click", function(){toggleSubscriptionEntry('payments',false)});
+  document.getElementById("banking_presentation").addEventListener("click", function(){toggleSubscriptionEntry('banking',false)});
+  document.getElementById("WAM_presentation").addEventListener("click", function(){toggleSubscriptionEntry('banking',false)});
+  document.getElementById('presentation_download').addEventListener("click", function(){toggleSubscriptionEntry('',true)});
   document.getElementById("popup-close").addEventListener("click", function(){closePopUp()});
 	var mc1Submitted = false;
 	jQuery('#mc-embedded-subscribe-form').on('submit reset', function (event) {
