@@ -3771,8 +3771,8 @@ d3.csv("Indexes.csv", function(error, data) {
       // .attr("height", height + margin.top + margin.bottom)
   .append("g")
       .attr("transform", 
-            "translate(" + margin.left + "," + margin.top + ")")
-      .classed("g-style", true);
+            "translate(" + margin_new.left + "," + margin_new.top + ")")
+      .classed("g-style_new", true);
   // gridlines in x axis function
   function make_x_axis() {        
       return d3.svg_new.axis()
@@ -4026,6 +4026,7 @@ d3.csv("Indexes.csv", function(error, data) {
         return (removeType_new.indexOf(el.type) < 0)&(removeVerticals_new.indexOf(el.vertical) < 0); 
       });
       proper_tickers_new = possible_comps_filtered_new.map(a => a.ticker)
+      console.log(proper_tickers_new)
       filtered_ft_multiples = ft_multiples.map(function(a) {return _.pick(a,proper_tickers_new)})
       //console.log(filtered_ft_multiples)
       // worstGrowth = []
