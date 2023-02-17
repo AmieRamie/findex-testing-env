@@ -4662,10 +4662,11 @@ SOFTWARE. -->
 </div>
 <script>
 document.getElementById("SOF_presentation").onclick = function(){
-    document.getElementById("google_iframe").src = "https://docs.google.com/presentation/d/e/2PACX-1vSb5TCJK8fumtnZCYPDsEueEV1lhqLJM-LYc5DX3bNWF4ncb0wqqqCjp5CmTdksgraswnKiiLicoBcR/embed?start=false&loop=false&delayms=60000"
+    document.getElementById("google_iframe").src = "https://docs.google.com/presentation/d/e/2PACX-1vSsz3Kh9q4zxDemooHYe66ZG5VXY0iUKCHVi8vfVM9464cKwGyQlVaUt7nsWjAjHUK0Qk6etzFpZISC/embed?start=false&loop=false&delayms=60000"
+    // document.getElementById("google_iframe").src = "https://docs.google.com/presentation/d/e/2PACX-1vSb5TCJK8fumtnZCYPDsEueEV1lhqLJM-LYc5DX3bNWF4ncb0wqqqCjp5CmTdksgraswnKiiLicoBcR/embed?start=false&loop=false&delayms=60000"
     if (showAgain ==false) {
-    document.getElementById("presentation_download").href = "State of Fintech (SoF).pdf"
-    document.getElementById("presentation_download").download = "State of Fintech (SoF).pdf"
+    document.getElementById("presentation_download").href = "2022 State of Fintech Report.pdf"
+    document.getElementById("presentation_download").download = "2022 State of Fintech Report.pdf"
     }
 };
   document.getElementById("payments_presentation").onclick = function(){
@@ -4695,8 +4696,8 @@ document.getElementById("WAM_presentation").onclick = function(){
 
 </script>
 
-
-<iframe id = "google_iframe" src="https://docs.google.com/presentation/d/e/2PACX-1vSb5TCJK8fumtnZCYPDsEueEV1lhqLJM-LYc5DX3bNWF4ncb0wqqqCjp5CmTdksgraswnKiiLicoBcR/embed?start=false&loop=false&delayms=60000" frameborder="0" width="950" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class = "slides_frame"></iframe>
+<!-- <iframe id = "google_iframe" src="https://docs.google.com/presentation/d/e/2PACX-1vSb5TCJK8fumtnZCYPDsEueEV1lhqLJM-LYc5DX3bNWF4ncb0wqqqCjp5CmTdksgraswnKiiLicoBcR/embed?start=false&loop=false&delayms=60000" frameborder="0" width="950" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class = "slides_frame"></iframe> -->
+<iframe id = "google_iframe" src="https://docs.google.com/presentation/d/e/2PACX-1vSsz3Kh9q4zxDemooHYe66ZG5VXY0iUKCHVi8vfVM9464cKwGyQlVaUt7nsWjAjHUK0Qk6etzFpZISC/embed?start=false&loop=false&delayms=60000" frameborder="0" width="950" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class = "slides_frame"></iframe>
 <div class = "sof_download">
   <!-- <a class="base-button" id = "presentation_download" style = "max-width: 70px;" onclick="downloadMessage()"> -->
   <a class="base-button" id = "presentation_download" style = "max-width: 70px;">
@@ -4758,8 +4759,9 @@ document.getElementById("WAM_presentation").onclick = function(){
   <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1429371588554bec356ef353d_949b4fa4d6" tabindex="-1" value=""></div>
   <div class="clear">
     <!-- <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"> -->
+    <!-- <a class="base-button" id = "presentation_download" style = "max-width: 70px;"></a> -->
     <button type="submit" class="base-button" style = "max-width: 120px;  min-height: 20px; margin-left: 8px;" id = "mc-embedded-subscribe">
-      <span class="base-button__text">Submit</span>
+      <span class="base-button__text" style = "font-family: MessinaSans, serif;">Submit</span>
     </button>
   </div>
   </div>
@@ -4773,7 +4775,8 @@ document.getElementById("WAM_presentation").onclick = function(){
 <script>
   var showAgain = true
   var stop_scroll_popup = false
-  var deep_dive_section = 'payments'
+  var allow_submit_download = false
+  var deep_dive_section = 'SoF'
   function toggleSubscriptionEntry(deep_dive,download_button){
     if (download_button == false){
       deep_dive_section = deep_dive
@@ -4788,10 +4791,12 @@ document.getElementById("WAM_presentation").onclick = function(){
     }
     // popup.classList.toggle("show");
   }
+
   function closePopUp(){
     var popup = document.getElementById("mc_embed_signup");
     popup.style.display = "none";
     stop_scroll_popup = true;
+    allow_submit_download = true;
   };
 
   function downloadMessage(){
@@ -4799,6 +4804,45 @@ document.getElementById("WAM_presentation").onclick = function(){
     alert("Please subscribe to our email content in order to download our presentations");
     }
   };
+
+  function download(presentation_code,allow_download) {
+    console.log(allow_download)
+    console.log(allow_submit_download)
+    if (allow_download==true){
+        if (presentation_code =='SoF'){
+          file = "2022 State of Fintech Report.pdf"
+          name = "2022 State of Fintech Report.pdf"
+        }
+        else if (presentation_code =='payments'){
+          file = "SoF - Payments.pdf"
+          name = "SoF - Payments.pdf"
+        }
+        else if (presentation_code =='banking'){
+          file = "SoF - Banking.pdf"
+          name = "SoF - Banking.pdf"
+        }
+        else{
+          file = "State of Fintech - WAM section.pdf"
+          name = "SoF - WAM.pdf"
+        }
+        //creating an invisible element
+        var element = document.createElement('a');
+        element.setAttribute('href',
+        'data:text/plain;charset=utf-8, '
+        + encodeURIComponent(text));
+        element.setAttribute('download', file);
+    
+        // Above code is equivalent to
+        // <a href="path of file" download="file name">
+    
+        document.body.appendChild(element);
+    
+        //onClick property
+        element.click();
+    
+        document.body.removeChild(element);
+         }
+        }
 
   $(window).scroll(function (e) {
     var popup = document.getElementById("mc_embed_signup");
@@ -4835,18 +4879,20 @@ document.getElementById("WAM_presentation").onclick = function(){
   document.getElementById("banking_presentation").addEventListener("click", function(){toggleSubscriptionEntry('banking',false)});
   document.getElementById("WAM_presentation").addEventListener("click", function(){toggleSubscriptionEntry('banking',false)});
   document.getElementById('presentation_download').addEventListener("click", function(){toggleSubscriptionEntry('',true)});
+  document.getElementById('mc-embedded-subscribe').addEventListener("click", function(){download(deep_dive_section,allow_submit_download)});
   document.getElementById("popup-close").addEventListener("click", function(){closePopUp()});
 	var mc1Submitted = false;
 	jQuery('#mc-embedded-subscribe-form').on('submit reset', function (event) {
 		console.log(event);
 		 if ("submit" === event.type) {
 		 	mc1Submitted = true;
+       stop_scroll_popup = true;
 		 } else if ( "reset" === event.type && mc1Submitted ) {
       document.getElementById("mc_embed_signup").style.display = "none"
       showAgain = false;
       if (deep_dive_section =='SoF'){
-        document.getElementById("presentation_download").href = "State of Fintech (SoF).pdf"
-        document.getElementById("presentation_download").download = "State of Fintech (SoF).pdf"
+        document.getElementById("presentation_download").href = "2022 State of Fintech Report.pdf"
+        document.getElementById("presentation_download").download = "2022 State of Fintech Report.pdf"
       }
       else if (deep_dive_section =='payments'){
         document.getElementById("presentation_download").href = "SoF - Payments.pdf"
