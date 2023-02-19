@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
     <script src="lodash.js"></script>
+    <script data-main="scripts/app" src="scripts/require.js"></script>
     <!-- <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/1429371588554bec356ef353d/07751bcbb6ea019136a0d069c.js");</script> -->
     <script src="sorttable.js"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -4512,50 +4513,22 @@ SOFTWARE. -->
   <h2 class="section_headers" id = "future">Potential Future Additions</h2>
 </div>
 <div class = "future_additions">
-  <div class="mobile-container">
-
-    <!-- Top Navigation Menu -->
+  <!-- <div class="mobile-container">
     <div class="topnav">
       <a href="#home" class="active" onclick="myDropdown()">&lt; 3 Months Since Listing</a>
       <div id="myLinks">
-        <!-- <a href="https://www.moneylion.com/">&#10070; Money Lion</a>
-        <a href="https://www.bakkt.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Bakkt</a>
-        <a href="https://www.nerdwallet.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> NerdWallet</a>
-        <a href="https://nubank.com.br/en/"style = "vertical-align: middle;"><div class="parallelogram"></div> NuBank</a>
-        <a href="avidxchange.com"style = "vertical-align: middle;"><div class="parallelogram"></div> AvidXchange</a>
-        <a href="https://dave.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Dave</a> -->
       </div>
     </div>
     
-    <!-- End smartphone / tablet look -->
   </div>
-  <!-- <div class="mobile-container">
-    <div class="topnav">
-      <a href="#home" class="active" onclick="myDropdown2()">Announced Traditional IPOs</a>
-      <div id="myLinks2">
-        <a href="https://nubank.com.br/en/"style = "vertical-align: middle;"><div class="parallelogram"></div> NuBank</a>
-        <a href="https://www.expensify.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Expensify</a>
-      </div>
-    </div>
-  </div> -->
   <div class="mobile-container">
-
-    <!-- Top Navigation Menu -->
     <div class="topnav">
       <a href="#home" class="active" onclick="myDropdown3()">Announced IPOs, SPACs, & DLs</a>
       <div id="myLinks3">
-        
-        <!-- <a href="https://www.expensify.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Expensify</a>
-        <a href="https://www.etoro.com/en-us/"style = "vertical-align: middle;"><div class="parallelogram"></div> eToro</a>
-        <a href="https://www.aspiration.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Aspiration</a>
-        <a href="https://www.apexfintechsolutions.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Apex</a>
-        <a href="https://better.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Better</a>
-        <a href="https://better.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Acorns</a>
-        <a href="https://finaccel.co/"style = "vertical-align: middle;"><div class="parallelogram"></div> FinAccel</a> -->
+      
       </div>
     </div>
-    <!-- End smartphone / tablet look -->
-  </div>
+  </div> -->
   <div class="mobile-container">
 
     <!-- Top Navigation Menu -->
@@ -4572,6 +4545,22 @@ SOFTWARE. -->
         <a href="https://www.brex.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Brex</a>
         <a href="https://www.deel.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Deel</a>
         <a href="https://gusto.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Gusto</a>
+      </div>
+    </div>
+    <!-- End smartphone / tablet look -->
+  </div>
+  <div class="mobile-container">
+
+    <!-- Top Navigation Menu -->
+    <div class="topnav">
+      <a href="#home" class="active" onclick="myDropdown4()">Companies Removed from Index</a>
+      <div id="myLinks4">
+        <a href="https://www.avalara.com/us/en/index.html"style = "vertical-align: middle;"><div class="parallelogram"></div> Avalara</a>
+        <a href="https://www.billtrust.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Billtrust</a>
+        <a href="https://katapult.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Katapult</a>
+        <a href="https://www.metromile.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Metromile</a>
+        <a href="https://www.joinroot.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Root Insurance</a>
+        <a href="https://sezzle.com/"style = "vertical-align: middle;"><div class="parallelogram"></div> Sezzle</a>
       </div>
     </div>
     <!-- End smartphone / tablet look -->
@@ -4748,13 +4737,15 @@ document.getElementById("WAM_presentation").onclick = function(){
   var stop_scroll_popup = false
   var allow_submit_download = false
   var deep_dive_section = 'SoF'
+  // eraseCookie("subscription_cookie")
+  var pref = getCookie('subscription_cookie');
   function toggleSubscriptionEntry(deep_dive,download_button){
     if (download_button == false){
       deep_dive_section = deep_dive
     }
     else{
     var popup = document.getElementById("mc_embed_signup");
-    if (((popup.style.display == "none")|(popup.style.display == ""))&&(showAgain==true)&&(stop_scroll_popup ==true)) {
+    if (((popup.style.display == "none")|(popup.style.display == ""))&&(showAgain==true)&&(stop_scroll_popup ==true)&&(pref!="have subscribed")) {
       stop_scroll_popup = false;
       popup.style.display = "block";
       document.getElementById("popup_title").innerHTML = "<div class='parallelogram' style = 'background:#000; margin-right: 15px;margin-bottom: 5px;transform: skew(-15deg, 0deg);	width: 10px; height: 20px;'></div>Subscribe to Download"
@@ -4777,8 +4768,6 @@ document.getElementById("WAM_presentation").onclick = function(){
   };
 
   function download(presentation_code,allow_download) {
-    console.log(allow_download)
-    console.log(allow_submit_download)
     if (allow_download==true){
         if (presentation_code =='SoF'){
           file = "2022 State of Fintech Report.pdf"
@@ -4816,6 +4805,7 @@ document.getElementById("WAM_presentation").onclick = function(){
         }
 
   $(window).scroll(function (e) {
+    if (pref!="have subscribed"){
     var popup = document.getElementById("mc_embed_signup");
     available = $(document).height();
     percentage_of_page = 0.2;
@@ -4840,10 +4830,48 @@ document.getElementById("WAM_presentation").onclick = function(){
     else {
         popup.style.display = "none";
     }
+  }
 });
-  document.cookie = "MCPopupSubscribed=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/";
-  document.cookie = "MCPopupClosed=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/";
+  // document.cookie = "MCPopupSubscribed=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/";
+  // document.cookie = "MCPopupClosed=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/";
+  // var fileContent = "My epic novel that I don't want to lose.";
+  // var bb = new Blob([fileContent ], { type: 'text/plain' });
+  // var a = document.createElement('a');
+  // a.download = 'download.txt';
+  // a.href = window.URL.createObjectURL(bb);
+  // a.click();
+  function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
 
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function eraseCookie(cname) {   
+    document.cookie = cname +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+// pref = getCookie('subscription_cookie');
+// console.log(pref)
+
+// pref = getCookie('subscription_cookie');
+// console.log(pref)
 
   document.getElementById("SOF_presentation").addEventListener("click", function(){toggleSubscriptionEntry('SoF',false)});
   document.getElementById("payments_presentation").addEventListener("click", function(){toggleSubscriptionEntry('payments',false)});
@@ -4858,6 +4886,9 @@ document.getElementById("WAM_presentation").onclick = function(){
 		 if ("submit" === event.type) {
 		 	mc1Submitted = true;
        stop_scroll_popup = true;
+       let have_subscribed = "have subscribed"; //Or bool, or int
+        let daysToExists = 180; //how many days cookie will be valid
+        setCookie('subscription_cookie', have_subscribed, daysToExists);
 		 } else if ( "reset" === event.type && mc1Submitted ) {
       document.getElementById("mc_embed_signup").style.display = "none"
       showAgain = false;
